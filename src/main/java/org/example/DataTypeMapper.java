@@ -1,45 +1,26 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 class DataTypeMapper {
-    private static final Map<String, String> dataTypeMapping = new HashMap<>();
+    private static final Map<String, String[]> dataTypeMapping = new HashMap<>();
 
     static {
-        // MySQL to Oracle mappings
-        dataTypeMapping.put("VARCHAR", "VARCHAR2");
-        // Add more mappings as needed
-
-        // Mysql to Oracle mappings (if required)
-        dataTypeMapping.put("BIGINT", "NUMBER");
-        dataTypeMapping.put("DATETIME", "DATE");
-        dataTypeMapping.put("DECIMAL", "FLOAT");
-        dataTypeMapping.put("DOUBLE", "FLOAT");
-        dataTypeMapping.put("DOUBLE PRECISION", "FLOAT");
-        dataTypeMapping.put("ENUM", "VARCHAR2");
-        dataTypeMapping.put("INT", "NUMBER");
-        dataTypeMapping.put("INTEGER", "NUMBER");
-        dataTypeMapping.put("LONGBLOB", "BLOB");
-        dataTypeMapping.put("LONGTEXT", "CLOB");
-        dataTypeMapping.put("MEDIUMBLOB", "BLOB");
-        dataTypeMapping.put("MEDIUMINT", "NUMBER");
-        dataTypeMapping.put("MEDIUMTEXT", "CLOB");
-        dataTypeMapping.put("NUMERIC", "NUMBER");
-        dataTypeMapping.put("REAL", "FLOAT");
-        dataTypeMapping.put("SET", "VARCHAR2");
-        dataTypeMapping.put("SMALLINT", "NUMBER");
-        dataTypeMapping.put("TEXT", "VARCHAR2");
-        dataTypeMapping.put("TIME", "DATE");
-        dataTypeMapping.put("TIMESTAMP", "DATE");
-        dataTypeMapping.put("TINYBLOB", "RAW");
-        dataTypeMapping.put("TINYINT", "INT");
-        dataTypeMapping.put("TINYTEXT", "VARCHAR2");
-        dataTypeMapping.put("YEAR", "NUMBER");
+        // Oracle to Mysql mappings
+        dataTypeMapping.put("NUMBER", new String[]{"BIGINT","INT","INTEGER","MEDIUMINT","NUMERIC","SMALLINT","TINYINT","YEAR"});
+        dataTypeMapping.put("RAW", new String[]{"BIT","BLOB","LONGBLOB","LONGTEXT","MEDIUMBLOB","MEDIUMTEXT","TINYBLOB"});
+        dataTypeMapping.put("BLOB", new String[]{"BLOB","LONGBLOB","MEDIUMBLOB"});
+        dataTypeMapping.put("CHAR", new String[]{"CHAR"});
+        dataTypeMapping.put("DATE", new String[]{"DATE","DATETIME","TIMESTAMP","TIME"});
+        dataTypeMapping.put("FLOAT", new String[]{"DECIMAL","DOUBLE","DOUBLE PRECISION","FLOAT","REAL"});
+        dataTypeMapping.put("VARCHAR2", new String[]{"ENUM","SET","TEXT","TINYTEXT","VARCHAR"});
+        dataTypeMapping.put("CLOB", new String[]{"LONGTEXT","MEDIUMTEXT","TEXT","VARCHAR"});
         // Add more mappings as needed
     }
 
-    public static Map<String, String> getDataTypeMapping() {
+    public static Map<String, String []> getDataTypeMapping() {
         return dataTypeMapping;
     }
 }

@@ -1,0 +1,20 @@
+{"payment_order.arrangement_group": [
+    {
+        "size": 39,
+        "nullable": false,
+        "name": "GROUP_ID",
+        "type": "NUMBER"
+    },
+    {
+        "size": 36,
+        "nullable": false,
+        "name": "ARRANGEMENT_ID",
+        "type": "VARCHAR2"
+    },
+    {
+        "size": 22,
+        "nullable": false,
+        "name": "PMT_TYPE",
+        "type": "VARCHAR2"
+    }
+]}

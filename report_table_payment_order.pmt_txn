@@ -1,0 +1,23 @@
+Comparison Report for table: payment_order.pmt_txn
+Mismatch found for column: AMOUNT
+MySQL size: 23
+Oracle size: 25
+Mismatch found for column: AMOUNT
+MySQL type: DECIMAL
+Oracle type: NUMBER
+Mismatch found for column: ADDITIONS
+MySQL size: 536870911
+Oracle size: 4000
+No mapping found for MySQL type: LONGTEXT
+Mismatch found for column: FEE_AMOUNT
+MySQL size: 23
+Oracle size: 25
+Mismatch found for column: FEE_AMOUNT
+MySQL type: DECIMAL
+Oracle type: NUMBER
+Mismatch found for column: EXC_RATE
+MySQL size: 23
+Oracle size: 25
+Mismatch found for column: EXC_RATE
+MySQL type: DECIMAL
+Oracle type: NUMBER

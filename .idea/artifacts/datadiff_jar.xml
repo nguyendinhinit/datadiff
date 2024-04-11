@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="datadiff:jar">
+    <output-path>$PROJECT_DIR$/out/</output-path>
+    <root id="archive" name="datadiff.jar">
+      <element id="module-output" name="datadiff" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/protobuf/protobuf-java/3.25.1/protobuf-java-3.25.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/oracle/database/jdbc/ojdbc10/19.22.0.0/ojdbc10-19.22.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/json/json/20240303/json-20240303.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
