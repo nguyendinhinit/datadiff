@@ -13,32 +13,52 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Properties;
+import java.util.logging.Logger;
 
-public class Validate{
-    static String [] tableNames;
+public class Validate {
+    static String[] tableNames;
+    static Logger log4j = Logger.getLogger(Validate.class.getName());
+    static JSONObject mysqlJson;
+    static JSONObject oracleJson;
+
     public static void main(String[] args) throws IOException {
-        String filePath = "application.properties";
+        String filePath = "table_list.txt";
+
+        PrintWriter writer = new PrintWriter(new FileWriter("report.csv"));
+        writer.println("tablename,oracle_columnname,oracle_data_type,oracle_default_value,oracle_nullable,mysql_colume_name,mysql_data_type,mysql_default_value,mysql_nullable,validate_name,validate_type,validate_default,validate_nullable,recommend_type");
 
         try {
-            Properties properties = readPropertiesFile(filePath);
-            tableNames = properties.getProperty("table_name").split(",\\s*");
+            tableNames = Files.readAllLines(Paths.get(filePath)).toArray(new String[0]);
+            log4j.info("Loaded table from list file " + Arrays.toString(tableNames));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        // Reporting
-
-        for(String tableName : tableNames) {
+        PrintWriter writer2 = new PrintWriter(new FileWriter("missing_table.txt"));
+        for (String tableName : tableNames) {
             try {
-                JSONObject mysqlJson = readJsonFile("mysql_table_" + tableName + ".json");
-                JSONObject oracleJson = readJsonFile("oracle_table_" + tableName + ".json");
-                System.out.println(tableName);
-                compareSchemas(mysqlJson, oracleJson, tableName);
-                System.out.printf("Comparison report for table %s has been generated in %s\n", tableName, "report_table_"+tableName);
+                if (Files.exists(Paths.get("mysql_table_" + tableName.toLowerCase() + "_v2.json"))) {
+                    mysqlJson = readJsonFile("mysql_table_" + tableName.toLowerCase() + "_v2.json");
+                } else {
+                    log4j.info("File mysql_table_" + tableName.toLowerCase() + "_v2.json not found");
+                    writer2.println(tableName);
+                    continue;
+                }
+                if (Files.exists(Paths.get("oracle_table_" + tableName + "_v2.json"))) {
+                    oracleJson = readJsonFile("oracle_table_" + tableName + "_v2.json");
+                }
+                csvReport(mysqlJson, oracleJson, tableName, writer);
+
+                //delete file after compare
+                Files.deleteIfExists(Paths.get("mysql_table_" + tableName.toLowerCase() + "_v2.json"));
+                Files.deleteIfExists(Paths.get("oracle_table_" + tableName + "_v2.json"));
+
             } catch (IOException | JSONException e) {
                 e.printStackTrace();
             }
         }
+        writer2.close();
+        writer.close();
     }
 
     private static JSONObject readJsonFile(String filename) throws IOException {
@@ -47,9 +67,9 @@ public class Validate{
     }
 
     private static void compareSchemas(JSONObject mysqlJson, JSONObject oracleJson, String tableName) throws IOException {
-        PrintWriter writer = new PrintWriter(new FileWriter("report_table_"+tableName));
-        writer.println("Comparison Report for table: " + tableName );
-        Map<String, String []> dataTypeMapping = DataTypeMapper.getDataTypeMapping();
+        PrintWriter writer = new PrintWriter(new FileWriter("report_table_" + tableName));
+        writer.println("Comparison Report for table: " + tableName);
+        Map<String, String[]> dataTypeMapping = DataTypeMapper.getDataTypeMapping();
 
         try {
             JSONArray mysqlArray = mysqlJson.getJSONArray(tableName);
@@ -106,12 +126,160 @@ public class Validate{
         }
         writer.close();
     }
+
     private static Properties readPropertiesFile(String fileName) throws IOException {
         Properties properties = new Properties();
         try (InputStream inputStream = Main.class.getClassLoader().getResourceAsStream(fileName)) {
             properties.load(inputStream);
         }
         return properties;
+    }
+
+    private static void csvReport(JSONObject mysqlJson, JSONObject oracleJson, String tableName, PrintWriter writer) throws IOException {
+        log4j.info("Start comparing table " + tableName);
+
+        String oracleColumnName;
+        String mysqlColumnName;
+        String oracleDataType;
+        String mysqlDataType;
+        String oracleDefault;
+        String mysqlDefault;
+        String oracleIsNullable;
+        String mysqlIsNullable;
+        String[] oracleTypes = new String[0];
+        Map<String, String[]> dataTypeMapping = DataTypeMapper.getDataTypeMapping();
+        PrintWriter writer3 = new PrintWriter(new FileWriter("error_table.txt"));
+        try {
+            JSONArray mysqlArray = mysqlJson.getJSONArray(tableName.toLowerCase());
+            JSONArray oracleArray = oracleJson.getJSONArray(tableName);
+
+            // Assuming both arrays are of equal length
+            if (mysqlArray.length() != oracleArray.length()) {
+                log4j.warning("Table " + tableName + " has different number of columns");
+                writer3.append(tableName + " has different number of columns" + "\n");
+            }else {
+                for (int i = 0; i < mysqlArray.length(); i++) {
+                    writer.print(tableName + ",");
+                    JSONObject mysqlObject = mysqlArray.getJSONObject(i);
+                    JSONObject oracleObject = oracleArray.getJSONObject(i);
+                    try {
+                        oracleColumnName = oracleObject.getString("Column Name");
+                        writer.print(oracleColumnName + ",");
+                    } catch (Exception e) {
+                        oracleColumnName = null;
+                        writer.print(oracleColumnName + ",");
+                    }
+                    try {
+                        oracleDataType = oracleObject.getString("Data Type");
+                        writer.print(oracleDataType + ",");
+                    } catch (Exception e) {
+                        oracleDataType = null;
+                        writer.print(oracleDataType + ",");
+                    }
+                    try {
+                        oracleDefault = oracleObject.getString("Data Size");
+                        writer.print(oracleDefault + ",");
+                    } catch (Exception e) {
+                        oracleDefault = null;
+                        writer.print(oracleDefault + ",");
+                    }
+                    try {
+                        oracleIsNullable = oracleObject.getString("Is Nullable");
+                        writer.print(oracleIsNullable + ",");
+                    } catch (Exception e) {
+                        oracleIsNullable = null;
+                        writer.print(oracleIsNullable + ",");
+                    }
+                    try {
+                        mysqlColumnName = mysqlObject.getString("Column Name");
+                        writer.print(mysqlColumnName + ",");
+                    } catch (Exception e) {
+                        mysqlColumnName = null;
+                        writer.print(mysqlColumnName + ",");
+                    }
+                    try {
+                        mysqlDataType = mysqlObject.getString("Data Type").toUpperCase();
+                        writer.print(mysqlDataType + ",");
+                    } catch (Exception e) {
+                        mysqlDataType = null;
+                        writer.print(mysqlDataType + ",");
+
+                    }
+                    try {
+                        mysqlDefault = mysqlObject.getString("Column Default");
+                        writer.print(mysqlDefault + ",");
+                    } catch (Exception e) {
+                        mysqlDefault = null;
+                        writer.print(mysqlDefault + ",");
+
+                    }
+                    try {
+                        mysqlIsNullable = mysqlObject.getString("Is Nullable").substring(0, 1);
+                        writer.print(mysqlIsNullable + ",");
+                    } catch (Exception e) {
+                        mysqlIsNullable = null;
+                        writer.print(mysqlIsNullable + ",");
+                    }
+
+                    //validate data
+                    if (oracleColumnName != null & mysqlColumnName != null) {
+                        if (!oracleColumnName.equals(mysqlColumnName)) {
+                            writer.print("FALSE" + ",");
+                        } else {
+                            writer.print("TRUE" + ",");
+                        }
+                    } else {
+                        writer.print("N/A" + ",");
+                    }
+
+                    if (oracleDataType != null & mysqlDataType != null) {
+                        oracleTypes = dataTypeMapping.get(oracleDataType);
+                        if (oracleTypes == null) {
+                            writer.print("N/A" + ",");
+                        } else if (Arrays.stream(oracleTypes).noneMatch(mysqlDataType::equals)) {
+                            writer.print("FALSE" + ",");
+                        } else {
+                            writer.print("TRUE" + ",");
+                        }
+                    } else {
+                        writer.print("N/A" + ",");
+                    }
+
+                    if (oracleDefault != null & mysqlDefault != null) {
+                        if (!oracleDefault.equals(mysqlDefault)) {
+                            writer.print("FALSE" + ",");
+                        } else {
+                            writer.print("TRUE" + ",");
+                        }
+                    } else {
+                        writer.print("N/A" + ",");
+                    }
+
+                    if (oracleIsNullable != null & mysqlIsNullable != null) {
+                        if (oracleIsNullable.equals(mysqlIsNullable)) {
+                            writer.print("TRUE" + ",");
+                        } else {
+                            writer.print("FALSE" + ",");
+                        }
+                    } else {
+                        writer.print("N/A" + ",");
+                    }
+
+                    if (oracleTypes != null) {
+                        for (String oracleType : oracleTypes) {
+                            writer.print(oracleType + " ");
+                        }
+                    } else {
+                        writer.print("N/A");
+                    }
+
+                    writer.println();
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        writer3.close();
     }
 }
 

@@ -1,0 +1,404 @@
+{"payment_order.pmt_txn": [
+    {
+        "size": 36,
+        "nullable": false,
+        "name": "ID",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 36,
+        "nullable": true,
+        "name": "PMT_ORDER_ID",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 23,
+        "nullable": true,
+        "name": "AMOUNT",
+        "type": "DECIMAL"
+    },
+    {
+        "size": 35,
+        "nullable": true,
+        "name": "E2E_ID",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 32,
+        "nullable": true,
+        "name": "ROLE",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 36,
+        "nullable": true,
+        "name": "ARRANGEMENT_ID",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 70,
+        "nullable": true,
+        "name": "EXT_ARRANGEMENT_ID",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 11,
+        "nullable": true,
+        "name": "ACCOUNT_SCHEME",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 36,
+        "nullable": true,
+        "name": "ACCOUNT",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 140,
+        "nullable": true,
+        "name": "NAME",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 70,
+        "nullable": true,
+        "name": "ADDRESS_LINE1",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 70,
+        "nullable": true,
+        "name": "ADDRESS_LINE2",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 70,
+        "nullable": true,
+        "name": "STREET_NAME",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 16,
+        "nullable": true,
+        "name": "POST_CODE",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 35,
+        "nullable": true,
+        "name": "COUNTRY_SUB_DIVISION",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 35,
+        "nullable": true,
+        "name": "TOWN",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 2,
+        "nullable": true,
+        "name": "COUNTRY",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 45,
+        "nullable": true,
+        "name": "TYPE",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 280,
+        "nullable": true,
+        "name": "CONTENT",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 70,
+        "nullable": true,
+        "name": "CP_BN_ADDR_LN1",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 70,
+        "nullable": true,
+        "name": "CP_BN_ADDR_LN2",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 70,
+        "nullable": true,
+        "name": "CP_BN_STR_NAME",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 16,
+        "nullable": true,
+        "name": "CP_BN_POST_CODE",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 35,
+        "nullable": true,
+        "name": "CP_BN_C_SB_DIV",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 35,
+        "nullable": true,
+        "name": "CP_BN_TOWN",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 2,
+        "nullable": true,
+        "name": "CP_BN_COUNTRY",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 11,
+        "nullable": true,
+        "name": "CP_BN_BR_CODE",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 140,
+        "nullable": true,
+        "name": "CP_BN_NAME",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 70,
+        "nullable": true,
+        "name": "COR_BN_ADDR_LN1",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 70,
+        "nullable": true,
+        "name": "COR_BN_ADDR_LN2",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 70,
+        "nullable": true,
+        "name": "COR_BN_STR_NAME",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 16,
+        "nullable": true,
+        "name": "COR_BN_POST_CODE",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 35,
+        "nullable": true,
+        "name": "COR_BN_C_SB_DIV",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 35,
+        "nullable": true,
+        "name": "COR_BN_TOWN",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 2,
+        "nullable": true,
+        "name": "COR_BN_COUNTRY",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 11,
+        "nullable": true,
+        "name": "COR_BN_BR_CODE",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 140,
+        "nullable": true,
+        "name": "COR_BN_NAME",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 140,
+        "nullable": true,
+        "name": "MESSAGE_TO_BANK",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 11,
+        "nullable": true,
+        "name": "CP_BN_BIC",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 11,
+        "nullable": true,
+        "name": "COR_BN_BIC",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 70,
+        "nullable": true,
+        "name": "ITM_BN_ADDR_LN1",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 70,
+        "nullable": true,
+        "name": "ITM_BN_ADDR_LN2",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 70,
+        "nullable": true,
+        "name": "ITM_BN_STR_NAME",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 16,
+        "nullable": true,
+        "name": "ITM_BN_POST_CODE",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 35,
+        "nullable": true,
+        "name": "ITM_BN_C_SB_DIV",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 35,
+        "nullable": true,
+        "name": "ITM_BN_TOWN",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 2,
+        "nullable": true,
+        "name": "ITM_BN_COUNTRY",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 11,
+        "nullable": true,
+        "name": "ITM_BN_BR_CODE",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 140,
+        "nullable": true,
+        "name": "ITM_BN_NAME",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 11,
+        "nullable": true,
+        "name": "ITM_BN_BIC",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 3,
+        "nullable": true,
+        "name": "TARGET_CURRENCY",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 536870911,
+        "nullable": true,
+        "name": "ADDITIONS",
+        "type": "LONGTEXT"
+    },
+    {
+        "size": 15,
+        "nullable": true,
+        "name": "MANDATE_ID",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 10,
+        "nullable": true,
+        "name": "ACCOUNT_TYPE",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 15,
+        "nullable": true,
+        "name": "RECIPIENT_ID",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 3,
+        "nullable": true,
+        "name": "CHARGE_BEARER",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 23,
+        "nullable": true,
+        "name": "FEE_AMOUNT",
+        "type": "DECIMAL"
+    },
+    {
+        "size": 3,
+        "nullable": true,
+        "name": "FEE_CURRENCY",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 3,
+        "nullable": true,
+        "name": "EXC_RATE_CURRENCY",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 23,
+        "nullable": true,
+        "name": "EXC_RATE",
+        "type": "DECIMAL"
+    },
+    {
+        "size": 35,
+        "nullable": true,
+        "name": "EXC_RATE_TYPE",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 256,
+        "nullable": true,
+        "name": "EXC_RATE_CONTRACT_ID",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 10,
+        "nullable": true,
+        "name": "PURP_OF_PAYMENT_CODE",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 35,
+        "nullable": true,
+        "name": "PURP_OF_PAYMENT_TEXT",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 36,
+        "nullable": true,
+        "name": "CONTACT_ID",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 36,
+        "nullable": true,
+        "name": "ACCOUNT_ID",
+        "type": "VARCHAR"
+    },
+    {
+        "size": 50,
+        "nullable": true,
+        "name": "AMOUNT_TYPE",
+        "type": "VARCHAR"
+    }
+]}

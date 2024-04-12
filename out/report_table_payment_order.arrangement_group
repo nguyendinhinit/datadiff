@@ -1,0 +1,4 @@
+Comparison Report for table: payment_order.arrangement_group
+Mismatch found for column: GROUP_ID
+MySQL size: 19
+Oracle size: 39
