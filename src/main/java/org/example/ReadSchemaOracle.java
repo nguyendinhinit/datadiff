@@ -20,19 +20,27 @@ public class ReadSchemaOracle {
     static ArrayList<String> tableNames = new ArrayList<>();
 
     static Logger log4j = Logger.getLogger(ReadSchemaOracle.class.getName());
+    static FileReader fileReader = new FileReader();
 
     public static void main(String[] args) throws IOException, SQLException {
+        System.out.println("" +
+                " _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ \n" +
+                "|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|" +
+                "");
+        System.out.println("" +
+                "                      _      \n" +
+                "  ___  _ __ __ _  ___| | ___ \n" +
+                " / _ \\| '__/ _` |/ __| |/ _ \\\n" +
+                "| (_) | | | (_| | (__| |  __/\n" +
+                " \\___/|_|  \\__,_|\\___|_|\\___|" +
+                "");
         String filePath = "application.properties";
+        Properties properties = fileReader.readPropertiesFile(filePath);
 
-        try {
-            Properties properties = readPropertiesFile(filePath);
-            oracleConnectionString = properties.getProperty("oracle_connection_string");
-            oracleUsername = properties.getProperty("oracle_username");
-            oraclePassword = properties.getProperty("oracle_password");
-            tableSchemas = properties.getProperty("table_schema").split(",\\s*");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        oracleConnectionString = properties.getProperty("oracle_connection_string");
+        oracleUsername = properties.getProperty("oracle_username");
+        oraclePassword = properties.getProperty("oracle_password");
+        tableSchemas = args;
 
         Statement stmt = createConnection();
         for (String tableSchema : tableSchemas) {
@@ -50,19 +58,11 @@ public class ReadSchemaOracle {
             writer2.close();
             for (String tableName : tableNames) {
                 log4j.info("Table: " + tableName);
-                getTableSchemav2(stmt, tableName, tableSchema);
+                getTableSchema(stmt, tableName, tableSchema);
             }
         }
 
         stmt.close();
-    }
-
-    private static Properties readPropertiesFile(String fileName) throws IOException {
-        Properties properties = new Properties();
-        try (InputStream inputStream = Main.class.getClassLoader().getResourceAsStream(fileName)) {
-            properties.load(inputStream);
-        }
-        return properties;
     }
 
     public static Statement createConnection() throws SQLException {
@@ -76,6 +76,7 @@ public class ReadSchemaOracle {
         return null;
     }
 
+    @Deprecated
     public static void getTableSchema(Statement stmt, String tableName) throws SQLException {
         String query = "SELECT * FROM " + tableName.toUpperCase(Locale.ROOT) + " WHERE 1=0";
         String file = "oracle_table_" + tableName + ".json";
@@ -121,13 +122,10 @@ public class ReadSchemaOracle {
         }
     }
 
-    public static void getTableSchemav2(Statement stmt, String tableName, String tableSchema) throws SQLException {
+    public static void getTableSchema(Statement stmt, String tableName, String tableSchema) throws SQLException {
 //      select  owner,TABLE_NAME,COLUMN_NAME, DATA_TYPE, DATA_LENGTH from ALL_TAB_COLS where   TABLE_NAME = 'PMT_TXN' and OWNER='PAYMENT_ORDER';
         String query = "SELECT COLUMN_NAME,DATA_TYPE,DATA_PRECISION,DATA_SCALE,NULLABLE,DATA_LENGTH,DATA_DEFAULT FROM ALL_TAB_COLS where TABLE_NAME = '" + tableName.toUpperCase() + "' and OWNER='" + tableSchema.toUpperCase() + "'";
-        log4j.info("Created query: " + query);
-
-        String file = "oracle_table_" + tableName + "_v2.json";
-        log4j.info("Created file: " + file);
+        String file = "ORACLE_" + tableSchema.toUpperCase() + "_" + tableName.toUpperCase() + ".json";
 
         JSONObject tableInfo = new JSONObject(); // JSON object to hold table information
         JSONArray columnsArray = new JSONArray(); // JSON array to hold column information
@@ -191,6 +189,7 @@ public class ReadSchemaOracle {
         }
         tableInfo.put(tableName, columnsArray);
 
+        log4j.info("Successfully read schema for oracle table: " + tableName);
         // Write JSON object to file
         try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
             writer.println(tableInfo.toString(4)); // Indented JSON with 4 spaces

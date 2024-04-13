@@ -3,6 +3,7 @@ package org.example;
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Properties;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -18,44 +19,44 @@ public class ReadSchemaMysql {
     static String[] tableSchemas;
     static ArrayList<String> tableNames = new ArrayList<>();
     static Logger log4j = Logger.getLogger(ReadSchemaMysql.class.getName());
+    static FileReader fileReader = new FileReader();
 
     public static void main(String[] args) throws SQLException, IOException {
+        System.out.println("" +
+                " _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ \n" +
+                "|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|" +
+                "");
+        System.out.println("" +
+                "                           _ \n" +
+                " _ __ ___  _   _ ___  __ _| |\n" +
+                "| '_ ` _ \\| | | / __|/ _` | |\n" +
+                "| | | | | | |_| \\__ \\ (_| | |\n" +
+                "|_| |_| |_|\\__, |___/\\__, |_|\n" +
+                "           |___/        |_|  " +
+                "");
         String filePath = "application.properties";
-
-        try {
-            Properties properties = readPropertiesFile(filePath);
-            mysqlConnectionString = properties.getProperty("mysql_connection_string");
-            mysqlUsername = properties.getProperty("mysql_username");
-            mysqlPassword = properties.getProperty("mysql_password");
-            tableSchemas = properties.getProperty("table_schema").split(",\\s*");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Properties properties= fileReader.readPropertiesFile(filePath);
+        mysqlConnectionString = properties.getProperty("mysql_connection_string");
+        mysqlUsername = properties.getProperty("mysql_username");
+        mysqlPassword = properties.getProperty("mysql_password");
+        tableSchemas = args;
 
         Statement stmt = createConnection();
         for (String tableSchema : tableSchemas) {
             log4j.info("Get list table in : " + tableSchema);
-            ResultSet rs = stmt.executeQuery("select TABLE_NAME from information_schema.TABLES where table_schema = '" + tableSchema+"'");
+            ResultSet rs = stmt.executeQuery("select TABLE_NAME from information_schema.TABLES where table_schema = '" + tableSchema + "'");
             while (rs.next()) {
                 String tableName = rs.getString("TABLE_NAME");
-                log4j.info("Table: " + tableName);
                 tableNames.add(tableName);
             }
             for (String tableName : tableNames) {
                 log4j.info("Table: " + tableName);
-                getTableSchemav2(stmt, tableName, tableSchema);
+                getTableSchema(stmt, tableName, tableSchema);
             }
         }
         stmt.close();
     }
 
-    private static Properties readPropertiesFile(String fileName) throws IOException {
-        Properties properties = new Properties();
-        try (InputStream inputStream = Main.class.getClassLoader().getResourceAsStream(fileName)) {
-            properties.load(inputStream);
-        }
-        return properties;
-    }
 
     public static Statement createConnection() throws SQLException {
         try {
@@ -65,9 +66,10 @@ public class ReadSchemaMysql {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-            return null;
+        return null;
     }
 
+    @Deprecated
     public static void getTableSchema(Statement stmt, String tableName) throws SQLException {
         String query = "SELECT * FROM " + tableName + " LIMIT 0";
         String file = "mysql_table_" + tableName + ".json";
@@ -112,20 +114,18 @@ public class ReadSchemaMysql {
             e.printStackTrace();
         }
     }
-    public static void getTableSchemav2(Statement stmt, String tableName, String tableSchema) throws SQLException {
+
+    public static void getTableSchema(Statement stmt, String tableName, String tableSchema) throws SQLException {
 //        select * from information_schema.columns where TABLE_NAME = 'pmt_txn';
-        String query = "SELECT COLUMN_NAME,COLUMN_DEFAULT,IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,DATETIME_PRECISION,COLUMN_TYPE FROM information_schema.columns where TABLE_NAME = '" + tableName +"' and TABLE_SCHEMA='"+ tableSchema+"'";
-        log4j.info("Created query: " + query);
+        String query = "SELECT COLUMN_NAME,COLUMN_DEFAULT,IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,DATETIME_PRECISION,COLUMN_TYPE FROM information_schema.columns where TABLE_NAME = '" + tableName + "' and TABLE_SCHEMA='" + tableSchema + "'";
 
-        String file = "mysql_table_" + tableName + "_v2.json";
-        log4j.info("Created file: " + file);
-
+        String file = "MYSQL_" + tableSchema.toUpperCase() + "_" + tableName.toUpperCase() + ".json";
         JSONObject tableInfo = new JSONObject(); // JSON object to hold table information
         JSONArray columnsArray = new JSONArray(); // JSON array to hold column information
-
         ResultSet rs = stmt.executeQuery(query);
         log4j.info("Executed query: " + query);
-        while(rs.next()) {
+
+        while (rs.next()) {
             JSONObject columnInfo = new JSONObject();
             String columnName = rs.getString("COLUMN_NAME");
             String columnDefault = rs.getString("COLUMN_DEFAULT");
@@ -184,6 +184,7 @@ public class ReadSchemaMysql {
             columnsArray.put(columnInfo);
         }
         tableInfo.put(tableName, columnsArray);
+        log4j.info("Successfully read schema for mysql table: " + tableName);
 
         // Write JSON object to file
         try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
