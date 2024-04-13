@@ -1,0 +1,1 @@
+mysql_connection_string=jdbc:mysql://10.34.172.143:3306
