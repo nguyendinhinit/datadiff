@@ -1,0 +1,156 @@
+{"tcb_databasechangelog": [
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "255",
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "varchar(255)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "ID"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "255",
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "varchar(255)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "AUTHOR"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "255",
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "varchar(255)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "FILENAME"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "datetime",
+        "Character Max Length": null,
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "datetime(6)",
+        "Numeric Scale": null,
+        "DateTime Precision": "6",
+        "Column Name": "DATEEXECUTED"
+    },
+    {
+        "Numeric Precision": "19",
+        "Data Type": "bigint",
+        "Character Max Length": null,
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "bigint",
+        "Numeric Scale": "0",
+        "DateTime Precision": null,
+        "Column Name": "ORDEREXECUTED"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "10",
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "varchar(10)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "EXECTYPE"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "35",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(35)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "MD5SUM"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "255",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(255)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "DESCRIPTION"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "255",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(255)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "COMMENTS"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "255",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(255)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "TAG"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "20",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(20)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "LIQUIBASE"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "255",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(255)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "CONTEXTS"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "255",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(255)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "LABELS"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "10",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(10)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "DEPLOYMENT_ID"
+    }
+]}

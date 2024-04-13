@@ -1,0 +1,79 @@
+{"bulk_approval_item": [
+    {
+        "Numeric Precision": "19",
+        "Data Type": "bigint",
+        "Character Max Length": null,
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "bigint",
+        "Numeric Scale": "0",
+        "DateTime Precision": null,
+        "Column Name": "ID"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "36",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(36)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "PAYMENT_ID"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "36",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(36)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "APPROVAL_RECORD_ID"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "20",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(20)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "APPROVAL_STATUS"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "10",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(10)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "ACTION_STATUS"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "longtext",
+        "Character Max Length": "4294967295",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "longtext",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "ERRORS"
+    },
+    {
+        "Numeric Precision": "19",
+        "Data Type": "bigint",
+        "Character Max Length": null,
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "bigint",
+        "Numeric Scale": "0",
+        "DateTime Precision": null,
+        "Column Name": "BULK_APPROVAL_ID"
+    }
+]}

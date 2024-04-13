@@ -1,0 +1,211 @@
+{"refund": [
+    {
+        "Numeric Precision": null,
+        "Data Type": "varbinary",
+        "Character Max Length": "255",
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "varbinary(255)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "ID"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "datetime",
+        "Character Max Length": null,
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "datetime(6)",
+        "Numeric Scale": null,
+        "DateTime Precision": "6",
+        "Column Name": "CREATED_AT"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "1020",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(1020)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "CREATED_BY"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "1020",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(1020)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "CREDIT_ACC_NO"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "1020",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(1020)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "CURRENCY"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "1020",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(1020)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "DEBIT_ACC_NO"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "1020",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(1020)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "FT_ORIGIN"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "1020",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(1020)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "PARTNER_ID"
+    },
+    {
+        "Numeric Precision": "19",
+        "Data Type": "decimal",
+        "Character Max Length": null,
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "decimal(19,2)",
+        "Numeric Scale": "2",
+        "DateTime Precision": null,
+        "Column Name": "REFUND_AMOUNT"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "1020",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(1020)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "REFUND_TRACE"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "1020",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(1020)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "REQUEST_ID"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "1020",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(1020)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "ERROR_CODE"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "1020",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(1020)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "ERROR_MESSAGE"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "1020",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(1020)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "STATUS"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "datetime",
+        "Character Max Length": null,
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "datetime(6)",
+        "Numeric Scale": null,
+        "DateTime Precision": "6",
+        "Column Name": "UPDATED_AT"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "1020",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(1020)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "UPDATED_BY"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "datetime",
+        "Character Max Length": null,
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "datetime(6)",
+        "Numeric Scale": null,
+        "DateTime Precision": "6",
+        "Column Name": "REQUEST_TIME"
+    },
+    {
+        "Numeric Precision": "22",
+        "Data Type": "double",
+        "Character Max Length": null,
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "double",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "TYPE_REFUND"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "255",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(255)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "ADD_DATA"
+    }
+]}

@@ -37,8 +37,8 @@ public class Validator {
         String[] tableSchema = args;
 
         for (String schema : tableSchema) {
-            PrintWriter writer = new PrintWriter(new FileWriter("report_" + schema + ".csv"));
-            PrintWriter writer2 = new PrintWriter(new FileWriter("missing_" + schema + "_table.txt"));
+            PrintWriter writer = new PrintWriter(new FileWriter("REPORT_" + schema.toUpperCase() + ".csv"));
+            PrintWriter writer2 = new PrintWriter(new FileWriter("MISSING_" + schema.toUpperCase() + "_TABLE.txt"));
             writer.println("tablename,oracle_columnname,oracle_data_type,oracle_default_value,oracle_nullable,mysql_colume_name,mysql_data_type,mysql_default_value,mysql_nullable,validate_name,validate_type,validate_default,validate_nullable,recommend_type");
 
             try {
@@ -49,24 +49,24 @@ public class Validator {
             }
             for (String tableName : tableNames) {
                 try {
-                    if (Files.exists(Paths.get("MYSQL_" + schema + "_" + tableName.toUpperCase() + ".json"))) {
-                        log4j.info("File MYSQL_" + schema + "_" + tableName.toUpperCase() + ".json found");
-                        mysqlJson = readJsonFile("MYSQL_" + schema + "_" + tableName.toUpperCase() + ".json");
+                    if (Files.exists(Paths.get("MYSQL_" + schema.toUpperCase() + "_" + tableName.toUpperCase() + ".json"))) {
+                        log4j.info("File MYSQL_" + schema.toUpperCase() + "_" + tableName.toUpperCase() + ".json found");
+                        mysqlJson = readJsonFile("MYSQL_" + schema.toUpperCase() + "_" + tableName.toUpperCase() + ".json");
                     } else {
-                        log4j.info("File MYSQL_" + schema + "_" + tableName.toLowerCase() + ".json not found");
+                        log4j.info("File MYSQL_" + schema.toUpperCase() + "_" + tableName.toUpperCase() + ".json not found");
                         writer2.println(schema.toUpperCase() + "_" + tableName.toUpperCase());
                         continue;
                     }
-                    if (Files.exists(Paths.get("ORACLE_" + schema + "_" + tableName + ".json"))) {
-                        log4j.info("File ORACLE_" + schema + "_" + tableName + ".json found");
-                        oracleJson = readJsonFile("ORACLE_" + schema + "_" + tableName + ".json");
+                    if (Files.exists(Paths.get("ORACLE_" + schema.toUpperCase() + "_" + tableName.toUpperCase() + ".json"))) {
+                        log4j.info("File ORACLE_" + schema.toUpperCase() + "_" + tableName.toUpperCase() + ".json found");
+                        oracleJson = readJsonFile("ORACLE_" + schema.toUpperCase() + "_" + tableName.toUpperCase() + ".json");
                     }
                     csvReport(mysqlJson, oracleJson, tableName, writer);
                     log4j.info("Finish comparing table " + tableName);
 
                     //delete file after compare
-                    Files.deleteIfExists(Paths.get("MYSQL_" + schema + "_" + tableName.toUpperCase() + ".json"));
-                    Files.deleteIfExists(Paths.get("ORACLE_" + schema + "_" + tableName.toUpperCase() + ".json"));
+//                    Files.deleteIfExists(Paths.get("MYSQL_" + schema + "_" + tableName.toUpperCase() + ".json"));
+//                    Files.deleteIfExists(Paths.get("ORACLE_" + schema + "_" + tableName.toUpperCase() + ".json"));
 
                 } catch (IOException | JSONException e) {
                     e.printStackTrace();

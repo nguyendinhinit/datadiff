@@ -1,0 +1,112 @@
+{"bulk_approval": [
+    {
+        "Numeric Precision": "19",
+        "Data Type": "bigint",
+        "Character Max Length": null,
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "bigint",
+        "Numeric Scale": "0",
+        "DateTime Precision": null,
+        "Column Name": "ID"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "datetime",
+        "Character Max Length": null,
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "datetime(6)",
+        "Numeric Scale": null,
+        "DateTime Precision": "6",
+        "Column Name": "CREATED_AT"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "36",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(36)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "USER_ID"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "36",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(36)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "SERVICE_AGREEMENT_ID"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "20",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(20)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "REQUESTED_STATUS"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "20",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(20)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "STATUS"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "20",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(20)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "STATUS_CODE"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "36",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(36)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "CONFIRMATION_ID"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "140",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(140)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "COMMENTS"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "longtext",
+        "Character Max Length": "4294967295",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "longtext",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "ADDITIONS"
+    }
+]}

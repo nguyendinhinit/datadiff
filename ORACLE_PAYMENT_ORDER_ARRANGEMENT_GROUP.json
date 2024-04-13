@@ -1,0 +1,32 @@
+{"ARRANGEMENT_GROUP": [
+    {
+        "Data Type": "NUMBER",
+        "Data Scale": "0",
+        "Is Nullable": "N",
+        "Column Type": "NUMBER",
+        "Column Default": null,
+        "Data Precision": "38",
+        "Column Name": "GROUP_ID",
+        "Data Length": "22"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "N",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "ARRANGEMENT_ID",
+        "Data Length": "36"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "N",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "PMT_TYPE",
+        "Data Length": "22"
+    }
+]}

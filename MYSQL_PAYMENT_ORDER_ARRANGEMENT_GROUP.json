@@ -1,0 +1,35 @@
+{"arrangement_group": [
+    {
+        "Numeric Precision": "19",
+        "Data Type": "bigint",
+        "Character Max Length": null,
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "bigint",
+        "Numeric Scale": "0",
+        "DateTime Precision": null,
+        "Column Name": "GROUP_ID"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "36",
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "varchar(36)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "ARRANGEMENT_ID"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "22",
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "varchar(22)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "PMT_TYPE"
+    }
+]}

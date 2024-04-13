@@ -1,0 +1,192 @@
+{"REFUND": [
+    {
+        "Data Type": "RAW",
+        "Data Scale": null,
+        "Is Nullable": "N",
+        "Column Type": "RAW",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "ID",
+        "Data Length": "255"
+    },
+    {
+        "Data Type": "TIMESTAMP(6)",
+        "Data Scale": "6",
+        "Is Nullable": "Y",
+        "Column Type": "TIMESTAMP(6)",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "CREATED_AT",
+        "Data Length": "11"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "CREATED_BY",
+        "Data Length": "1020"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "CREDIT_ACC_NO",
+        "Data Length": "1020"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "CURRENCY",
+        "Data Length": "1020"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "DEBIT_ACC_NO",
+        "Data Length": "1020"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "FT_ORIGIN",
+        "Data Length": "1020"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "PARTNER_ID",
+        "Data Length": "1020"
+    },
+    {
+        "Data Type": "NUMBER",
+        "Data Scale": "2",
+        "Is Nullable": "N",
+        "Column Type": "NUMBER",
+        "Column Default": null,
+        "Data Precision": "19",
+        "Column Name": "REFUND_AMOUNT",
+        "Data Length": "22"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "REFUND_TRACE",
+        "Data Length": "1020"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "REQUEST_ID",
+        "Data Length": "1020"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "ERROR_CODE",
+        "Data Length": "1020"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "ERROR_MESSAGE",
+        "Data Length": "1020"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "STATUS",
+        "Data Length": "1020"
+    },
+    {
+        "Data Type": "TIMESTAMP(6)",
+        "Data Scale": "6",
+        "Is Nullable": "Y",
+        "Column Type": "TIMESTAMP(6)",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "UPDATED_AT",
+        "Data Length": "11"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "UPDATED_BY",
+        "Data Length": "1020"
+    },
+    {
+        "Data Type": "TIMESTAMP(6)",
+        "Data Scale": "6",
+        "Is Nullable": "Y",
+        "Column Type": "TIMESTAMP(6)",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "REQUEST_TIME",
+        "Data Length": "11"
+    },
+    {
+        "Data Type": "NUMBER",
+        "Data Scale": "0",
+        "Is Nullable": "Y",
+        "Column Type": "NUMBER",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "TYPE_REFUND",
+        "Data Length": "22"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "ADD_DATA",
+        "Data Length": "255"
+    }
+]}

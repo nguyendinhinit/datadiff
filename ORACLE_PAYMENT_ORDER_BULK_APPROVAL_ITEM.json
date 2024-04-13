@@ -1,0 +1,72 @@
+{"BULK_APPROVAL_ITEM": [
+    {
+        "Data Type": "NUMBER",
+        "Data Scale": "0",
+        "Is Nullable": "N",
+        "Column Type": "NUMBER",
+        "Column Default": null,
+        "Data Precision": "38",
+        "Column Name": "ID",
+        "Data Length": "22"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "PAYMENT_ID",
+        "Data Length": "36"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "APPROVAL_RECORD_ID",
+        "Data Length": "36"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "APPROVAL_STATUS",
+        "Data Length": "20"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "ACTION_STATUS",
+        "Data Length": "10"
+    },
+    {
+        "Data Type": "CLOB",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "CLOB",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "ERRORS",
+        "Data Length": "4000"
+    },
+    {
+        "Data Type": "NUMBER",
+        "Data Scale": "0",
+        "Is Nullable": "Y",
+        "Column Type": "NUMBER",
+        "Column Default": null,
+        "Data Precision": "38",
+        "Column Name": "BULK_APPROVAL_ID",
+        "Data Length": "22"
+    }
+]}

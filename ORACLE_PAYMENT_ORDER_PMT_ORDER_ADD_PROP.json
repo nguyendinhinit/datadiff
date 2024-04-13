@@ -1,0 +1,32 @@
+{"PMT_ORDER_ADD_PROP": [
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "N",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "PAYMENT_ID",
+        "Data Length": "36"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "N",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "PROPERTY_KEY",
+        "Data Length": "50"
+    },
+    {
+        "Data Type": "CLOB",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "CLOB",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "PROPERTY_VALUE",
+        "Data Length": "4000"
+    }
+]}

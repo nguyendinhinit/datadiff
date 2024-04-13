@@ -1,0 +1,42 @@
+{"TCB_DATABASECHANGELOGLOCK": [
+    {
+        "Data Type": "TIMESTAMP(6)",
+        "Data Scale": "6",
+        "Is Nullable": "Y",
+        "Column Type": "TIMESTAMP(6)",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "LOCKGRANTED",
+        "Data Length": "11"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "LOCKEDBY",
+        "Data Length": "255"
+    },
+    {
+        "Data Type": "NUMBER",
+        "Data Scale": "0",
+        "Is Nullable": "N",
+        "Column Type": "NUMBER",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "ID",
+        "Data Length": "22"
+    },
+    {
+        "Data Type": "NUMBER",
+        "Data Scale": "0",
+        "Is Nullable": "N",
+        "Column Type": "NUMBER",
+        "Column Default": null,
+        "Data Precision": "1",
+        "Column Name": "LOCKED",
+        "Data Length": "22"
+    }
+]}

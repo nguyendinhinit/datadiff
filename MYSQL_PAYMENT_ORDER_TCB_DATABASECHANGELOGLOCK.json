@@ -1,0 +1,46 @@
+{"tcb_databasechangeloglock": [
+    {
+        "Numeric Precision": "19",
+        "Data Type": "bigint",
+        "Character Max Length": null,
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "bigint",
+        "Numeric Scale": "0",
+        "DateTime Precision": null,
+        "Column Name": "ID"
+    },
+    {
+        "Numeric Precision": "1",
+        "Data Type": "bit",
+        "Character Max Length": null,
+        "Is Nullable": "NO",
+        "Column Default": null,
+        "Column Type": "bit(1)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "LOCKED"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "datetime",
+        "Character Max Length": null,
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "datetime(6)",
+        "Numeric Scale": null,
+        "DateTime Precision": "6",
+        "Column Name": "LOCKGRANTED"
+    },
+    {
+        "Numeric Precision": null,
+        "Data Type": "varchar",
+        "Character Max Length": "255",
+        "Is Nullable": "YES",
+        "Column Default": null,
+        "Column Type": "varchar(255)",
+        "Numeric Scale": null,
+        "DateTime Precision": null,
+        "Column Name": "LOCKEDBY"
+    }
+]}

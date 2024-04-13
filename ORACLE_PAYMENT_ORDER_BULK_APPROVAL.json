@@ -1,0 +1,82 @@
+{"BULK_APPROVAL": [
+    {
+        "Data Type": "NUMBER",
+        "Data Scale": "0",
+        "Is Nullable": "N",
+        "Column Type": "NUMBER",
+        "Column Default": null,
+        "Data Precision": "38",
+        "Column Name": "ID",
+        "Data Length": "22"
+    },
+    {
+        "Data Type": "TIMESTAMP(6)",
+        "Data Scale": "6",
+        "Is Nullable": "N",
+        "Column Type": "TIMESTAMP(6)",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "CREATED_AT",
+        "Data Length": "11"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "SERVICE_AGREEMENT_ID",
+        "Data Length": "36"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "REQUESTED_STATUS",
+        "Data Length": "20"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "STATUS_CODE",
+        "Data Length": "20"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "CONFIRMATION_ID",
+        "Data Length": "36"
+    },
+    {
+        "Data Type": "VARCHAR2",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "VARCHAR2",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "COMMENTS",
+        "Data Length": "140"
+    },
+    {
+        "Data Type": "NCLOB",
+        "Data Scale": null,
+        "Is Nullable": "Y",
+        "Column Type": "NCLOB",
+        "Column Default": null,
+        "Data Precision": null,
+        "Column Name": "ADDITIONS",
+        "Data Length": "4000"
+    }
+]}

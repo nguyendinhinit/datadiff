@@ -44,7 +44,7 @@ public class ReadSchemaMysql {
         Statement stmt = createConnection();
         for (String tableSchema : tableSchemas) {
             log4j.info("Get list table in : " + tableSchema);
-            ResultSet rs = stmt.executeQuery("select TABLE_NAME from information_schema.TABLES where table_schema = '" + tableSchema + "'");
+            ResultSet rs = stmt.executeQuery("select TABLE_NAME from information_schema.TABLES where table_schema = '" + tableSchema.toLowerCase() + "'");
             while (rs.next()) {
                 String tableName = rs.getString("TABLE_NAME");
                 tableNames.add(tableName);
