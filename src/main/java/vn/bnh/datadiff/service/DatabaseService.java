@@ -1,7 +1,6 @@
 package vn.bnh.datadiff.service;
 
-import vn.bnh.datadiff.dto.MysqlObject;
-import vn.bnh.datadiff.dto.OracleObject;
+import vn.bnh.datadiff.dto.DBObject;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,11 +11,11 @@ import java.util.logging.Logger;
 public class DatabaseService {
     Logger log4j = Logger.getLogger(DatabaseService.class.getName());
 
-    public Statement connectMysql(MysqlObject mysqlObject) {
-        log4j.info("Connecting to MySQL database with connection string: " + mysqlObject.getMysqlConnection() + " with user: " + mysqlObject.getMysqlUser() + " and password: " + mysqlObject.getMysqlPassword());
+    public Statement connectMysql(DBObject mysqlObject) {
+        log4j.info("Connecting to MySQL database with connection string: " + mysqlObject.getConnectionString() + " with user: " + mysqlObject.getUserName() + " and password: " + mysqlObject.getPassword());
 
         try {
-            Statement statement = createConnection(mysqlObject.getMysqlConnection(), mysqlObject.getMysqlUser(), mysqlObject.getMysqlPassword());
+            Statement statement = createConnection(mysqlObject.getConnectionString(), mysqlObject.getUserName(), mysqlObject.getPassword());
             return statement;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -26,11 +25,12 @@ public class DatabaseService {
         return null;
     }
 
-    public Statement connectOracle(OracleObject oracleObject) {
-        log4j.info("Connecting to Oracle database with connection string: " + oracleObject.getOracleConnection() + " with user: " + oracleObject.getOracleUser() + " and password: " + oracleObject.getOraclePassword());
+    public Statement connectOracle(DBObject oracleObject) {
+        log4j.info("Connecting to Oracle database with connection string: " + oracleObject.getConnectionString() + " with user: " + oracleObject.getUserName() + " and password: " + oracleObject.getPassword());
 
         try {
-            Statement statement = createConnection(oracleObject.getOracleConnection(), oracleObject.getOracleUser(), oracleObject.getOraclePassword());
+            Statement statement = createConnection(oracleObject.getConnectionString(), oracleObject.getUserName(), oracleObject.getPassword());
+            return statement;
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -3,20 +3,22 @@ package vn.bnh.datadiff.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
-
-public class OracleObject {
-    @Getter
-    @Setter
-    private String oracleConnection;
+public class DBObject {
 
     @Getter
     @Setter
-    private String oracleUser;
+    private String database;
+    @Getter
+    @Setter
+    private String connectionString;
 
     @Getter
     @Setter
-    private String oraclePassword;
+    private String userName;
+
+    @Getter
+    @Setter
+    private String password;
 
     @Getter
     @Setter

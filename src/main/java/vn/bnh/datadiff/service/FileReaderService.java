@@ -1,8 +1,7 @@
 package vn.bnh.datadiff.service;
 
 
-import vn.bnh.datadiff.dto.MysqlObject;
-import vn.bnh.datadiff.dto.OracleObject;
+import vn.bnh.datadiff.dto.DBObject;
 
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -27,20 +26,22 @@ public class FileReaderService {
         log4j.info("Properties file read successfully");
         return properties;
     }
-    public OracleObject createOracleObject(Properties properties) {
-        OracleObject oracleObject = new OracleObject();
-        oracleObject.setOracleConnection(properties.getProperty("oracle_connection_string"));
-        oracleObject.setOracleUser(properties.getProperty("oracle_username"));
-        oracleObject.setOraclePassword(properties.getProperty("oracle_password"));
+    public DBObject createOracleObject(Properties properties) {
+        DBObject oracleObject = new DBObject();
+        oracleObject.setDatabase("oracle");
+        oracleObject.setConnectionString(properties.getProperty("oracle_connection_string"));
+        oracleObject.setUserName(properties.getProperty("oracle_username"));
+        oracleObject.setPassword(properties.getProperty("oracle_password"));
         oracleObject.setSchemaList(properties.getProperty("table_schema").split(" "));
         return oracleObject;
     }
 
-    public MysqlObject createMysqlObject(Properties properties) {
-        MysqlObject mysqlObject = new MysqlObject();
-        mysqlObject.setMysqlConnection(properties.getProperty("mysql_connection_string"));
-        mysqlObject.setMysqlUser(properties.getProperty("mysql_username"));
-        mysqlObject.setMysqlPassword(properties.getProperty("mysql_password"));
+    public DBObject createMysqlObject(Properties properties) {
+        DBObject mysqlObject = new DBObject();
+        mysqlObject.setDatabase("mysql");
+        mysqlObject.setConnectionString(properties.getProperty("mysql_connection_string"));
+        mysqlObject.setUserName(properties.getProperty("mysql_username"));
+        mysqlObject.setPassword(properties.getProperty("mysql_password"));
         mysqlObject.setSchemaList(properties.getProperty("table_schema").split(" "));
         return mysqlObject;
     }

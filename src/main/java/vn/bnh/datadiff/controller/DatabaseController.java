@@ -1,7 +1,6 @@
 package vn.bnh.datadiff.controller;
 
-import vn.bnh.datadiff.dto.MysqlObject;
-import vn.bnh.datadiff.dto.OracleObject;
+import vn.bnh.datadiff.dto.DBObject;
 import vn.bnh.datadiff.service.DatabaseService;
 
 import java.sql.Statement;
@@ -10,11 +9,11 @@ public class DatabaseController {
 
     DatabaseService databaseService = new DatabaseService();
 
-    public Statement connectMysql(MysqlObject mysqlObject) {
+    public Statement connectMysql(DBObject mysqlObject) {
        return databaseService.connectMysql(mysqlObject);
     }
 
-    public Statement connectOracle(OracleObject oracleObject) {
+    public Statement connectOracle(DBObject oracleObject) {
       return   databaseService.connectOracle(oracleObject);
     }
 
