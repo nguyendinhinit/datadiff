@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ReadSchemaOracle {
     static String oracleConnectionString;
