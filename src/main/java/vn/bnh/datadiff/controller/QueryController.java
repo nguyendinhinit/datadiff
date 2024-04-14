@@ -1,6 +1,7 @@
 package vn.bnh.datadiff.controller;
 
 import com.github.benmanes.caffeine.cache.Cache;
+import org.json.JSONObject;
 import vn.bnh.datadiff.dto.DBObject;
 import vn.bnh.datadiff.service.QueryService;
 
@@ -14,6 +15,10 @@ public class QueryController {
 
     public ArrayList<String> getTableList(Statement statement, String[] schemaList, Cache cache, String query, String database) throws SQLException {
         return queryService.getTableList(statement, schemaList, cache, query, database);
+    }
+
+    public JSONObject getTableMetadata(String query, Statement statement, String database) {
+       return queryService.getTableMetadata(query, statement, database);
     }
 
 }
