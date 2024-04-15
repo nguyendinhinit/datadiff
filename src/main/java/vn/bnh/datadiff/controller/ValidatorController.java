@@ -20,4 +20,9 @@ public class ValidatorController {
         //create csv report
         validatorService.createCSVReport(source, desc, soureTableList, descTableList, schemaName);
     }
+
+    public void validateKey(JSONObject source, JSONObject desc, ArrayList<String> sourceTableList, ArrayList<String> descTableList, String schemaName) throws FileNotFoundException {
+        //validate key
+        validatorService.validateKey(source, desc, sourceTableList, descTableList, schemaName);
+    }
 }

@@ -1,9 +1,0 @@
-mysql_connection_string=jdbc:mysql://10.10.12.238:3306
-mysql_username=dbadmin
-mysql_password=oracle_4U
-
-table_schema=payment_order
-
-oracle_connection_string = jdbc:oracle:thin:@//10.10.12.21:1521/t24core
-oracle_username = ggadmin
-oracle_password = oracle_4U

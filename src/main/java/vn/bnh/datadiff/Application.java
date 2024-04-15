@@ -81,13 +81,34 @@ public class Application {
         JSONObject mysqlSchemaMetaData = new JSONObject();
         JSONObject oracleSchemaMetaData = new JSONObject();
 
-        mysqlSchemaMetaData = queryController.getSchemaMetaData(mysqlObject, mysqlStatement, "mysql", mysqlTableMetadataQuery, mysqlTableList);
-        oracleSchemaMetaData = queryController.getSchemaMetaData(oracleObject, oracleStatement, "oracle", oracleTableMetadataQuery, oracleTableList);
-        //Create CSV report
-
+        ArrayList<String> pK=new ArrayList<>();
         for (String schema : oracleObject.getSchemaList()) {
-            validatorController.createCSVReport(oracleSchemaMetaData, mysqlSchemaMetaData, oracleTableList,mysqlTableList, schema);
+            for (String table : oracleTableList) {
+                pK = queryController.findPk(oracleStatement, table.split("\\.")[1], schema.toUpperCase());
+                System.out.println(pK.toString());
+            }
         }
+
+        mysqlSchemaMetaData = queryController.getSchemaMetaData(mysqlObject, mysqlStatement, "mysql", mysqlTableMetadataQuery, mysqlTableList, pK);
+        oracleSchemaMetaData = queryController.getSchemaMetaData(oracleObject, oracleStatement, "oracle", oracleTableMetadataQuery, oracleTableList,pK);
+
+
+        //Create CSV report for Oracle and Mysql table metadata
+        for (String schema : oracleObject.getSchemaList()) {
+            validatorController.createCSVReport(oracleSchemaMetaData, mysqlSchemaMetaData, oracleTableList, mysqlTableList, schema);
+        }
+
+        for (String schema : mysqlObject.getSchemaList()) {
+            validatorController.validateKey(oracleSchemaMetaData, mysqlSchemaMetaData, oracleTableList, mysqlTableList, schema);
+        }
+
+        //Count job
+
+
+
+        String oracleCountJobQuery = "SELECT a.owner,          COUNT (a.object_name)     AS NoTable,          COUNT (b.object_name)     AS NoView,          COUNT (c.object_name)     AS NoTrigger,          COUNT (d.object_name)     AS NoFunction,          COUNT (e.object_name)     AS NoProcedure,          COUNT (f.object_name)     AS NoSchedule     FROM dba_objects a          LEFT JOIN dba_objects b ON a.owner = b.owner          LEFT JOIN dba_objects c ON a.owner = c.owner          LEFT JOIN dba_objects d ON a.owner = d.owner          LEFT JOIN dba_objects e ON a.owner = e.owner          LEFT JOIN dba_objects f ON a.owner = f.owner    WHERE     a.object_type = 'TABLE'          AND b.object_type = 'VIEW'          AND c.object_type = 'TRIGGER'          AND d.object_type = 'FUNCTION'          AND e.object_type = 'PROCEDURE'          AND f.object_type = 'SCHEDULE' GROUP BY a.owner ORDER BY a.owner;";
+        logger.info("Application finished running");
+
 
     }
 

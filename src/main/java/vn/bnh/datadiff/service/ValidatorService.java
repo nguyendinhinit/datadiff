@@ -48,7 +48,7 @@ public class ValidatorService {
             descList.put(tableName, descTable);
         }
 
-        writer.write("Schema Name,Table Name,Source Column Name,Source Data Type,Source Length,Source Precision,Source Scale,Source Nullable,Source Key,Source Data Default,Destination Column Name,Destination Data Type,Destination Length,Destination Precision,Destination Scale,Destination Nullable,Destination Key,Destination Data Default,Column Name Validator,Data Type Validator,Length Validator,Precision Validator,Scale Validator,Nullable Validator,Key Validator\n");
+        writer.write("Schema Name,Table Name,Source Column Name,Source Data Type,Source Length,Source Precision,Source Scale,Source Nullable,Source Key,Source Data Default,Destination Column Name,Destination Data Type,Destination Length,Destination Precision,Destination Scale,Destination Nullable,Destination Key,Destination Data Default,Column Name Validator,Data Type Validator,Length Validator,Precision Validator,Scale Validator,Nullable Validator,Key Validator,Data Default\n");
         for (String table : sourceList.keySet()) {
             if (descList.containsKey(table)) {
                 JSONObject sourceTable = sourceList.get(table);
@@ -123,7 +123,8 @@ public class ValidatorService {
                         scaleValidator = "FALSE";
 
                     String nullableValidator;
-                    if (sourceNullable.equals(descNullable))
+                    String descNull = String.valueOf(descNullable.charAt(0));
+                    if (sourceNullable.equals(descNull))
                         nullableValidator = "TRUE";
                     else
                         nullableValidator = "FALSE";
@@ -147,5 +148,12 @@ public class ValidatorService {
             }
         }
         writer.close();
+    }
+
+    public void validateKey(JSONObject source, JSONObject desc, ArrayList<String> sourceTableList, ArrayList<String> descTableList, String schemaName){
+        //Validate Key
+        String mysqlCheckKeyQuery;
+        String oracleCheckKeyQuery;
+
     }
 }
