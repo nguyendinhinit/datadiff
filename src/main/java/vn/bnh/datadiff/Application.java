@@ -115,8 +115,8 @@ public class Application {
             oracleJobList = queryController.countJob(oracleStatement, schema, "oracle");
         }
         PrintWriter writer4 = new PrintWriter("job_count.csv");
-        writer4.write("Schema Name,Oracle Job Count,Mysql Job Count\n");
-        Stream stream = Arrays.stream(oracleJobList.toArray());
+        
+        writer4.close();
     }
 
 }
