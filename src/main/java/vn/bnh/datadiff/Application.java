@@ -15,8 +15,10 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Properties;
 import java.util.logging.Logger;
+import java.util.stream.Stream;
 
 public class Application {
     Logger logger = Logger.getLogger(Application.class.getName());
@@ -85,7 +87,6 @@ public class Application {
         for (String schema : oracleObject.getSchemaList()) {
             for (String table : oracleTableList) {
                 pK = queryController.findPk(oracleStatement, table.split("\\.")[1], schema.toUpperCase());
-                System.out.println(pK.toString());
             }
         }
 
@@ -103,13 +104,19 @@ public class Application {
         }
 
         //Count job
+        ArrayList<String> oracleJobList = new ArrayList<>();
+        ArrayList<String> mysqlJobList = new ArrayList<>();
 
+        for (String schema : mysqlObject.getSchemaList()) {
+            mysqlJobList = queryController.countJob(mysqlStatement, schema, "mysql");
+        }
 
-
-        String oracleCountJobQuery = "SELECT a.owner,          COUNT (a.object_name)     AS NoTable,          COUNT (b.object_name)     AS NoView,          COUNT (c.object_name)     AS NoTrigger,          COUNT (d.object_name)     AS NoFunction,          COUNT (e.object_name)     AS NoProcedure,          COUNT (f.object_name)     AS NoSchedule     FROM dba_objects a          LEFT JOIN dba_objects b ON a.owner = b.owner          LEFT JOIN dba_objects c ON a.owner = c.owner          LEFT JOIN dba_objects d ON a.owner = d.owner          LEFT JOIN dba_objects e ON a.owner = e.owner          LEFT JOIN dba_objects f ON a.owner = f.owner    WHERE     a.object_type = 'TABLE'          AND b.object_type = 'VIEW'          AND c.object_type = 'TRIGGER'          AND d.object_type = 'FUNCTION'          AND e.object_type = 'PROCEDURE'          AND f.object_type = 'SCHEDULE' GROUP BY a.owner ORDER BY a.owner;";
-        logger.info("Application finished running");
-
-
+        for (String schema : oracleObject.getSchemaList()) {
+            oracleJobList = queryController.countJob(oracleStatement, schema, "oracle");
+        }
+        PrintWriter writer4 = new PrintWriter("job_count.csv");
+        writer4.write("Schema Name,Oracle Job Count,Mysql Job Count\n");
+        Stream stream = Arrays.stream(oracleJobList.toArray());
     }
 
 }

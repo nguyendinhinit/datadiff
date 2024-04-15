@@ -4,7 +4,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import vn.bnh.datadiff.dto.DBObject;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +31,12 @@ public class ValidatorService {
 
     public void createCSVReport(JSONObject source, JSONObject desc, ArrayList<String> sourceTableList, ArrayList<String> descTableList, String schemaName) throws FileNotFoundException {
         //Create CSV report
-        PrintWriter writer = new PrintWriter("report.csv");
+//        PrintWriter writer = new PrintWriter("report.csv");
+
+        PrintWriter writer = new PrintWriter(new FileOutputStream(
+                new File("report.csv"),
+                true /* append = true */));
+
         String tableName;
         JSONArray sourceArray = source.getJSONArray(schemaName);
         JSONArray descArray = desc.getJSONArray(schemaName);
@@ -48,7 +55,7 @@ public class ValidatorService {
             descList.put(tableName, descTable);
         }
 
-        writer.write("Schema Name,Table Name,Source Column Name,Source Data Type,Source Length,Source Precision,Source Scale,Source Nullable,Source Key,Source Data Default,Destination Column Name,Destination Data Type,Destination Length,Destination Precision,Destination Scale,Destination Nullable,Destination Key,Destination Data Default,Column Name Validator,Data Type Validator,Length Validator,Precision Validator,Scale Validator,Nullable Validator,Key Validator,Data Default\n");
+//        writer.write("Schema Name,Table Name,Source Column Name,Source Data Type,Source Length,Source Precision,Source Scale,Source Nullable,Source Key,Source Data Default,Destination Column Name,Destination Data Type,Destination Length,Destination Precision,Destination Scale,Destination Nullable,Destination Key,Destination Data Default,Column Name Validator,Data Type Validator,Length Validator,Precision Validator,Scale Validator,Nullable Validator,Key Validator,Data Default\n");
         for (String table : sourceList.keySet()) {
             if (descList.containsKey(table)) {
                 JSONObject sourceTable = sourceList.get(table);

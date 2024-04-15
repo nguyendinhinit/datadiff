@@ -303,13 +303,11 @@ public class QueryService {
     }
 
     public ArrayList<String> countJob(Statement statement, String schemaName, String database) throws SQLException {
-
-
+        ArrayList<String> countJob = new ArrayList<>();
         switch (database) {
             case "mysql":
                 String queryCountJob = "SELECT SCHEMA_NAME, IFNULL(NoTABLE, 0) AS NoTABLE, IFNULL(NoVIEW, 0) AS NoVIEW, IFNULL(NoTRIGGER, 0) AS NoTRIGGER, IFNULL(NoFUNC, 0) AS NoFUNC, IFNULL(NoPROC, 0) AS NoPROC, IFNULL(NoSched,0) AS NoSched FROM information_schema.schemata AS tbl_schema  LEFT JOIN (SELECT TABLE_SCHEMA, COUNT(*) AS NoTABLE     FROM information_schema.tables     WHERE TABLE_SCHEMA = '" + schemaName + "'    AND TABLE_TYPE='BASE TABLE'     GROUP BY TABLE_SCHEMA) AS tbl_tables ON (tbl_schema.SCHEMA_NAME=tbl_tables.TABLE_SCHEMA)  LEFT JOIN (SELECT TABLE_SCHEMA, COUNT(*) AS NoVIEW     FROM information_schema.views      WHERE TABLE_SCHEMA = '" + schemaName + "'    GROUP BY TABLE_SCHEMA) AS tbl_views ON (tbl_schema.SCHEMA_NAME=tbl_views.TABLE_SCHEMA)  LEFT JOIN (SELECT TRIGGER_SCHEMA, COUNT(*) AS NoTRIGGER     FROM information_schema.triggers     WHERE TRIGGER_SCHEMA = '" + schemaName + "'    GROUP BY TRIGGER_SCHEMA) AS tbl_trigger ON (tbl_schema.SCHEMA_NAME=tbl_trigger.TRIGGER_SCHEMA)  LEFT JOIN (SELECT ROUTINE_SCHEMA, COUNT(*) AS NoFUNC     FROM information_schema.routines     WHERE ROUTINE_TYPE = 'FUNCTION'     AND ROUTINE_SCHEMA = '" + schemaName + "'    GROUP BY ROUTINE_SCHEMA) AS tbl_function ON (tbl_schema.SCHEMA_NAME=tbl_function.ROUTINE_SCHEMA)  LEFT JOIN (SELECT ROUTINE_SCHEMA, COUNT(*) AS NoPROC     FROM information_schema.routines     WHERE ROUTINE_TYPE = 'PROCEDURE'     AND ROUTINE_SCHEMA = '" + schemaName + "'    GROUP BY ROUTINE_SCHEMA) AS tbl_procedure ON (tbl_schema.SCHEMA_NAME=tbl_procedure.ROUTINE_SCHEMA)  LEFT JOIN (SELECT EVENT_SCHEMA, COUNT(*) AS NoSched     FROM information_schema.events     WHERE EVENT_SCHEMA = '" + schemaName + "'    GROUP BY EVENT_SCHEMA) AS tbl_scheduler ON (tbl_schema.SCHEMA_NAME=tbl_scheduler.EVENT_SCHEMA)  WHERE SCHEMA_NAME = '" + schemaName + "'ORDER BY SCHEMA_NAME";
                 ResultSet resultSet = statement.executeQuery(queryCountJob);
-                ArrayList<String> countJob = new ArrayList<>();
                 while (resultSet.next()) {
                     String numberTable = resultSet.getString("NoTABLE");
                     String numberView = resultSet.getString("NoVIEW");
@@ -317,27 +315,25 @@ public class QueryService {
                     String numberFunction = resultSet.getString("NoFUNC");
                     String numberProcedure = resultSet.getString("NoPROC");
                     String numberSchedule = resultSet.getString("NoSched");
-                    countJob.add(numberTable);
-                    countJob.add(numberView);
-                    countJob.add(numberTrigger);
-                    countJob.add(numberFunction);
-                    countJob.add(numberProcedure);
-                    countJob.add(numberSchedule);
+                    countJob.add("TABLE: " + numberTable);
+                    countJob.add("VIEW: " + numberView);
+                    countJob.add("TRIGGER: " + numberTrigger);
+                    countJob.add("FUNCTION: " + numberFunction);
+                    countJob.add("PROCEDURE: " + numberProcedure);
+                    countJob.add("SCHEDULE: " + numberSchedule);
                 }
-                return countJob;
-
                 break;
 
             case "oracle":
                 String queryCountJobOracle = "select distinct owner,object_type, count(*) cnt from dba_objects where object_type in ('TABLE','VIEW','TRIGGER','FUNCTION','PROCEDURE','SCHEDULE') and OWNER = '" + schemaName.toUpperCase() + "' group by  object_type,owner order by owner";
-
                 ResultSet resultSet1 = statement.executeQuery(queryCountJobOracle);
-                while (resultSet1.next()){
+                while (resultSet1.next()) {
                     String objectType = resultSet1.getString("OBJECT_TYPE");
                     String count = resultSet1.getString("CNT");
+                    countJob.add(objectType + ": " + count);
                 }
         }
-        return null;
+        return countJob;
     }
 
     public ArrayList<String> findPk(Statement statement, String tableName, String tableSchema) throws SQLException {
@@ -345,7 +341,6 @@ public class QueryService {
 
         String queryKeyOracle = "SELECT cols.table_name, cols.column_name, cols.position, cons.status, cons.owner FROM all_constraints cons, all_cons_columns cols WHERE cols.table_name = ('" + tableName + "') AND cons.owner in ('" + tableSchema + "') AND cons.constraint_type in ('P','U') AND cons.constraint_name = cols.constraint_name AND cons.owner = cols.owner ORDER BY cols.table_name";
 
-        System.out.println(queryKeyOracle);
         ResultSet resultSetKey = statement.executeQuery(queryKeyOracle);
         try {
             while (resultSetKey.next()) {

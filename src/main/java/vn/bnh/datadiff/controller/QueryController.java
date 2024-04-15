@@ -28,4 +28,8 @@ public class QueryController {
     public ArrayList<String> findPk(Statement statement, String  tableName, String schemaName) throws SQLException {
         return queryService.findPk(statement, tableName, schemaName);
     }
+
+    public ArrayList<String> countJob(Statement statement, String schemaName, String database) throws SQLException {
+        return queryService.countJob(statement, schemaName,database);
+    }
 }
