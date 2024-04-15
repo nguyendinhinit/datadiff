@@ -18,7 +18,10 @@ public class QueryController {
     }
 
     public JSONObject getTableMetadata(String query, Statement statement, String database) {
-       return queryService.getTableMetadata(query, statement, database);
+        return queryService.getTableMetadata(query, statement, database);
     }
 
+    public JSONObject getSchemaMetaData(DBObject object, Statement statement, String database, String query,ArrayList<String> tableList) {
+        return queryService.getSchemaMetaData(object, statement, database, query, tableList);
+    }
 }

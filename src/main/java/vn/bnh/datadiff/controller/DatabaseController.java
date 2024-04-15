@@ -9,12 +9,9 @@ public class DatabaseController {
 
     DatabaseService databaseService = new DatabaseService();
 
-    public Statement connectMysql(DBObject mysqlObject) {
-       return databaseService.connectMysql(mysqlObject);
+    public Statement connectToDatabase(DBObject dbObject) {
+       return databaseService.connectToDatabase(dbObject);
     }
 
-    public Statement connectOracle(DBObject oracleObject) {
-      return   databaseService.connectOracle(oracleObject);
-    }
 
 }

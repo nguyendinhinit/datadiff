@@ -2,6 +2,7 @@ package vn.bnh.datadiff;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import vn.bnh.datadiff.controller.DatabaseController;
 import vn.bnh.datadiff.controller.FileReaderController;
@@ -28,7 +29,8 @@ public class Application {
     final String mysqlQuery = "SELECT table_name FROM information_schema.tables WHERE table_schema = ";
     final String oracleQuery = "SELECT table_name FROM all_tables WHERE owner = ";
 
-    final String mysqlTableMetadataQuery = "SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, COLUMN_KEY, IS_NULLABLE, COLUMN_TYPE FROM information_schema.columns WHERE";
+    final String mysqlTableMetadataQuery = "SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT  FROM information_schema.columns WHERE";
+    final String oracleTableMetadataQuery = "SELECT OWNER, TABLE_NAME,COLUMN_NAME, DATA_TYPE,DATA_LENGTH, DATA_PRECISION, DATA_SCALE, NULLABLE, DATA_DEFAULT FROM all_tab_columns WHERE OWNER = '";
 
     public void run(String filePath) throws SQLException, FileNotFoundException {
         PrintWriter writer = new PrintWriter("Mismatch_table_between_mysql_and_oracle.txt");
@@ -37,22 +39,20 @@ public class Application {
 
         //Create a cache object
         logger.info("Start running application");
-        Cache<String, DBObject> cacheDBObject = Caffeine.newBuilder()
-                .maximumSize(100)
-                .build();
+        Cache<String, DBObject> cacheDBObject = Caffeine.newBuilder().maximumSize(100).build();
 
         //Read file path
         Properties properties = fileReaderController.readFilePath(filePath);
 
 
-        //Create Oracle and Mysql object
+        //Create Oracle and Mysql object from properties file
         DBObject mysqlObject = fileReaderController.createMysqlObject(properties);
         DBObject oracleObject = fileReaderController.createOracleObject(properties);
 
 
         //Connect to Oracle and Mysql
-        Statement mysqlStatement = databaseController.connectMysql(mysqlObject);
-        Statement oracleStatement = databaseController.connectOracle(oracleObject);
+        Statement mysqlStatement = databaseController.connectToDatabase(mysqlObject);
+        Statement oracleStatement = databaseController.connectToDatabase(oracleObject);
 
 
         //Put Oracle and Mysql object to cache
@@ -66,21 +66,28 @@ public class Application {
 
         //Validate table list between MySQL and Oracle and save the result to a file
 
-        for (String table : validatorController.validateTableList(mysqlTableList, oracleTableList)) {
-            writer.println(table);
+        for (String schema : mysqlObject.getSchemaList()) {
+            for (String table : validatorController.validateTableList(mysqlTableList, oracleTableList, schema)) {
+                writer.println(table);
+            }
+            writer.close();
+
+            for (String table : validatorController.validateTableList(oracleTableList, mysqlTableList, schema)) {
+                writer2.println(table);
+            }
+            writer2.close();
         }
-        writer.close();
 
-        for (String table : validatorController.validateTableList(oracleTableList, mysqlTableList)) {
-            writer2.println(table);
+        JSONObject mysqlSchemaMetaData = new JSONObject();
+        JSONObject oracleSchemaMetaData = new JSONObject();
+
+        mysqlSchemaMetaData = queryController.getSchemaMetaData(mysqlObject, mysqlStatement, "mysql", mysqlTableMetadataQuery, mysqlTableList);
+        oracleSchemaMetaData = queryController.getSchemaMetaData(oracleObject, oracleStatement, "oracle", oracleTableMetadataQuery, oracleTableList);
+        //Create CSV report
+
+        for (String schema : oracleObject.getSchemaList()) {
+            validatorController.createCSVReport(oracleSchemaMetaData, mysqlSchemaMetaData, oracleTableList,mysqlTableList, schema);
         }
-        writer2.close();
-
-        String mysqlMetadataQuery = mysqlTableMetadataQuery + " TABLE_SCHEMA = '" + mysqlObject.getSchemaList()[0] + "'" + " AND TABLE_NAME = '" + mysqlTableList.get(0)+"'";
-        //Get table metadata from Oracle and Mysql
-        JSONObject mysqlMetadata = queryController.getTableMetadata(mysqlMetadataQuery, mysqlStatement, "mysql");
-
-        System.out.println(mysqlMetadata.toString());
 
     }
 

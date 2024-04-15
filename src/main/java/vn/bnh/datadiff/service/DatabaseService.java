@@ -11,32 +11,17 @@ import java.util.logging.Logger;
 public class DatabaseService {
     Logger log4j = Logger.getLogger(DatabaseService.class.getName());
 
-    public Statement connectMysql(DBObject mysqlObject) {
-        log4j.info("Connecting to MySQL database with connection string: " + mysqlObject.getConnectionString() + " with user: " + mysqlObject.getUserName() + " and password: " + mysqlObject.getPassword());
+    public Statement connectToDatabase(DBObject dbObject) {
+        log4j.info("Connecting to "+dbObject.getDatabase()+" database with connection string: " + dbObject.getConnectionString() + " with user: " + dbObject.getUserName() + " and password: " + dbObject.getPassword());
 
         try {
-            Statement statement = createConnection(mysqlObject.getConnectionString(), mysqlObject.getUserName(), mysqlObject.getPassword());
+            Statement statement = createConnection(dbObject.getConnectionString(), dbObject.getUserName(), dbObject.getPassword());
             return statement;
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         log4j.info("Connected to MySQL database successfully");
-        return null;
-    }
-
-    public Statement connectOracle(DBObject oracleObject) {
-        log4j.info("Connecting to Oracle database with connection string: " + oracleObject.getConnectionString() + " with user: " + oracleObject.getUserName() + " and password: " + oracleObject.getPassword());
-
-        try {
-            Statement statement = createConnection(oracleObject.getConnectionString(), oracleObject.getUserName(), oracleObject.getPassword());
-            return statement;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        log4j.info("Connected to Oracle database successfully");
-
         return null;
     }
 
