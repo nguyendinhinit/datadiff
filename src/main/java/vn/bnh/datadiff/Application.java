@@ -37,7 +37,6 @@ public class Application {
     public void run(String filePath) throws SQLException, FileNotFoundException {
         PrintWriter writer = new PrintWriter("Mismatch_table_between_mysql_and_oracle.txt");
         PrintWriter writer2 = new PrintWriter("Mismatch_table_between_oracle_and_mysql.txt");
-        PrintWriter writer3 = new PrintWriter("report.csv");
 
         //Create a cache object
         logger.info("Start running application");
@@ -83,7 +82,7 @@ public class Application {
         JSONObject mysqlSchemaMetaData = new JSONObject();
         JSONObject oracleSchemaMetaData = new JSONObject();
 
-        ArrayList<String> pK=new ArrayList<>();
+        ArrayList<String> pK = new ArrayList<>();
         for (String schema : oracleObject.getSchemaList()) {
             for (String table : oracleTableList) {
                 pK = queryController.findPk(oracleStatement, table.split("\\.")[1], schema.toUpperCase());
@@ -91,7 +90,7 @@ public class Application {
         }
 
         mysqlSchemaMetaData = queryController.getSchemaMetaData(mysqlObject, mysqlStatement, "mysql", mysqlTableMetadataQuery, mysqlTableList, pK);
-        oracleSchemaMetaData = queryController.getSchemaMetaData(oracleObject, oracleStatement, "oracle", oracleTableMetadataQuery, oracleTableList,pK);
+        oracleSchemaMetaData = queryController.getSchemaMetaData(oracleObject, oracleStatement, "oracle", oracleTableMetadataQuery, oracleTableList, pK);
 
 
         //Create CSV report for Oracle and Mysql table metadata
@@ -115,7 +114,19 @@ public class Application {
             oracleJobList = queryController.countJob(oracleStatement, schema, "oracle");
         }
         PrintWriter writer4 = new PrintWriter("job_count.csv");
-        
+        writer4.write("Schema Name,Database ,Oracle, MySQL\n");
+
+        writer4.write(oracleJobList.get(0));
+        for (int i = 0; i < oracleJobList.size(); i++) {
+            writer4.write(oracleJobList.get(i) + " ");
+        }
+
+
+        for (int i = 0; i < mysqlJobList.size(); i++) {
+            if (mysqlJobList.get(i).split("\\: ")[1].equals(0)) continue;
+            writer4.write(mysqlJobList.get(i) + " ");
+        }
+        writer4.println();
         writer4.close();
     }
 

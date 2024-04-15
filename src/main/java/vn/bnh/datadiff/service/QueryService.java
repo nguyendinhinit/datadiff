@@ -315,6 +315,7 @@ public class QueryService {
                     String numberFunction = resultSet.getString("NoFUNC");
                     String numberProcedure = resultSet.getString("NoPROC");
                     String numberSchedule = resultSet.getString("NoSched");
+                    countJob.add("SCHEMA: " + schemaName.toUpperCase());
                     countJob.add("TABLE: " + numberTable);
                     countJob.add("VIEW: " + numberView);
                     countJob.add("TRIGGER: " + numberTrigger);
@@ -327,6 +328,7 @@ public class QueryService {
             case "oracle":
                 String queryCountJobOracle = "select distinct owner,object_type, count(*) cnt from dba_objects where object_type in ('TABLE','VIEW','TRIGGER','FUNCTION','PROCEDURE','SCHEDULE') and OWNER = '" + schemaName.toUpperCase() + "' group by  object_type,owner order by owner";
                 ResultSet resultSet1 = statement.executeQuery(queryCountJobOracle);
+                countJob.add("SCHEMA: " + schemaName.toUpperCase());
                 while (resultSet1.next()) {
                     String objectType = resultSet1.getString("OBJECT_TYPE");
                     String count = resultSet1.getString("CNT");
