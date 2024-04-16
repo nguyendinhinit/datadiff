@@ -5,9 +5,11 @@ import org.json.JSONObject;
 import vn.bnh.datadiff.dto.DBObject;
 import vn.bnh.datadiff.service.QueryService;
 
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class QueryController {
     QueryService queryService = new QueryService();
@@ -29,7 +31,15 @@ public class QueryController {
         return queryService.findPk(statement, tableName, schemaName);
     }
 
-    public ArrayList<String> countJob(Statement statement, String schemaName, String database) throws SQLException {
+    public Map<String, String> countJob(Statement statement, String schemaName, String database) throws SQLException {
         return queryService.countJob(statement, schemaName,database);
+    }
+
+    public void getAllSchema(DBObject dbObject){
+        try {
+            queryService.getAllSchema(dbObject);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
