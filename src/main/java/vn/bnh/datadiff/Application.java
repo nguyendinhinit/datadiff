@@ -47,7 +47,7 @@ public class Application {
         //Start comparing the schema between source and destination database
         //Find missing table from source and desc
         try{
-            bufferedReader = new BufferedReader(new FileReader("schemas.txst"));
+            bufferedReader = new BufferedReader(new FileReader("schemas.txt"));
             String line= bufferedReader.readLine();
             while (line != null){
               String schema = line;

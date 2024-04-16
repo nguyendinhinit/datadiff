@@ -27,11 +27,30 @@ public class QueryServiceImpl implements QueryService {
     @Override
     public ArrayList<String> getTableList(String connectionString, String database, String username, String password, String schema) {
         ArrayList<String> tableList = new ArrayList<>();
+        String query;
         switch (database) {
             case "mysql":
-
+                query = "SELECT table_name FROM information_schema.tables WHERE table_schema = ";
+                log4j.info("Getting table list from database " + database + " with schema: " + schema);
+                try {
+                    int tableCount = 0;
+                    Statement statement = databaseServiceImpl.connectToDatabase(connectionString, username, password);
+                    ResultSet resultSet = statement.executeQuery(query + "'" + schema.toUpperCase(Locale.ROOT) + "'");
+                    log4j.info("Executing query: " + query + "'" + schema.toUpperCase(Locale.ROOT) + "'");
+                    if (resultSet != null) {
+                        while (resultSet.next()) {
+                            String tableName = resultSet.getString("TABLE_NAME");
+                            tableList.add(schema.toUpperCase() + "." + tableName.toUpperCase());
+                            tableCount++;
+                        }
+                        resultSet.close();
+                        log4j.info("Get " + tableCount + " table from " + schema + " schema of database " + database + " successfully");
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             case "oracle":
-                String query = "SELECT table_name FROM all_tables WHERE owner = ";
+                query = "SELECT table_name FROM all_tables WHERE owner = ";
                 log4j.info("Getting table list from database " + database + " with schema: " + schema);
 
                 try {
