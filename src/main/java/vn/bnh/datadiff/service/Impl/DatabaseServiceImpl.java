@@ -1,4 +1,4 @@
-package vn.bnh.datadiff.service;
+package vn.bnh.datadiff.service.Impl;
 
 import vn.bnh.datadiff.dto.DBObject;
 
@@ -8,14 +8,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Logger;
 
-public class DatabaseService {
-    Logger log4j = Logger.getLogger(DatabaseService.class.getName());
+public class DatabaseServiceImpl {
+    Logger log4j = Logger.getLogger(DatabaseServiceImpl.class.getName());
 
-    public Statement connectToDatabase(DBObject dbObject) {
-        log4j.info("Connecting to "+dbObject.getDatabase()+" database with connection string: " + dbObject.getConnectionString() + " with user: " + dbObject.getUserName() + " and password: " + dbObject.getPassword());
+    public Statement connectToDatabase(String connectionString, String userName, String passWord) {
+//        log4j.info("Connecting to "+dbObject.getDatabase()+" database with connection string: " + dbObject.getConnectionString() + " with user: " + dbObject.getUserName() + " and password: " + dbObject.getPassword());
 
         try {
-            Statement statement = createConnection(dbObject.getConnectionString(), dbObject.getUserName(), dbObject.getPassword());
+            Statement statement = createConnection(connectionString, userName, passWord);
             return statement;
         } catch (SQLException e) {
             e.printStackTrace();

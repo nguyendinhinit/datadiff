@@ -1,10 +1,9 @@
-package org.example;
+package vn.bnh.datadiff.service.Impl;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-class DataTypeMapper {
+public class DataTypeMapperImpl {
     private static final Map<String, String[]> dataTypeMapping = new HashMap<>();
 
     static {
@@ -29,9 +28,9 @@ class DataTypeMapper {
         dataTypeMapping.put("DOUBLE PRECISION", new String[]{"DOUBLE PRECISION"});
         dataTypeMapping.put("DATE", new String[]{"DATETIME"});
         dataTypeMapping.put("TIMESTAMP", new String[]{"TIMESTAMP(6)"});
-        dataTypeMapping.put("TIMESTAMP(p) WITH TIME ZONE", new String[]{"DATETIME"});
-        dataTypeMapping.put("INTERVAL YEAR(p) TO MONTH", new String[]{"VARCHAR"});
-        dataTypeMapping.put("INTERVAL DAY(p) TO SECOND(s)", new String[]{"VARCHAR"});
+        dataTypeMapping.put("TIMESTAMP(6) WITH TIME ZONE", new String[]{"DATETIME"});
+        dataTypeMapping.put("INTERVAL YEAR(6) TO MONTH", new String[]{"VARCHAR"});
+        dataTypeMapping.put("INTERVAL DAY(6) TO SECOND(s)", new String[]{"VARCHAR"});
         dataTypeMapping.put("BFILE", new String[]{"VARCHAR"});
         dataTypeMapping.put("BLOB", new String[]{"BLOB"});
         dataTypeMapping.put("CLOB", new String[]{"LONGTEXT"});

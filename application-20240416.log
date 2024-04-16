@@ -1,0 +1,359 @@
+2024-04-16 16:45:43.376 [main] DEBUG vn.bnh.datadiff.Application - We've just greeted the user!
+2024-04-16 16:45:43.377 [main] INFO  vn.bnh.datadiff.Application - We've just greeted the user!
+2024-04-16 16:45:43.377 [main] WARN  vn.bnh.datadiff.Application - We've just greeted the user!
+2024-04-16 16:45:43.377 [main] ERROR vn.bnh.datadiff.Application - We've just greeted the user!
+2024-04-16 16:45:43.377 [main] FATAL vn.bnh.datadiff.Application - We've just greeted the user!
+2024-04-16 16:46:29.138 [main] DEBUG vn.bnh.datadiff.Application - We've just greeted the user!
+2024-04-16 16:46:29.139 [main] INFO  vn.bnh.datadiff.Application - We've just greeted the user!
+2024-04-16 16:46:29.139 [main] WARN  vn.bnh.datadiff.Application - We've just greeted the user!
+2024-04-16 16:46:29.139 [main] ERROR vn.bnh.datadiff.Application - We've just greeted the user!
+2024-04-16 16:46:29.140 [main] FATAL vn.bnh.datadiff.Application - We've just greeted the user!
+2024-04-16 17:01:28.707 [main] INFO  vn.bnh.datadiff.Application - File exist at the path: application.properties
+2024-04-16 17:04:02.655 [main] INFO  vn.bnh.datadiff.service.Impl.FileCheckerImpl - Checking file exist: application.properties
+2024-04-16 17:04:02.656 [main] INFO  vn.bnh.datadiff.service.Impl.FileCheckerImpl - File exist at the path: application.properties
+2024-04-16 17:04:02.656 [main] INFO  vn.bnh.datadiff.Application - File exist at the path: application.properties
+2024-04-16 17:04:54.595 [main] INFO  vn.bnh.datadiff.service.Impl.FileCheckerImpl - Checking file exist: application.properties
+2024-04-16 17:04:54.596 [main] INFO  vn.bnh.datadiff.service.Impl.FileCheckerImpl - File exist at the path: application.properties
+2024-04-16 17:31:40.526 [main] INFO  vn.bnh.datadiff.Application - Application started
+2024-04-16 17:31:40.527 [main] INFO  vn.bnh.datadiff.service.Impl.FileReaderServiceImpl - Start reading properties file: application.properties
+2024-04-16 17:31:40.527 [main] INFO  vn.bnh.datadiff.service.Impl.FileReaderServiceImpl - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 17:31:40.528 [main] INFO  vn.bnh.datadiff.service.Impl.FileReaderServiceImpl - Properties file read successfully
+2024-04-16 17:32:23.687 [main] INFO  - Application started
+2024-04-16 17:32:23.688 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 17:32:23.688 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 17:32:23.689 [main] INFO  - Properties file read successfully
+2024-04-16 17:34:32.819 [main] INFO  vn.bnh.datadiff.Application - Application started
+2024-04-16 17:34:32.820 [main] INFO  vn.bnh.datadiff.service.Impl.FileReaderServiceImpl - Start reading properties file: application.properties
+2024-04-16 17:34:32.820 [main] INFO  vn.bnh.datadiff.service.Impl.FileReaderServiceImpl - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 17:34:32.820 [main] INFO  vn.bnh.datadiff.service.Impl.FileReaderServiceImpl - Properties file read successfully
+2024-04-16 17:34:40.081 [main] INFO  - Application started
+2024-04-16 17:34:40.082 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 17:34:40.082 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 17:34:40.082 [main] INFO  - Properties file read successfully
+2024-04-16 17:42:31.138 [main] INFO  - Application started
+2024-04-16 17:42:31.139 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 17:42:31.139 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 17:42:31.139 [main] INFO  - Properties file read successfully
+2024-04-16 17:42:31.141 [main] INFO  - Properties file read successfully
+2024-04-16 17:42:31.142 [main] INFO  - Properties: {oracle_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, mysql_username=dbadmin, oracle_username=ggadmin, table_schema=payment_order, mysql_connection_string=jdbc:mysql://10.10.12.238:3306, mysql_password=oracle_4U, oracle_password=oracle_4U}
+2024-04-16 17:48:09.627 [main] INFO  - Application started
+2024-04-16 17:48:09.629 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 17:48:09.629 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 17:48:09.629 [main] INFO  - Properties file read successfully
+2024-04-16 17:48:09.632 [main] INFO  - Properties file read successfully
+2024-04-16 17:48:09.632 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 17:58:03.802 [main] INFO  - Application started
+2024-04-16 17:58:03.803 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 17:58:03.803 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 17:58:03.804 [main] INFO  - Properties file read successfully
+2024-04-16 17:58:03.806 [main] INFO  - Properties file read successfully
+2024-04-16 17:58:03.806 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, query=SELECT b.owner, a.table_name, a.index_name, a.column_name FROM dba_ind_columns a, dba_indexes b WHERE a.index_name=b.index_name AND owner IN (SELECT username FROM dba_users WHERE profile='PROFILE_SERVICE_ACCOUNT') ORDER BY b.owner, a.table_name, a.index_name, a.column_name;, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 18:13:49.854 [main] INFO  - Application started
+2024-04-16 18:13:49.855 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 18:13:49.855 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 18:13:49.855 [main] INFO  - Properties file read successfully
+2024-04-16 18:13:49.858 [main] INFO  - Properties file read successfully
+2024-04-16 18:13:49.858 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 18:15:40.635 [main] INFO  - Application started
+2024-04-16 18:15:40.636 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 18:15:40.636 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 18:15:40.637 [main] INFO  - Properties file read successfully
+2024-04-16 18:15:40.639 [main] INFO  - Properties file read successfully
+2024-04-16 18:15:40.639 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 18:15:40.639 [main] INFO  - Getting all schema from database oracle with query: null
+2024-04-16 18:47:24.675 [main] INFO  - Application started
+2024-04-16 18:47:24.676 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 18:47:24.677 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 18:47:24.677 [main] INFO  - Properties file read successfully
+2024-04-16 18:47:24.680 [main] INFO  - Properties file read successfully
+2024-04-16 18:47:24.680 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 18:47:24.680 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 18:47:24.680 [main] INFO  - File not exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 18:47:24.680 [main] INFO  - Create new file at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 18:50:46.937 [main] INFO  - Application started
+2024-04-16 18:50:46.938 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 18:50:46.938 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 18:50:46.938 [main] INFO  - Properties file read successfully
+2024-04-16 18:50:46.941 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 18:50:46.941 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 18:50:46.941 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 18:58:46.659 [main] INFO  - Application started
+2024-04-16 18:58:46.661 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 18:58:46.661 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 18:58:46.662 [main] INFO  - Properties file read successfully
+2024-04-16 18:58:46.671 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 18:59:55.387 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 18:59:55.387 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 18:59:57.131 [main] INFO  - Application started
+2024-04-16 18:59:57.132 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 18:59:57.132 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 18:59:57.132 [main] INFO  - Properties file read successfully
+2024-04-16 18:59:57.135 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 18:59:57.135 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 18:59:57.135 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 19:03:07.998 [main] INFO  - Application started
+2024-04-16 19:03:07.999 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 19:03:07.999 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 19:03:07.999 [main] INFO  - Properties file read successfully
+2024-04-16 19:03:08.001 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 19:03:08.001 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 19:03:08.001 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 19:03:24.783 [main] INFO  - Application started
+2024-04-16 19:03:24.784 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 19:03:24.784 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 19:03:24.785 [main] INFO  - Properties file read successfully
+2024-04-16 19:03:24.788 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 19:03:29.749 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 19:03:29.749 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 19:03:41.893 [main] INFO  - Application started
+2024-04-16 19:03:41.895 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 19:03:41.895 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 19:03:41.895 [main] INFO  - Properties file read successfully
+2024-04-16 19:03:41.899 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 19:03:50.509 [main] INFO  - Application started
+2024-04-16 19:03:50.510 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 19:03:50.510 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 19:03:50.510 [main] INFO  - Properties file read successfully
+2024-04-16 19:03:50.512 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 19:04:05.502 [main] INFO  - Application started
+2024-04-16 19:04:05.503 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 19:04:05.503 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 19:04:05.504 [main] INFO  - Properties file read successfully
+2024-04-16 19:04:05.506 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 19:04:05.506 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-16 19:04:05.506 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 19:04:05.506 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 19:04:06.743 [main] INFO  - Schema name: ACCESSCONTROL_PANDP
+2024-04-16 19:04:06.744 [main] INFO  - Schema name: ACTION
+2024-04-16 19:04:06.744 [main] INFO  - Schema name: ANONYMOUS
+2024-04-16 19:04:06.744 [main] INFO  - Schema name: APPQOSSYS
+2024-04-16 19:04:06.744 [main] INFO  - Schema name: APPROVAL_SERVICE
+2024-04-16 19:04:06.744 [main] INFO  - Schema name: ARRANGEMENT_MANAGER
+2024-04-16 19:04:06.744 [main] INFO  - Schema name: AUDIT_PERSISTENCE
+2024-04-16 19:04:06.744 [main] INFO  - Schema name: AUDSYS
+2024-04-16 19:04:06.744 [main] INFO  - Schema name: BACKBASE_IDENTITY
+2024-04-16 19:04:06.744 [main] INFO  - Schema name: CARDLESS_WITHDRAWAL
+2024-04-16 19:04:06.816 [main] INFO  - Schema name: CATEGORIZE_TXN
+2024-04-16 19:04:06.816 [main] INFO  - Schema name: CONFIRMATION
+2024-04-16 19:04:06.816 [main] INFO  - Schema name: CONTACT_MANAGER
+2024-04-16 19:04:06.816 [main] INFO  - Schema name: CTXSYS
+2024-04-16 19:04:06.816 [main] INFO  - Schema name: CUSTOMER_ENROLL_MANAGER
+2024-04-16 19:04:06.816 [main] INFO  - Schema name: CX6_AUDITING
+2024-04-16 19:04:06.816 [main] INFO  - Schema name: CX6_CONTENTSERVICES
+2024-04-16 19:04:06.816 [main] INFO  - Schema name: CX6_PORTAL
+2024-04-16 19:04:06.816 [main] INFO  - Schema name: CX6_PROVISIONING
+2024-04-16 19:04:06.816 [main] INFO  - Schema name: CX6_PUSH_INTEGRATION
+2024-04-16 19:04:06.901 [main] INFO  - Schema name: DATAARC
+2024-04-16 19:04:06.901 [main] INFO  - Schema name: DBSFWUSER
+2024-04-16 19:04:06.901 [main] INFO  - Schema name: DBSNMP
+2024-04-16 19:04:06.901 [main] INFO  - Schema name: DEVICE_MANAGEMENT
+2024-04-16 19:04:06.901 [main] INFO  - Schema name: DEVICE_MANAGEMENT_ADDITIONAL_DATA
+2024-04-16 19:04:06.901 [main] INFO  - Schema name: DIP
+2024-04-16 19:04:06.901 [main] INFO  - Schema name: DVF
+2024-04-16 19:04:06.901 [main] INFO  - Schema name: DVSYS
+2024-04-16 19:04:06.902 [main] INFO  - Schema name: EMPLOYEE_MANAGEMENT
+2024-04-16 19:04:06.902 [main] INFO  - Schema name: FIDO
+2024-04-16 19:04:06.954 [main] INFO  - Schema name: GGADMIN
+2024-04-16 19:04:06.955 [main] INFO  - Schema name: GGSYS
+2024-04-16 19:04:06.955 [main] INFO  - Schema name: GSMADMIN_INTERNAL
+2024-04-16 19:04:06.955 [main] INFO  - Schema name: GSMCATUSER
+2024-04-16 19:04:06.955 [main] INFO  - Schema name: GSMROOTUSER
+2024-04-16 19:04:06.955 [main] INFO  - Schema name: GSMUSER
+2024-04-16 19:04:06.956 [main] INFO  - Schema name: KAFKA
+2024-04-16 19:04:06.956 [main] INFO  - Schema name: LBACSYS
+2024-04-16 19:04:06.956 [main] INFO  - Schema name: LIMITS
+2024-04-16 19:04:06.956 [main] INFO  - Schema name: LUCKY_ACCOUNT
+2024-04-16 19:04:07.014 [main] INFO  - Schema name: MDDATA
+2024-04-16 19:04:07.015 [main] INFO  - Schema name: MDSYS
+2024-04-16 19:04:07.015 [main] INFO  - Schema name: MIGRATION_MANAGER
+2024-04-16 19:04:07.015 [main] INFO  - Schema name: NOTIFICATIONS
+2024-04-16 19:04:07.015 [main] INFO  - Schema name: NUDGE_MANAGER
+2024-04-16 19:04:07.015 [main] INFO  - Schema name: OJVMSYS
+2024-04-16 19:04:07.015 [main] INFO  - Schema name: OLAPSYS
+2024-04-16 19:04:07.015 [main] INFO  - Schema name: ONBOARDING
+2024-04-16 19:04:07.015 [main] INFO  - Schema name: ORACLE_OCM
+2024-04-16 19:04:07.015 [main] INFO  - Schema name: ORDDATA
+2024-04-16 19:04:07.068 [main] INFO  - Schema name: ORDPLUGINS
+2024-04-16 19:04:07.069 [main] INFO  - Schema name: ORDSYS
+2024-04-16 19:04:07.069 [main] INFO  - Schema name: OUTLN
+2024-04-16 19:04:07.069 [main] INFO  - Schema name: PAYMENT_DIS
+2024-04-16 19:04:07.069 [main] INFO  - Schema name: PAYMENT_ORDER
+2024-04-16 19:04:07.069 [main] INFO  - Schema name: PRE_APPROVAL_CARD
+2024-04-16 19:04:07.070 [main] INFO  - Schema name: PRODUCT_HOME_LOAN
+2024-04-16 19:04:07.070 [main] INFO  - Schema name: REMOTE_SCHEDULER_AGENT
+2024-04-16 19:04:07.070 [main] INFO  - Schema name: REWIND_DIS
+2024-04-16 19:04:07.070 [main] INFO  - Schema name: SAVINGS_GOAL
+2024-04-16 19:04:07.158 [main] INFO  - Schema name: SI_INFORMTN_SCHEMA
+2024-04-16 19:04:07.158 [main] INFO  - Schema name: SRV_ROC_ACCOUNT_BUNDLE_WORKER
+2024-04-16 19:04:07.159 [main] INFO  - Schema name: SRV_ROC_BANCA_DIS
+2024-04-16 19:04:07.159 [main] INFO  - Schema name: SRV_ROC_BANCA_ONBOARDING
+2024-04-16 19:04:07.159 [main] INFO  - Schema name: SRV_ROC_BATCH_TRANSFER
+2024-04-16 19:04:07.159 [main] INFO  - Schema name: SRV_ROC_BILLING_DIS
+2024-04-16 19:04:07.159 [main] INFO  - Schema name: SRV_ROC_BILLING_PAYMENT_ORDER
+2024-04-16 19:04:07.160 [main] INFO  - Schema name: SRV_ROC_CARD_DIS
+2024-04-16 19:04:07.160 [main] INFO  - Schema name: SRV_ROC_CUSTOMER_SUPPORT_DIS
+2024-04-16 19:04:07.160 [main] INFO  - Schema name: SRV_ROC_FINANCIAL_ASSISTANCE
+2024-04-16 19:04:07.228 [main] INFO  - Schema name: SRV_ROC_GENERAL_INSURANCE
+2024-04-16 19:04:07.228 [main] INFO  - Schema name: SRV_ROC_IADVISORY
+2024-04-16 19:04:07.228 [main] INFO  - Schema name: SRV_ROC_LOYALTY_DIS
+2024-04-16 19:04:07.229 [main] INFO  - Schema name: SRV_ROC_MERCHANT_DIS
+2024-04-16 19:04:07.229 [main] INFO  - Schema name: SRV_ROC_NFC_DIS
+2024-04-16 19:04:07.229 [main] INFO  - Schema name: SRV_ROC_PDMS_SERVICE
+2024-04-16 19:04:07.229 [main] INFO  - Schema name: SRV_ROC_TCBPAY
+2024-04-16 19:04:07.229 [main] INFO  - Schema name: SRV_ROC_TCB_FAMILY_BANKING
+2024-04-16 19:04:07.229 [main] INFO  - Schema name: SRV_ROC_TCB_OTP_SERVICE
+2024-04-16 19:04:07.229 [main] INFO  - Schema name: SRV_ROC_TCB_PROMOTION
+2024-04-16 19:04:07.313 [main] INFO  - Schema name: SRV_ROC_TERM_DEPOSIT
+2024-04-16 19:04:07.314 [main] INFO  - Schema name: SRV_ROC_UNSECURED_LENDING
+2024-04-16 19:04:07.314 [main] INFO  - Schema name: SRV_ROC_UNSECURED_LENDING_ACTION
+2024-04-16 19:04:07.314 [main] INFO  - Schema name: SYS
+2024-04-16 19:04:07.314 [main] INFO  - Schema name: SYS$UMF
+2024-04-16 19:04:07.314 [main] INFO  - Schema name: SYSBACKUP
+2024-04-16 19:04:07.314 [main] INFO  - Schema name: SYSDG
+2024-04-16 19:04:07.314 [main] INFO  - Schema name: SYSKM
+2024-04-16 19:04:07.315 [main] INFO  - Schema name: SYSRAC
+2024-04-16 19:04:07.317 [main] INFO  - Schema name: SYSTEM
+2024-04-16 19:04:07.375 [main] INFO  - Schema name: TCBF
+2024-04-16 19:04:07.375 [main] INFO  - Schema name: TCB_ATM_SERVICE
+2024-04-16 19:04:07.375 [main] INFO  - Schema name: TCB_BACKOFFICE_REPORT
+2024-04-16 19:04:07.375 [main] INFO  - Schema name: TCB_BACKOFFICE_UPLOAD
+2024-04-16 19:04:07.375 [main] INFO  - Schema name: TCB_BO_ACCOUNT_BUNDLE
+2024-04-16 19:04:07.376 [main] INFO  - Schema name: TCB_CARD_MNGT
+2024-04-16 19:04:07.376 [main] INFO  - Schema name: TCB_EKYC
+2024-04-16 19:04:07.376 [main] INFO  - Schema name: TCB_GIFT_CARD
+2024-04-16 19:04:07.376 [main] INFO  - Schema name: TCB_ICAP
+2024-04-16 19:04:07.376 [main] INFO  - Schema name: TCB_INSTALLMENT
+2024-04-16 19:04:07.463 [main] INFO  - Schema name: TCB_INVESTMENT_INTEGRATION
+2024-04-16 19:04:07.464 [main] INFO  - Schema name: TCB_INVESTMENT_TRADING
+2024-04-16 19:04:07.464 [main] INFO  - Schema name: TCB_LEAD_MANAGEMENT_DIS
+2024-04-16 19:04:07.464 [main] INFO  - Schema name: TCB_LOYALTY
+2024-04-16 19:04:07.464 [main] INFO  - Schema name: TCB_MESSAGE_CENTER
+2024-04-16 19:04:07.464 [main] INFO  - Schema name: TCB_MESSAGE_CENTER_DIS
+2024-04-16 19:04:07.465 [main] INFO  - Schema name: TCB_NEW_TO_BANK
+2024-04-16 19:04:07.465 [main] INFO  - Schema name: TCB_NOTIFICATION_FILTER
+2024-04-16 19:04:07.465 [main] INFO  - Schema name: TCB_ONBOARD_ORIGINATION
+2024-04-16 19:04:07.466 [main] INFO  - Schema name: TCB_SCHEDULER_SERVICE
+2024-04-16 19:04:07.569 [main] INFO  - Schema name: TEST
+2024-04-16 19:04:07.570 [main] INFO  - Schema name: TPAY_INTEGRATION
+2024-04-16 19:04:07.570 [main] INFO  - Schema name: TRANSACTION_MANAGER
+2024-04-16 19:04:07.570 [main] INFO  - Schema name: TTNVEVN
+2024-04-16 19:04:07.570 [main] INFO  - Schema name: UNSECURE_LENDING
+2024-04-16 19:04:07.570 [main] INFO  - Schema name: UPLOAD_EMPLOYEE_SERVICE
+2024-04-16 19:04:07.570 [main] INFO  - Schema name: USER_ADDITIONAL_DATA
+2024-04-16 19:04:07.571 [main] INFO  - Schema name: USER_BACKGROUND
+2024-04-16 19:04:07.571 [main] INFO  - Schema name: USER_PANDP
+2024-04-16 19:04:07.572 [main] INFO  - Schema name: WMSYS
+2024-04-16 19:04:07.635 [main] INFO  - Schema name: XDB
+2024-04-16 19:04:07.635 [main] INFO  - Schema name: XS$NULL
+2024-04-16 21:41:48.901 [main] INFO  - Application started
+2024-04-16 21:41:48.902 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 21:41:48.902 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 21:41:48.902 [main] INFO  - Properties file read successfully
+2024-04-16 21:41:48.905 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 21:41:48.905 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-16 21:41:49.520 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:41:49.520 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:41:49.521 [main] INFO  - Retrieve 0 schema from oracle, Connection closed
+2024-04-16 21:42:56.162 [main] INFO  - Application started
+2024-04-16 21:42:56.163 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 21:42:56.163 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 21:42:56.163 [main] INFO  - Properties file read successfully
+2024-04-16 21:42:56.166 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 21:42:56.166 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-16 21:42:56.782 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:42:56.782 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:42:56.782 [main] INFO  - Retrieve 0 schema from oracle, Connection closed
+2024-04-16 21:43:56.365 [main] INFO  - Application started
+2024-04-16 21:43:56.366 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 21:43:56.367 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 21:43:56.367 [main] INFO  - Properties file read successfully
+2024-04-16 21:43:56.369 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 21:43:56.369 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-16 21:43:56.972 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:43:56.972 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:43:56.972 [main] INFO  - Retrieve 0 schema from oracle, Connection closed
+2024-04-16 21:44:01.180 [main] INFO  - Application started
+2024-04-16 21:44:01.181 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 21:44:01.181 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 21:44:01.182 [main] INFO  - Properties file read successfully
+2024-04-16 21:44:01.184 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 21:44:01.184 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-16 21:44:01.809 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:44:01.809 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:44:01.809 [main] INFO  - Retrieve 0 schema from oracle, Connection closed
+2024-04-16 21:46:29.386 [main] INFO  - Application started
+2024-04-16 21:46:29.387 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 21:46:29.387 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 21:46:29.388 [main] INFO  - Properties file read successfully
+2024-04-16 21:46:29.391 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 21:46:29.391 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-16 21:46:42.210 [main] INFO  - Application started
+2024-04-16 21:46:42.211 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 21:46:42.211 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 21:46:42.211 [main] INFO  - Properties file read successfully
+2024-04-16 21:46:42.215 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 21:46:42.215 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-16 21:46:59.414 [main] INFO  - Application started
+2024-04-16 21:46:59.415 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 21:46:59.415 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 21:46:59.416 [main] INFO  - Properties file read successfully
+2024-04-16 21:46:59.419 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 21:46:59.419 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-16 21:49:30.779 [main] INFO  - Application started
+2024-04-16 21:49:30.780 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 21:49:30.780 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 21:49:30.780 [main] INFO  - Properties file read successfully
+2024-04-16 21:49:30.783 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 21:49:30.783 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-16 21:49:31.366 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:49:31.366 [main] INFO  - File not exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:49:31.691 [main] INFO  - Retrieve 122 schema from oracle, Connection closed
+2024-04-16 21:53:17.564 [main] INFO  - Application started
+2024-04-16 21:53:17.565 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 21:53:17.565 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 21:53:17.565 [main] INFO  - Properties file read successfully
+2024-04-16 21:53:17.568 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 21:53:17.568 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-16 21:53:18.194 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:53:18.194 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:53:18.194 [main] INFO  - Retrieve 0 schema from oracle and write to schemas.txt file, Connection closed
+2024-04-16 21:55:15.229 [main] INFO  - Application started
+2024-04-16 21:55:15.231 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 21:55:15.231 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 21:55:15.231 [main] INFO  - Properties file read successfully
+2024-04-16 21:55:15.234 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 21:55:15.234 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-16 21:55:15.856 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:55:15.856 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:55:15.856 [main] INFO  - schemas.txt file already exists
+2024-04-16 21:55:15.856 [main] INFO  - Retrieve 0 schema from oracle and write to schemas.txt file, Connection closed
+2024-04-16 21:55:36.078 [main] INFO  - Application started
+2024-04-16 21:55:36.080 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 21:55:36.080 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 21:55:36.080 [main] INFO  - Properties file read successfully
+2024-04-16 21:55:36.082 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 21:55:36.082 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-16 21:55:36.677 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:55:36.677 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 21:55:36.677 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-16 21:55:36.677 [main] INFO  - Retrieve 0 schema from oracle and write to schemas.txt file, Connection closed
+2024-04-16 22:18:45.471 [main] INFO  - Application started
+2024-04-16 22:18:45.472 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 22:18:45.472 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 22:18:45.473 [main] INFO  - Properties file read successfully
+2024-04-16 22:18:45.475 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 22:18:45.476 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-16 22:18:46.077 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 22:18:46.077 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-16 22:18:46.077 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-16 22:22:21.089 [main] INFO  - Application started
+2024-04-16 22:22:21.090 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 22:22:21.090 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 22:22:21.090 [main] INFO  - Properties file read successfully
+2024-04-16 22:22:21.093 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 22:23:03.964 [main] INFO  - Application started
+2024-04-16 22:23:03.966 [main] INFO  - Start reading properties file: application.properties
+2024-04-16 22:23:03.966 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-16 22:23:03.966 [main] INFO  - Properties file read successfully
+2024-04-16 22:23:03.968 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-16 22:23:03.969 [main] INFO  - Getting table list from database oracle with schema: null
