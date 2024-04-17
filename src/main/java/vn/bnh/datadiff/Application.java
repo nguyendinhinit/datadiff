@@ -53,10 +53,7 @@ public class Application {
 
         //Create csv report will return a metadata different report between source and destination database
 
-        ArrayList<String> test = new ArrayList<>();
-        test.add("PAYMENT_ORDER.ARRANGEMENT_GROUP");
-        test.add("PAYMENT_ORDER.PMT_TXN_ADD_PROP");
-        for (String table : test) {
+        for (String table : tableList) {
             validatorController.createCSVReport(table, informationMap.get("source_connection_string"), informationMap.get("source_username"), informationMap.get("source_password"), informationMap.get("destination_connection_string"), informationMap.get("destination_username"), informationMap.get("destination_password"));
         }
 

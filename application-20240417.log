@@ -11477,4 +11477,316 @@
 2024-04-17 16:39:18.318 [main] INFO  - Get 0 table from GGSYS schema of database mysql
 2024-04-17 16:39:18.318 [main] INFO  - Schema: GSMADMIN_INTERNAL
 2024-04-17 16:39:18.318 [main] INFO  - Getting table list from database oracle with schema: GSMADMIN_INTERNAL
-2024-04-17 16:39:19.250 [main] INFO  - Executing query: SELECT table_name FROM all_tables W
+2024-04-17 16:39:19.250 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'GSMADMIN_INTERNAL'
+2024-04-17 16:39:19.558 [main] INFO  - Get 40 table from GSMADMIN_INTERNAL schema of database oracle
+2024-04-17 16:39:19.558 [main] INFO  - Getting table list from database mysql with schema: GSMADMIN_INTERNAL
+2024-04-17 16:39:20.227 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'GSMADMIN_INTERNAL'
+2024-04-17 16:39:20.227 [main] INFO  - Get 0 table from GSMADMIN_INTERNAL schema of database mysql
+2024-04-17 16:39:20.228 [main] INFO  - Schema: GSMCATUSER
+2024-04-17 16:39:20.228 [main] INFO  - Getting table list from database oracle with schema: GSMCATUSER
+2024-04-17 16:39:21.150 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'GSMCATUSER'
+2024-04-17 16:39:21.150 [main] INFO  - Get 0 table from GSMCATUSER schema of database oracle
+2024-04-17 16:39:21.151 [main] INFO  - Getting table list from database mysql with schema: GSMCATUSER
+2024-04-17 16:39:21.839 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'GSMCATUSER'
+2024-04-17 16:39:21.839 [main] INFO  - Get 0 table from GSMCATUSER schema of database mysql
+2024-04-17 16:39:21.840 [main] INFO  - Schema: GSMROOTUSER
+2024-04-17 16:39:21.840 [main] INFO  - Getting table list from database oracle with schema: GSMROOTUSER
+2024-04-17 16:39:22.830 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'GSMROOTUSER'
+2024-04-17 16:39:22.831 [main] INFO  - Get 0 table from GSMROOTUSER schema of database oracle
+2024-04-17 16:39:22.831 [main] INFO  - Getting table list from database mysql with schema: GSMROOTUSER
+2024-04-17 16:39:23.639 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'GSMROOTUSER'
+2024-04-17 16:39:23.640 [main] INFO  - Get 0 table from GSMROOTUSER schema of database mysql
+2024-04-17 16:39:23.640 [main] INFO  - Schema: GSMUSER
+2024-04-17 16:39:23.640 [main] INFO  - Getting table list from database oracle with schema: GSMUSER
+2024-04-17 16:39:24.557 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'GSMUSER'
+2024-04-17 16:39:24.559 [main] INFO  - Get 0 table from GSMUSER schema of database oracle
+2024-04-17 16:39:24.559 [main] INFO  - Getting table list from database mysql with schema: GSMUSER
+2024-04-17 16:39:25.248 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'GSMUSER'
+2024-04-17 16:39:25.249 [main] INFO  - Get 0 table from GSMUSER schema of database mysql
+2024-04-17 16:39:25.249 [main] INFO  - Schema: KAFKA
+2024-04-17 16:39:25.249 [main] INFO  - Getting table list from database oracle with schema: KAFKA
+2024-04-17 16:39:26.281 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'KAFKA'
+2024-04-17 16:39:26.282 [main] INFO  - Get 6 table from KAFKA schema of database oracle
+2024-04-17 16:39:26.282 [main] INFO  - Getting table list from database mysql with schema: KAFKA
+2024-04-17 16:39:27.027 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'KAFKA'
+2024-04-17 16:39:27.028 [main] INFO  - Get 0 table from KAFKA schema of database mysql
+2024-04-17 16:39:27.028 [main] INFO  - Schema: LBACSYS
+2024-04-17 16:39:27.028 [main] INFO  - Getting table list from database oracle with schema: LBACSYS
+2024-04-17 16:39:27.996 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'LBACSYS'
+2024-04-17 16:39:28.158 [main] INFO  - Get 22 table from LBACSYS schema of database oracle
+2024-04-17 16:39:28.158 [main] INFO  - Getting table list from database mysql with schema: LBACSYS
+2024-04-17 16:39:28.804 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'LBACSYS'
+2024-04-17 16:39:28.804 [main] INFO  - Get 0 table from LBACSYS schema of database mysql
+2024-04-17 16:39:28.804 [main] INFO  - Schema: LIMITS
+2024-04-17 16:39:28.804 [main] INFO  - Getting table list from database oracle with schema: LIMITS
+2024-04-17 16:39:29.764 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'LIMITS'
+2024-04-17 16:39:29.838 [main] INFO  - Get 19 table from LIMITS schema of database oracle
+2024-04-17 16:39:29.839 [main] INFO  - Getting table list from database mysql with schema: LIMITS
+2024-04-17 16:39:30.559 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'LIMITS'
+2024-04-17 16:39:30.559 [main] INFO  - Get 0 table from LIMITS schema of database mysql
+2024-04-17 16:39:30.559 [main] INFO  - Schema: LUCKY_ACCOUNT
+2024-04-17 16:39:30.560 [main] INFO  - Getting table list from database oracle with schema: LUCKY_ACCOUNT
+2024-04-17 16:39:31.507 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'LUCKY_ACCOUNT'
+2024-04-17 16:39:31.507 [main] INFO  - Get 4 table from LUCKY_ACCOUNT schema of database oracle
+2024-04-17 16:39:31.507 [main] INFO  - Getting table list from database mysql with schema: LUCKY_ACCOUNT
+2024-04-17 16:39:32.124 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'LUCKY_ACCOUNT'
+2024-04-17 16:39:32.124 [main] INFO  - Get 9 table from LUCKY_ACCOUNT schema of database mysql
+2024-04-17 16:39:32.124 [main] INFO  - Schema: MDDATA
+2024-04-17 16:39:32.124 [main] INFO  - Getting table list from database oracle with schema: MDDATA
+2024-04-17 16:39:32.999 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'MDDATA'
+2024-04-17 16:39:32.999 [main] INFO  - Get 0 table from MDDATA schema of database oracle
+2024-04-17 16:39:32.999 [main] INFO  - Getting table list from database mysql with schema: MDDATA
+2024-04-17 16:39:33.680 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'MDDATA'
+2024-04-17 16:39:33.680 [main] INFO  - Get 0 table from MDDATA schema of database mysql
+2024-04-17 16:39:33.680 [main] INFO  - Schema: MDSYS
+2024-04-17 16:39:33.680 [main] INFO  - Getting table list from database oracle with schema: MDSYS
+2024-04-17 16:39:34.666 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'MDSYS'
+2024-04-17 16:39:35.797 [main] INFO  - Get 148 table from MDSYS schema of database oracle
+2024-04-17 16:39:35.797 [main] INFO  - Getting table list from database mysql with schema: MDSYS
+2024-04-17 16:39:36.478 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'MDSYS'
+2024-04-17 16:39:36.478 [main] INFO  - Get 0 table from MDSYS schema of database mysql
+2024-04-17 16:39:36.478 [main] INFO  - Schema: MIGRATION_MANAGER
+2024-04-17 16:39:36.478 [main] INFO  - Getting table list from database oracle with schema: MIGRATION_MANAGER
+2024-04-17 16:39:37.392 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'MIGRATION_MANAGER'
+2024-04-17 16:39:37.392 [main] INFO  - Get 0 table from MIGRATION_MANAGER schema of database oracle
+2024-04-17 16:39:37.392 [main] INFO  - Getting table list from database mysql with schema: MIGRATION_MANAGER
+2024-04-17 16:39:38.107 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'MIGRATION_MANAGER'
+2024-04-17 16:39:38.108 [main] INFO  - Get 0 table from MIGRATION_MANAGER schema of database mysql
+2024-04-17 16:39:38.108 [main] INFO  - Schema: NOTIFICATIONS
+2024-04-17 16:39:38.108 [main] INFO  - Getting table list from database oracle with schema: NOTIFICATIONS
+2024-04-17 16:39:39.004 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'NOTIFICATIONS'
+2024-04-17 16:39:39.004 [main] INFO  - Get 0 table from NOTIFICATIONS schema of database oracle
+2024-04-17 16:39:39.004 [main] INFO  - Getting table list from database mysql with schema: NOTIFICATIONS
+2024-04-17 16:39:39.758 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'NOTIFICATIONS'
+2024-04-17 16:39:39.758 [main] INFO  - Get 0 table from NOTIFICATIONS schema of database mysql
+2024-04-17 16:39:39.758 [main] INFO  - Schema: NUDGE_MANAGER
+2024-04-17 16:39:39.759 [main] INFO  - Getting table list from database oracle with schema: NUDGE_MANAGER
+2024-04-17 16:39:40.641 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'NUDGE_MANAGER'
+2024-04-17 16:39:40.642 [main] INFO  - Get 8 table from NUDGE_MANAGER schema of database oracle
+2024-04-17 16:39:40.642 [main] INFO  - Getting table list from database mysql with schema: NUDGE_MANAGER
+2024-04-17 16:39:41.304 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'NUDGE_MANAGER'
+2024-04-17 16:39:41.304 [main] INFO  - Get 0 table from NUDGE_MANAGER schema of database mysql
+2024-04-17 16:39:41.305 [main] INFO  - Schema: OJVMSYS
+2024-04-17 16:39:41.305 [main] INFO  - Getting table list from database oracle with schema: OJVMSYS
+2024-04-17 16:39:42.135 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'OJVMSYS'
+2024-04-17 16:39:42.135 [main] INFO  - Get 6 table from OJVMSYS schema of database oracle
+2024-04-17 16:39:42.135 [main] INFO  - Getting table list from database mysql with schema: OJVMSYS
+2024-04-17 16:39:42.842 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'OJVMSYS'
+2024-04-17 16:39:42.843 [main] INFO  - Get 0 table from OJVMSYS schema of database mysql
+2024-04-17 16:39:42.843 [main] INFO  - Schema: OLAPSYS
+2024-04-17 16:39:42.843 [main] INFO  - Getting table list from database oracle with schema: OLAPSYS
+2024-04-17 16:39:43.867 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'OLAPSYS'
+2024-04-17 16:39:43.867 [main] INFO  - Get 2 table from OLAPSYS schema of database oracle
+2024-04-17 16:39:43.867 [main] INFO  - Getting table list from database mysql with schema: OLAPSYS
+2024-04-17 16:39:44.524 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'OLAPSYS'
+2024-04-17 16:39:44.525 [main] INFO  - Get 0 table from OLAPSYS schema of database mysql
+2024-04-17 16:39:44.525 [main] INFO  - Schema: ONBOARDING
+2024-04-17 16:39:44.525 [main] INFO  - Getting table list from database oracle with schema: ONBOARDING
+2024-04-17 16:39:45.437 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'ONBOARDING'
+2024-04-17 16:39:45.437 [main] INFO  - Get 0 table from ONBOARDING schema of database oracle
+2024-04-17 16:39:45.437 [main] INFO  - Getting table list from database mysql with schema: ONBOARDING
+2024-04-17 16:39:46.186 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'ONBOARDING'
+2024-04-17 16:39:46.187 [main] INFO  - Get 0 table from ONBOARDING schema of database mysql
+2024-04-17 16:39:46.187 [main] INFO  - Schema: ORACLE_OCM
+2024-04-17 16:39:46.187 [main] INFO  - Getting table list from database oracle with schema: ORACLE_OCM
+2024-04-17 16:39:47.108 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'ORACLE_OCM'
+2024-04-17 16:39:47.109 [main] INFO  - Get 0 table from ORACLE_OCM schema of database oracle
+2024-04-17 16:39:47.109 [main] INFO  - Getting table list from database mysql with schema: ORACLE_OCM
+2024-04-17 16:39:47.798 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'ORACLE_OCM'
+2024-04-17 16:39:47.798 [main] INFO  - Get 0 table from ORACLE_OCM schema of database mysql
+2024-04-17 16:39:47.798 [main] INFO  - Schema: ORDDATA
+2024-04-17 16:39:47.798 [main] INFO  - Getting table list from database oracle with schema: ORDDATA
+2024-04-17 16:39:48.765 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'ORDDATA'
+2024-04-17 16:39:49.521 [main] INFO  - Get 90 table from ORDDATA schema of database oracle
+2024-04-17 16:39:49.521 [main] INFO  - Getting table list from database mysql with schema: ORDDATA
+2024-04-17 16:39:50.197 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'ORDDATA'
+2024-04-17 16:39:50.197 [main] INFO  - Get 0 table from ORDDATA schema of database mysql
+2024-04-17 16:39:50.197 [main] INFO  - Schema: ORDPLUGINS
+2024-04-17 16:39:50.197 [main] INFO  - Getting table list from database oracle with schema: ORDPLUGINS
+2024-04-17 16:39:51.117 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'ORDPLUGINS'
+2024-04-17 16:39:51.118 [main] INFO  - Get 0 table from ORDPLUGINS schema of database oracle
+2024-04-17 16:39:51.118 [main] INFO  - Getting table list from database mysql with schema: ORDPLUGINS
+2024-04-17 16:39:51.757 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'ORDPLUGINS'
+2024-04-17 16:39:51.757 [main] INFO  - Get 0 table from ORDPLUGINS schema of database mysql
+2024-04-17 16:39:51.757 [main] INFO  - Schema: ORDSYS
+2024-04-17 16:39:51.757 [main] INFO  - Getting table list from database oracle with schema: ORDSYS
+2024-04-17 16:39:52.654 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'ORDSYS'
+2024-04-17 16:39:52.655 [main] INFO  - Get 4 table from ORDSYS schema of database oracle
+2024-04-17 16:39:52.655 [main] INFO  - Getting table list from database mysql with schema: ORDSYS
+2024-04-17 16:39:53.317 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'ORDSYS'
+2024-04-17 16:39:53.317 [main] INFO  - Get 0 table from ORDSYS schema of database mysql
+2024-04-17 16:39:53.317 [main] INFO  - Schema: OUTLN
+2024-04-17 16:39:53.317 [main] INFO  - Getting table list from database oracle with schema: OUTLN
+2024-04-17 16:39:54.200 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'OUTLN'
+2024-04-17 16:39:54.201 [main] INFO  - Get 3 table from OUTLN schema of database oracle
+2024-04-17 16:39:54.201 [main] INFO  - Getting table list from database mysql with schema: OUTLN
+2024-04-17 16:39:54.886 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'OUTLN'
+2024-04-17 16:39:54.886 [main] INFO  - Get 0 table from OUTLN schema of database mysql
+2024-04-17 16:39:54.886 [main] INFO  - Schema: PAYMENT_DIS
+2024-04-17 16:39:54.886 [main] INFO  - Getting table list from database oracle with schema: PAYMENT_DIS
+2024-04-17 16:39:55.779 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'PAYMENT_DIS'
+2024-04-17 16:39:56.025 [main] INFO  - Get 33 table from PAYMENT_DIS schema of database oracle
+2024-04-17 16:39:56.025 [main] INFO  - Getting table list from database mysql with schema: PAYMENT_DIS
+2024-04-17 16:39:56.724 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'PAYMENT_DIS'
+2024-04-17 16:39:56.724 [main] INFO  - Get 0 table from PAYMENT_DIS schema of database mysql
+2024-04-17 16:39:56.724 [main] INFO  - Schema: PAYMENT_ORDER
+2024-04-17 16:39:56.724 [main] INFO  - Getting table list from database oracle with schema: PAYMENT_ORDER
+2024-04-17 16:39:58.762 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'PAYMENT_ORDER'
+2024-04-17 16:39:58.838 [main] INFO  - Get 15 table from PAYMENT_ORDER schema of database oracle
+2024-04-17 16:39:58.838 [main] INFO  - Getting table list from database mysql with schema: PAYMENT_ORDER
+2024-04-17 16:39:59.546 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'PAYMENT_ORDER'
+2024-04-17 16:39:59.548 [main] INFO  - Get 14 table from PAYMENT_ORDER schema of database mysql
+2024-04-17 16:39:59.548 [main] INFO  - Schema: PRE_APPROVAL_CARD
+2024-04-17 16:39:59.548 [main] INFO  - Getting table list from database oracle with schema: PRE_APPROVAL_CARD
+2024-04-17 16:40:00.514 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'PRE_APPROVAL_CARD'
+2024-04-17 16:40:00.589 [main] INFO  - Get 19 table from PRE_APPROVAL_CARD schema of database oracle
+2024-04-17 16:40:00.589 [main] INFO  - Getting table list from database mysql with schema: PRE_APPROVAL_CARD
+2024-04-17 16:40:01.304 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'PRE_APPROVAL_CARD'
+2024-04-17 16:40:01.305 [main] INFO  - Get 0 table from PRE_APPROVAL_CARD schema of database mysql
+2024-04-17 16:40:01.305 [main] INFO  - Schema: PRODUCT_HOME_LOAN
+2024-04-17 16:40:01.305 [main] INFO  - Getting table list from database oracle with schema: PRODUCT_HOME_LOAN
+2024-04-17 16:40:02.148 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'PRODUCT_HOME_LOAN'
+2024-04-17 16:40:02.148 [main] INFO  - Get 9 table from PRODUCT_HOME_LOAN schema of database oracle
+2024-04-17 16:40:02.148 [main] INFO  - Getting table list from database mysql with schema: PRODUCT_HOME_LOAN
+2024-04-17 16:40:02.827 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'PRODUCT_HOME_LOAN'
+2024-04-17 16:40:02.828 [main] INFO  - Get 0 table from PRODUCT_HOME_LOAN schema of database mysql
+2024-04-17 16:40:02.828 [main] INFO  - Schema: REMOTE_SCHEDULER_AGENT
+2024-04-17 16:40:02.828 [main] INFO  - Getting table list from database oracle with schema: REMOTE_SCHEDULER_AGENT
+2024-04-17 16:40:03.762 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'REMOTE_SCHEDULER_AGENT'
+2024-04-17 16:40:03.762 [main] INFO  - Get 0 table from REMOTE_SCHEDULER_AGENT schema of database oracle
+2024-04-17 16:40:03.762 [main] INFO  - Getting table list from database mysql with schema: REMOTE_SCHEDULER_AGENT
+2024-04-17 16:40:04.439 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'REMOTE_SCHEDULER_AGENT'
+2024-04-17 16:40:04.439 [main] INFO  - Get 0 table from REMOTE_SCHEDULER_AGENT schema of database mysql
+2024-04-17 16:40:04.439 [main] INFO  - Schema: REWIND_DIS
+2024-04-17 16:40:04.439 [main] INFO  - Getting table list from database oracle with schema: REWIND_DIS
+2024-04-17 16:40:05.406 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'REWIND_DIS'
+2024-04-17 16:40:05.406 [main] INFO  - Get 0 table from REWIND_DIS schema of database oracle
+2024-04-17 16:40:05.406 [main] INFO  - Getting table list from database mysql with schema: REWIND_DIS
+2024-04-17 16:40:06.105 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'REWIND_DIS'
+2024-04-17 16:40:06.106 [main] INFO  - Get 0 table from REWIND_DIS schema of database mysql
+2024-04-17 16:40:06.107 [main] INFO  - Schema: SAVINGS_GOAL
+2024-04-17 16:40:06.107 [main] INFO  - Getting table list from database oracle with schema: SAVINGS_GOAL
+2024-04-17 16:40:07.063 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SAVINGS_GOAL'
+2024-04-17 16:40:07.063 [main] INFO  - Get 0 table from SAVINGS_GOAL schema of database oracle
+2024-04-17 16:40:07.064 [main] INFO  - Getting table list from database mysql with schema: SAVINGS_GOAL
+2024-04-17 16:40:07.745 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SAVINGS_GOAL'
+2024-04-17 16:40:07.745 [main] INFO  - Get 0 table from SAVINGS_GOAL schema of database mysql
+2024-04-17 16:40:07.745 [main] INFO  - Schema: SI_INFORMTN_SCHEMA
+2024-04-17 16:40:07.745 [main] INFO  - Getting table list from database oracle with schema: SI_INFORMTN_SCHEMA
+2024-04-17 16:40:08.604 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SI_INFORMTN_SCHEMA'
+2024-04-17 16:40:08.604 [main] INFO  - Get 0 table from SI_INFORMTN_SCHEMA schema of database oracle
+2024-04-17 16:40:08.604 [main] INFO  - Getting table list from database mysql with schema: SI_INFORMTN_SCHEMA
+2024-04-17 16:40:09.361 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SI_INFORMTN_SCHEMA'
+2024-04-17 16:40:09.362 [main] INFO  - Get 0 table from SI_INFORMTN_SCHEMA schema of database mysql
+2024-04-17 16:40:09.362 [main] INFO  - Schema: SRV_ROC_ACCOUNT_BUNDLE_WORKER
+2024-04-17 16:40:09.362 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_ACCOUNT_BUNDLE_WORKER
+2024-04-17 16:40:10.353 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_ACCOUNT_BUNDLE_WORKER'
+2024-04-17 16:40:10.353 [main] INFO  - Get 0 table from SRV_ROC_ACCOUNT_BUNDLE_WORKER schema of database oracle
+2024-04-17 16:40:10.353 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_ACCOUNT_BUNDLE_WORKER
+2024-04-17 16:40:11.058 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_ACCOUNT_BUNDLE_WORKER'
+2024-04-17 16:40:11.059 [main] INFO  - Get 0 table from SRV_ROC_ACCOUNT_BUNDLE_WORKER schema of database mysql
+2024-04-17 16:40:11.059 [main] INFO  - Schema: SRV_ROC_BANCA_DIS
+2024-04-17 16:40:11.059 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_BANCA_DIS
+2024-04-17 16:40:11.998 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_BANCA_DIS'
+2024-04-17 16:40:11.999 [main] INFO  - Get 0 table from SRV_ROC_BANCA_DIS schema of database oracle
+2024-04-17 16:40:11.999 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_BANCA_DIS
+2024-04-17 16:40:12.701 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_BANCA_DIS'
+2024-04-17 16:40:12.702 [main] INFO  - Get 0 table from SRV_ROC_BANCA_DIS schema of database mysql
+2024-04-17 16:40:12.702 [main] INFO  - Schema: SRV_ROC_BANCA_ONBOARDING
+2024-04-17 16:40:12.702 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_BANCA_ONBOARDING
+2024-04-17 16:40:13.624 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_BANCA_ONBOARDING'
+2024-04-17 16:40:13.625 [main] INFO  - Get 0 table from SRV_ROC_BANCA_ONBOARDING schema of database oracle
+2024-04-17 16:40:13.625 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_BANCA_ONBOARDING
+2024-04-17 16:40:14.360 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_BANCA_ONBOARDING'
+2024-04-17 16:40:14.360 [main] INFO  - Get 0 table from SRV_ROC_BANCA_ONBOARDING schema of database mysql
+2024-04-17 16:40:14.361 [main] INFO  - Schema: SRV_ROC_BATCH_TRANSFER
+2024-04-17 16:40:14.361 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_BATCH_TRANSFER
+2024-04-17 16:40:15.283 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_BATCH_TRANSFER'
+2024-04-17 16:40:15.283 [main] INFO  - Get 0 table from SRV_ROC_BATCH_TRANSFER schema of database oracle
+2024-04-17 16:40:15.283 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_BATCH_TRANSFER
+2024-04-17 16:40:15.959 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_BATCH_TRANSFER'
+2024-04-17 16:40:15.959 [main] INFO  - Get 0 table from SRV_ROC_BATCH_TRANSFER schema of database mysql
+2024-04-17 16:40:15.959 [main] INFO  - Schema: SRV_ROC_BILLING_DIS
+2024-04-17 16:40:15.959 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_BILLING_DIS
+2024-04-17 16:40:16.890 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_BILLING_DIS'
+2024-04-17 16:40:16.987 [main] INFO  - Get 11 table from SRV_ROC_BILLING_DIS schema of database oracle
+2024-04-17 16:40:16.988 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_BILLING_DIS
+2024-04-17 16:40:17.703 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_BILLING_DIS'
+2024-04-17 16:40:17.703 [main] INFO  - Get 8 table from SRV_ROC_BILLING_DIS schema of database mysql
+2024-04-17 16:40:17.703 [main] INFO  - Schema: SRV_ROC_BILLING_PAYMENT_ORDER
+2024-04-17 16:40:17.703 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_BILLING_PAYMENT_ORDER
+2024-04-17 16:40:18.590 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_BILLING_PAYMENT_ORDER'
+2024-04-17 16:40:18.663 [main] INFO  - Get 11 table from SRV_ROC_BILLING_PAYMENT_ORDER schema of database oracle
+2024-04-17 16:40:18.664 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_BILLING_PAYMENT_ORDER
+2024-04-17 16:40:19.363 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_BILLING_PAYMENT_ORDER'
+2024-04-17 16:40:19.363 [main] INFO  - Get 11 table from SRV_ROC_BILLING_PAYMENT_ORDER schema of database mysql
+2024-04-17 16:40:19.363 [main] INFO  - Schema: SRV_ROC_CARD_DIS
+2024-04-17 16:40:19.364 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_CARD_DIS
+2024-04-17 16:40:20.272 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_CARD_DIS'
+2024-04-17 16:40:20.272 [main] INFO  - Get 0 table from SRV_ROC_CARD_DIS schema of database oracle
+2024-04-17 16:40:20.272 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_CARD_DIS
+2024-04-17 16:40:20.948 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_CARD_DIS'
+2024-04-17 16:40:20.948 [main] INFO  - Get 0 table from SRV_ROC_CARD_DIS schema of database mysql
+2024-04-17 16:40:20.948 [main] INFO  - Schema: SRV_ROC_CUSTOMER_SUPPORT_DIS
+2024-04-17 16:40:20.948 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_CUSTOMER_SUPPORT_DIS
+2024-04-17 16:40:21.859 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_CUSTOMER_SUPPORT_DIS'
+2024-04-17 16:40:21.859 [main] INFO  - Get 0 table from SRV_ROC_CUSTOMER_SUPPORT_DIS schema of database oracle
+2024-04-17 16:40:21.859 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_CUSTOMER_SUPPORT_DIS
+2024-04-17 16:40:22.558 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_CUSTOMER_SUPPORT_DIS'
+2024-04-17 16:40:22.558 [main] INFO  - Get 0 table from SRV_ROC_CUSTOMER_SUPPORT_DIS schema of database mysql
+2024-04-17 16:40:22.558 [main] INFO  - Schema: SRV_ROC_FINANCIAL_ASSISTANCE
+2024-04-17 16:40:22.558 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_FINANCIAL_ASSISTANCE
+2024-04-17 16:40:23.519 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_FINANCIAL_ASSISTANCE'
+2024-04-17 16:40:23.519 [main] INFO  - Get 0 table from SRV_ROC_FINANCIAL_ASSISTANCE schema of database oracle
+2024-04-17 16:40:23.520 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_FINANCIAL_ASSISTANCE
+2024-04-17 16:40:24.196 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_FINANCIAL_ASSISTANCE'
+2024-04-17 16:40:24.196 [main] INFO  - Get 0 table from SRV_ROC_FINANCIAL_ASSISTANCE schema of database mysql
+2024-04-17 16:40:24.197 [main] INFO  - Schema: SRV_ROC_GENERAL_INSURANCE
+2024-04-17 16:40:24.197 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_GENERAL_INSURANCE
+2024-04-17 16:40:25.149 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_GENERAL_INSURANCE'
+2024-04-17 16:40:25.149 [main] INFO  - Get 0 table from SRV_ROC_GENERAL_INSURANCE schema of database oracle
+2024-04-17 16:40:25.149 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_GENERAL_INSURANCE
+2024-04-17 16:40:25.838 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_GENERAL_INSURANCE'
+2024-04-17 16:40:25.838 [main] INFO  - Get 0 table from SRV_ROC_GENERAL_INSURANCE schema of database mysql
+2024-04-17 16:40:25.839 [main] INFO  - Schema: SRV_ROC_IADVISORY
+2024-04-17 16:40:25.839 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_IADVISORY
+2024-04-17 16:40:26.764 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_IADVISORY'
+2024-04-17 16:40:26.765 [main] INFO  - Get 0 table from SRV_ROC_IADVISORY schema of database oracle
+2024-04-17 16:40:26.765 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_IADVISORY
+2024-04-17 16:40:29.725 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_IADVISORY'
+2024-04-17 16:40:29.725 [main] INFO  - Get 0 table from SRV_ROC_IADVISORY schema of database mysql
+2024-04-17 16:40:29.726 [main] INFO  - Schema: SRV_ROC_LOYALTY_DIS
+2024-04-17 16:40:29.726 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_LOYALTY_DIS
+2024-04-17 16:40:30.675 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_LOYALTY_DIS'
+2024-04-17 16:40:30.676 [main] INFO  - Get 0 table from SRV_ROC_LOYALTY_DIS schema of database oracle
+2024-04-17 16:40:30.676 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_LOYALTY_DIS
+2024-04-17 16:40:31.359 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_LOYALTY_DIS'
+2024-04-17 16:40:31.359 [main] INFO  - Get 0 table from SRV_ROC_LOYALTY_DIS schema of database mysql
+2024-04-17 16:40:31.359 [main] INFO  - Schema: SRV_ROC_MERCHANT_DIS
+2024-04-17 16:40:31.359 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_MERCHANT_DIS
+2024-04-17 16:40:32.279 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_MERCHANT_DIS'
+2024-04-17 16:40:32.279 [main] INFO  - Get 0 table from SRV_ROC_MERCHANT_DIS schema of database oracle
+2024-04-17 16:40:32.279 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_MERCHANT_DIS
+2024-04-17 16:40:32.952 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_MERCHANT_DIS'
+2024-04-17 16:40:32.952 [main] INFO  - Get 0 table from SRV_ROC_MERCHANT_DIS schema of database mysql
+2024-04-17 16:40:32.952 [main] INFO  - Schema: SRV_ROC_NFC_DIS
+2024-04-17 16:40:32.952 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_NFC_DIS
+2024-04-17 16:40:33.863 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_NFC_DIS'
+2024-04-17 16:40:33.863 [main] INFO  - Get 5 table from SRV_ROC_NFC_DIS schema of database oracle
+2024-04-17 16:40:33.863 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_NFC_DIS
+2024-04-17 16:40:34.583 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_NFC_DIS'
+2024-04-17 16:40:34.583 [main] INFO  - Get 5 table from SRV_ROC_NFC_DIS schema of database mysql
+2024-04-17 16:40:34.583 [main] INFO  - Schema: SRV_ROC_PDMS_SERVICE
+2024-04-17 16:40:34.583 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_PDMS_SERVICE
+2024-04-17 16:40:35.521 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_PDMS_SERVICE'
+2024-04-17 16:40:35.522 [main] INFO  - Get 0 table from SRV_ROC_PDMS_SERVICE schema of database oracle
+2024-04-17 16:40:35.522 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_PDMS_SERVICE
+2024-04-17 16:40:36.171 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_PDMS_SERVICE'
+2024-04-17 16:40:36.171 [main] INFO  - Get 0 table from SRV_ROC_PDMS_SERVICE schema of database mysql
+2024-04-17 16:40:36.172 [main] INFO  - Schema: SRV_ROC_TCBPAY
+2024-04-17 16:40:36.172 [main] INFO  - Getting table list from database oracle with schema: SRV_ROC_TCBPAY
+2024-04-17 16:40:37.162 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'SRV_ROC_TCBPAY'
+2024-04-17 16:40:37.163 [main] INFO  - Get 8 table from SRV_ROC_TCBPAY schema of database oracle
+2024-04-17 16:40:37.163 [main] INFO  - Getting table list from database mysql with schema: SRV_ROC_TCBPAY
+2024-04-17 16:40:37.882 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'SRV_ROC_TCBPAY'
+2024-04-1
