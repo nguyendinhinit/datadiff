@@ -11183,3 +11183,298 @@
 2024-04-17 14:44:55.019 [main] INFO  - Validate data type with Source Type:VARCHAR2, Desc type: VARCHAR Status: TRUE
 2024-04-17 14:44:55.019 [main] INFO  - Write to report.csv
 2024-04-17 14:44:55.099 [main] INFO  - Application ended
+2024-04-17 16:38:00.507 [main] INFO  - Application started
+2024-04-17 16:38:00.508 [main] INFO  - Start reading properties file: application.properties
+2024-04-17 16:38:00.508 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-17 16:38:00.508 [main] INFO  - Properties file read successfully
+2024-04-17 16:38:00.511 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-17 16:38:00.511 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-17 16:38:01.674 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-17 16:38:01.674 [main] INFO  - File exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-17 16:38:01.674 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-17 16:38:01.674 [main] INFO  - Schema: CX6_AUDITING
+2024-04-17 16:38:01.674 [main] INFO  - Getting table list from database oracle with schema: CX6_AUDITING
+2024-04-17 16:38:02.717 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CX6_AUDITING'
+2024-04-17 16:38:02.717 [main] INFO  - Get 0 table from CX6_AUDITING schema of database oracle
+2024-04-17 16:38:02.718 [main] INFO  - Getting table list from database mysql with schema: CX6_AUDITING
+2024-04-17 16:38:03.565 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CX6_AUDITING'
+2024-04-17 16:38:03.565 [main] INFO  - Get 3 table from CX6_AUDITING schema of database mysql
+2024-04-17 16:38:03.566 [main] INFO  - Source Tables: {CX6_AUDITING=[]}
+2024-04-17 16:38:03.566 [main] INFO  - Desc Tables: {CX6_AUDITING=[CX6_AUDITING.AUDIT_EVENTS, CX6_AUDITING.DATABASECHANGELOG, CX6_AUDITING.DATABASECHANGELOGLOCK]}
+2024-04-17 16:38:03.566 [main] INFO  - Missing Table: []
+2024-04-17 16:38:03.566 [main] INFO  - Table List: []
+2024-04-17 16:38:03.566 [main] INFO  - Schema: CX6_AUDITING
+2024-04-17 16:38:03.566 [main] INFO  - Getting table list from database oracle with schema: CX6_AUDITING
+2024-04-17 16:38:04.449 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CX6_AUDITING'
+2024-04-17 16:38:04.450 [main] INFO  - Get 0 table from CX6_AUDITING schema of database oracle
+2024-04-17 16:38:04.450 [main] INFO  - Getting table list from database mysql with schema: CX6_AUDITING
+2024-04-17 16:38:05.146 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CX6_AUDITING'
+2024-04-17 16:38:05.147 [main] INFO  - Get 3 table from CX6_AUDITING schema of database mysql
+2024-04-17 16:38:05.147 [main] INFO  - Source Tables: {CX6_AUDITING=[CX6_AUDITING.AUDIT_EVENTS, CX6_AUDITING.DATABASECHANGELOG, CX6_AUDITING.DATABASECHANGELOGLOCK]}
+2024-04-17 16:38:05.147 [main] INFO  - Desc Tables: {CX6_AUDITING=[]}
+2024-04-17 16:38:05.147 [main] INFO  - Missing Table: []
+2024-04-17 16:38:05.147 [main] INFO  - Table List: []
+2024-04-17 16:38:05.148 [main] INFO  - Starting compare table : ARRANGEMENT_GROUP at schema: PAYMENT_ORDER
+2024-04-17 16:38:06.598 [main] INFO  - Start get table metadata from source database
+2024-04-17 16:38:06.759 [main] INFO  - Start get table metadata from desc database
+2024-04-17 16:38:06.827 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' AND TABLE_NAME = 'ARRANGEMENT_GROUP' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-17 16:38:07.717 [main] INFO  - append: schema: PAYMENT_ORDER, tbl: ARRANGEMENT_GROUP, source col name: ARRANGEMENT_ID, source data type: VARCHAR2, source length: 36, source percision: null, source scale: null, source nullable: N, source data default: null, source pk: PRI, desc col name: ARRANGEMENT_ID, desc data type:varchar, desc len: 36, desc precision: null, desc scale: null, desc nullable: N, desc key: PRI, desc data defaultnull
+2024-04-17 16:38:07.718 [main] INFO  - Validate data type with Source Type:VARCHAR2, Desc type: VARCHAR Status: TRUE
+2024-04-17 16:38:07.718 [main] INFO  - Write to report.csv
+2024-04-17 16:38:08.671 [main] INFO  - append: schema: PAYMENT_ORDER, tbl: ARRANGEMENT_GROUP, source col name: GROUP_ID, source data type: NUMBER, source length: 22, source percision: 38, source scale: 0, source nullable: N, source data default: null, source pk: PRI, desc col name: GROUP_ID, desc data type:bigint, desc len: null, desc precision: 19, desc scale: 0, desc nullable: N, desc key: PRI, desc data defaultnull
+2024-04-17 16:38:08.671 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: BIGINT Status: FALSE
+2024-04-17 16:38:08.671 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: BIGINT Status: FALSE
+2024-04-17 16:38:08.671 [main] INFO  - Write to report.csv
+2024-04-17 16:38:09.678 [main] INFO  - append: schema: PAYMENT_ORDER, tbl: ARRANGEMENT_GROUP, source col name: PMT_TYPE, source data type: VARCHAR2, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: null, source pk: PRI, desc col name: PMT_TYPE, desc data type:varchar, desc len: 22, desc precision: null, desc scale: null, desc nullable: N, desc key: PRI, desc data defaultnull
+2024-04-17 16:38:09.679 [main] INFO  - Validate data type with Source Type:VARCHAR2, Desc type: VARCHAR Status: TRUE
+2024-04-17 16:38:09.679 [main] INFO  - Write to report.csv
+2024-04-17 16:38:09.743 [main] INFO  - Starting compare table : PMT_TXN_ADD_PROP at schema: PAYMENT_ORDER
+2024-04-17 16:38:11.179 [main] INFO  - Start get table metadata from source database
+2024-04-17 16:38:11.356 [main] INFO  - Start get table metadata from desc database
+2024-04-17 16:38:11.427 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN_ADD_PROP' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-17 16:38:12.341 [main] INFO  - append: schema: PAYMENT_ORDER, tbl: PMT_TXN_ADD_PROP, source col name: PROPERTY_KEY, source data type: VARCHAR2, source length: 50, source percision: null, source scale: null, source nullable: N, source data default: null, source pk: PRI, desc col name: PROPERTY_KEY, desc data type:varchar, desc len: 50, desc precision: null, desc scale: null, desc nullable: N, desc key: PRI, desc data defaultnull
+2024-04-17 16:38:12.342 [main] INFO  - Validate data type with Source Type:VARCHAR2, Desc type: VARCHAR Status: TRUE
+2024-04-17 16:38:12.342 [main] INFO  - Write to report.csv
+2024-04-17 16:38:13.316 [main] INFO  - append: schema: PAYMENT_ORDER, tbl: PMT_TXN_ADD_PROP, source col name: PROPERTY_VALUE, source data type: CLOB, source length: 4000, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , desc col name: PROPERTY_VALUE, desc data type:longtext, desc len: 4294967295, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc data defaultnull
+2024-04-17 16:38:13.316 [main] INFO  - Validate data type with Source Type:CLOB, Desc type: LONGTEXT Status: TRUE
+2024-04-17 16:38:13.316 [main] INFO  - Write to report.csv
+2024-04-17 16:38:14.338 [main] INFO  - append: schema: PAYMENT_ORDER, tbl: PMT_TXN_ADD_PROP, source col name: TXN_ID, source data type: VARCHAR2, source length: 36, source percision: null, source scale: null, source nullable: N, source data default: null, source pk: PRI, desc col name: TXN_ID, desc data type:varchar, desc len: 36, desc precision: null, desc scale: null, desc nullable: N, desc key: PRI, desc data defaultnull
+2024-04-17 16:38:14.339 [main] INFO  - Validate data type with Source Type:VARCHAR2, Desc type: VARCHAR Status: TRUE
+2024-04-17 16:38:14.340 [main] INFO  - Write to report.csv
+2024-04-17 16:38:14.401 [main] INFO  - Application ended
+2024-04-17 16:38:20.010 [main] INFO  - Application started
+2024-04-17 16:38:20.012 [main] INFO  - Start reading properties file: application.properties
+2024-04-17 16:38:20.012 [main] INFO  - Current path: /Users/nguyennd/Project/Java/datadiff
+2024-04-17 16:38:20.012 [main] INFO  - Properties file read successfully
+2024-04-17 16:38:20.014 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-17 16:38:20.014 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-17 16:38:21.197 [main] INFO  - Checking file exist: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-17 16:38:21.197 [main] INFO  - File not exist at the path: /Users/nguyennd/Project/Java/datadiff/schemas.txt
+2024-04-17 16:38:22.121 [main] INFO  - Retrieve 122 schema from oracle and write to schemas.txt file, Connection closed
+2024-04-17 16:38:22.124 [main] INFO  - Schema: ACCESSCONTROL_PANDP
+2024-04-17 16:38:22.124 [main] INFO  - Getting table list from database oracle with schema: ACCESSCONTROL_PANDP
+2024-04-17 16:38:23.078 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'ACCESSCONTROL_PANDP'
+2024-04-17 16:38:23.079 [main] INFO  - Get 0 table from ACCESSCONTROL_PANDP schema of database oracle
+2024-04-17 16:38:23.079 [main] INFO  - Getting table list from database mysql with schema: ACCESSCONTROL_PANDP
+2024-04-17 16:38:23.917 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'ACCESSCONTROL_PANDP'
+2024-04-17 16:38:23.918 [main] INFO  - Get 0 table from ACCESSCONTROL_PANDP schema of database mysql
+2024-04-17 16:38:23.918 [main] INFO  - Schema: ACTION
+2024-04-17 16:38:23.918 [main] INFO  - Getting table list from database oracle with schema: ACTION
+2024-04-17 16:38:24.801 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'ACTION'
+2024-04-17 16:38:24.801 [main] INFO  - Get 0 table from ACTION schema of database oracle
+2024-04-17 16:38:24.802 [main] INFO  - Getting table list from database mysql with schema: ACTION
+2024-04-17 16:38:25.462 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'ACTION'
+2024-04-17 16:38:25.464 [main] INFO  - Get 17 table from ACTION schema of database mysql
+2024-04-17 16:38:25.464 [main] INFO  - Schema: ANONYMOUS
+2024-04-17 16:38:25.464 [main] INFO  - Getting table list from database oracle with schema: ANONYMOUS
+2024-04-17 16:38:26.356 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'ANONYMOUS'
+2024-04-17 16:38:26.356 [main] INFO  - Get 0 table from ANONYMOUS schema of database oracle
+2024-04-17 16:38:26.356 [main] INFO  - Getting table list from database mysql with schema: ANONYMOUS
+2024-04-17 16:38:27.076 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'ANONYMOUS'
+2024-04-17 16:38:27.077 [main] INFO  - Get 0 table from ANONYMOUS schema of database mysql
+2024-04-17 16:38:27.077 [main] INFO  - Schema: APPQOSSYS
+2024-04-17 16:38:27.077 [main] INFO  - Getting table list from database oracle with schema: APPQOSSYS
+2024-04-17 16:38:27.996 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'APPQOSSYS'
+2024-04-17 16:38:27.997 [main] INFO  - Get 5 table from APPQOSSYS schema of database oracle
+2024-04-17 16:38:27.997 [main] INFO  - Getting table list from database mysql with schema: APPQOSSYS
+2024-04-17 16:38:28.597 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'APPQOSSYS'
+2024-04-17 16:38:28.597 [main] INFO  - Get 0 table from APPQOSSYS schema of database mysql
+2024-04-17 16:38:28.597 [main] INFO  - Schema: APPROVAL_SERVICE
+2024-04-17 16:38:28.598 [main] INFO  - Getting table list from database oracle with schema: APPROVAL_SERVICE
+2024-04-17 16:38:29.477 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'APPROVAL_SERVICE'
+2024-04-17 16:38:29.555 [main] INFO  - Get 13 table from APPROVAL_SERVICE schema of database oracle
+2024-04-17 16:38:29.555 [main] INFO  - Getting table list from database mysql with schema: APPROVAL_SERVICE
+2024-04-17 16:38:30.248 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'APPROVAL_SERVICE'
+2024-04-17 16:38:30.249 [main] INFO  - Get 14 table from APPROVAL_SERVICE schema of database mysql
+2024-04-17 16:38:30.250 [main] INFO  - Schema: ARRANGEMENT_MANAGER
+2024-04-17 16:38:30.250 [main] INFO  - Getting table list from database oracle with schema: ARRANGEMENT_MANAGER
+2024-04-17 16:38:31.203 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'ARRANGEMENT_MANAGER'
+2024-04-17 16:38:31.343 [main] INFO  - Get 23 table from ARRANGEMENT_MANAGER schema of database oracle
+2024-04-17 16:38:31.344 [main] INFO  - Getting table list from database mysql with schema: ARRANGEMENT_MANAGER
+2024-04-17 16:38:31.944 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'ARRANGEMENT_MANAGER'
+2024-04-17 16:38:31.945 [main] INFO  - Get 0 table from ARRANGEMENT_MANAGER schema of database mysql
+2024-04-17 16:38:31.946 [main] INFO  - Schema: AUDIT_PERSISTENCE
+2024-04-17 16:38:31.946 [main] INFO  - Getting table list from database oracle with schema: AUDIT_PERSISTENCE
+2024-04-17 16:38:32.906 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'AUDIT_PERSISTENCE'
+2024-04-17 16:38:32.907 [main] INFO  - Get 7 table from AUDIT_PERSISTENCE schema of database oracle
+2024-04-17 16:38:32.908 [main] INFO  - Getting table list from database mysql with schema: AUDIT_PERSISTENCE
+2024-04-17 16:38:33.545 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'AUDIT_PERSISTENCE'
+2024-04-17 16:38:33.546 [main] INFO  - Get 5 table from AUDIT_PERSISTENCE schema of database mysql
+2024-04-17 16:38:33.546 [main] INFO  - Schema: AUDSYS
+2024-04-17 16:38:33.547 [main] INFO  - Getting table list from database oracle with schema: AUDSYS
+2024-04-17 16:38:34.396 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'AUDSYS'
+2024-04-17 16:38:34.397 [main] INFO  - Get 1 table from AUDSYS schema of database oracle
+2024-04-17 16:38:34.397 [main] INFO  - Getting table list from database mysql with schema: AUDSYS
+2024-04-17 16:38:35.026 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'AUDSYS'
+2024-04-17 16:38:35.028 [main] INFO  - Get 0 table from AUDSYS schema of database mysql
+2024-04-17 16:38:35.028 [main] INFO  - Schema: BACKBASE_IDENTITY
+2024-04-17 16:38:35.028 [main] INFO  - Getting table list from database oracle with schema: BACKBASE_IDENTITY
+2024-04-17 16:38:36.005 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'BACKBASE_IDENTITY'
+2024-04-17 16:38:36.764 [main] INFO  - Get 105 table from BACKBASE_IDENTITY schema of database oracle
+2024-04-17 16:38:36.765 [main] INFO  - Getting table list from database mysql with schema: BACKBASE_IDENTITY
+2024-04-17 16:38:37.424 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'BACKBASE_IDENTITY'
+2024-04-17 16:38:37.424 [main] INFO  - Get 0 table from BACKBASE_IDENTITY schema of database mysql
+2024-04-17 16:38:37.425 [main] INFO  - Schema: CARDLESS_WITHDRAWAL
+2024-04-17 16:38:37.425 [main] INFO  - Getting table list from database oracle with schema: CARDLESS_WITHDRAWAL
+2024-04-17 16:38:38.300 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CARDLESS_WITHDRAWAL'
+2024-04-17 16:38:38.301 [main] INFO  - Get 3 table from CARDLESS_WITHDRAWAL schema of database oracle
+2024-04-17 16:38:38.301 [main] INFO  - Getting table list from database mysql with schema: CARDLESS_WITHDRAWAL
+2024-04-17 16:38:38.998 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CARDLESS_WITHDRAWAL'
+2024-04-17 16:38:38.999 [main] INFO  - Get 0 table from CARDLESS_WITHDRAWAL schema of database mysql
+2024-04-17 16:38:39.000 [main] INFO  - Schema: CATEGORIZE_TXN
+2024-04-17 16:38:39.000 [main] INFO  - Getting table list from database oracle with schema: CATEGORIZE_TXN
+2024-04-17 16:38:39.906 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CATEGORIZE_TXN'
+2024-04-17 16:38:39.907 [main] INFO  - Get 3 table from CATEGORIZE_TXN schema of database oracle
+2024-04-17 16:38:39.908 [main] INFO  - Getting table list from database mysql with schema: CATEGORIZE_TXN
+2024-04-17 16:38:40.598 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CATEGORIZE_TXN'
+2024-04-17 16:38:40.599 [main] INFO  - Get 5 table from CATEGORIZE_TXN schema of database mysql
+2024-04-17 16:38:40.599 [main] INFO  - Schema: CONFIRMATION
+2024-04-17 16:38:40.599 [main] INFO  - Getting table list from database oracle with schema: CONFIRMATION
+2024-04-17 16:38:41.559 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CONFIRMATION'
+2024-04-17 16:38:41.560 [main] INFO  - Get 3 table from CONFIRMATION schema of database oracle
+2024-04-17 16:38:41.560 [main] INFO  - Getting table list from database mysql with schema: CONFIRMATION
+2024-04-17 16:38:42.277 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CONFIRMATION'
+2024-04-17 16:38:42.278 [main] INFO  - Get 0 table from CONFIRMATION schema of database mysql
+2024-04-17 16:38:42.278 [main] INFO  - Schema: CONTACT_MANAGER
+2024-04-17 16:38:42.279 [main] INFO  - Getting table list from database oracle with schema: CONTACT_MANAGER
+2024-04-17 16:38:43.197 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CONTACT_MANAGER'
+2024-04-17 16:38:43.197 [main] INFO  - Get 8 table from CONTACT_MANAGER schema of database oracle
+2024-04-17 16:38:43.198 [main] INFO  - Getting table list from database mysql with schema: CONTACT_MANAGER
+2024-04-17 16:38:43.923 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CONTACT_MANAGER'
+2024-04-17 16:38:43.924 [main] INFO  - Get 1 table from CONTACT_MANAGER schema of database mysql
+2024-04-17 16:38:43.924 [main] INFO  - Schema: CTXSYS
+2024-04-17 16:38:43.924 [main] INFO  - Getting table list from database oracle with schema: CTXSYS
+2024-04-17 16:38:44.837 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CTXSYS'
+2024-04-17 16:38:45.236 [main] INFO  - Get 53 table from CTXSYS schema of database oracle
+2024-04-17 16:38:45.237 [main] INFO  - Getting table list from database mysql with schema: CTXSYS
+2024-04-17 16:38:45.946 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CTXSYS'
+2024-04-17 16:38:45.946 [main] INFO  - Get 0 table from CTXSYS schema of database mysql
+2024-04-17 16:38:45.946 [main] INFO  - Schema: CUSTOMER_ENROLL_MANAGER
+2024-04-17 16:38:45.946 [main] INFO  - Getting table list from database oracle with schema: CUSTOMER_ENROLL_MANAGER
+2024-04-17 16:38:46.898 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CUSTOMER_ENROLL_MANAGER'
+2024-04-17 16:38:46.961 [main] INFO  - Get 15 table from CUSTOMER_ENROLL_MANAGER schema of database oracle
+2024-04-17 16:38:46.962 [main] INFO  - Getting table list from database mysql with schema: CUSTOMER_ENROLL_MANAGER
+2024-04-17 16:38:47.611 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CUSTOMER_ENROLL_MANAGER'
+2024-04-17 16:38:47.612 [main] INFO  - Get 0 table from CUSTOMER_ENROLL_MANAGER schema of database mysql
+2024-04-17 16:38:47.613 [main] INFO  - Schema: CX6_AUDITING
+2024-04-17 16:38:47.613 [main] INFO  - Getting table list from database oracle with schema: CX6_AUDITING
+2024-04-17 16:38:50.956 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CX6_AUDITING'
+2024-04-17 16:38:50.956 [main] INFO  - Get 0 table from CX6_AUDITING schema of database oracle
+2024-04-17 16:38:50.956 [main] INFO  - Getting table list from database mysql with schema: CX6_AUDITING
+2024-04-17 16:38:51.650 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CX6_AUDITING'
+2024-04-17 16:38:51.651 [main] INFO  - Get 3 table from CX6_AUDITING schema of database mysql
+2024-04-17 16:38:51.651 [main] INFO  - Schema: CX6_CONTENTSERVICES
+2024-04-17 16:38:51.652 [main] INFO  - Getting table list from database oracle with schema: CX6_CONTENTSERVICES
+2024-04-17 16:38:52.595 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CX6_CONTENTSERVICES'
+2024-04-17 16:38:52.596 [main] INFO  - Get 9 table from CX6_CONTENTSERVICES schema of database oracle
+2024-04-17 16:38:52.596 [main] INFO  - Getting table list from database mysql with schema: CX6_CONTENTSERVICES
+2024-04-17 16:38:53.303 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CX6_CONTENTSERVICES'
+2024-04-17 16:38:53.307 [main] INFO  - Get 0 table from CX6_CONTENTSERVICES schema of database mysql
+2024-04-17 16:38:53.307 [main] INFO  - Schema: CX6_PORTAL
+2024-04-17 16:38:53.307 [main] INFO  - Getting table list from database oracle with schema: CX6_PORTAL
+2024-04-17 16:38:54.279 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CX6_PORTAL'
+2024-04-17 16:38:54.359 [main] INFO  - Get 15 table from CX6_PORTAL schema of database oracle
+2024-04-17 16:38:54.360 [main] INFO  - Getting table list from database mysql with schema: CX6_PORTAL
+2024-04-17 16:38:55.006 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CX6_PORTAL'
+2024-04-17 16:38:55.006 [main] INFO  - Get 0 table from CX6_PORTAL schema of database mysql
+2024-04-17 16:38:55.007 [main] INFO  - Schema: CX6_PROVISIONING
+2024-04-17 16:38:55.007 [main] INFO  - Getting table list from database oracle with schema: CX6_PROVISIONING
+2024-04-17 16:38:55.973 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CX6_PROVISIONING'
+2024-04-17 16:38:56.041 [main] INFO  - Get 10 table from CX6_PROVISIONING schema of database oracle
+2024-04-17 16:38:56.041 [main] INFO  - Getting table list from database mysql with schema: CX6_PROVISIONING
+2024-04-17 16:38:56.742 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CX6_PROVISIONING'
+2024-04-17 16:38:56.742 [main] INFO  - Get 10 table from CX6_PROVISIONING schema of database mysql
+2024-04-17 16:38:56.743 [main] INFO  - Schema: CX6_PUSH_INTEGRATION
+2024-04-17 16:38:56.743 [main] INFO  - Getting table list from database oracle with schema: CX6_PUSH_INTEGRATION
+2024-04-17 16:38:57.608 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CX6_PUSH_INTEGRATION'
+2024-04-17 16:38:57.609 [main] INFO  - Get 0 table from CX6_PUSH_INTEGRATION schema of database oracle
+2024-04-17 16:38:57.609 [main] INFO  - Getting table list from database mysql with schema: CX6_PUSH_INTEGRATION
+2024-04-17 16:38:58.328 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CX6_PUSH_INTEGRATION'
+2024-04-17 16:38:58.329 [main] INFO  - Get 3 table from CX6_PUSH_INTEGRATION schema of database mysql
+2024-04-17 16:38:58.329 [main] INFO  - Schema: DATAARC
+2024-04-17 16:38:58.330 [main] INFO  - Getting table list from database oracle with schema: DATAARC
+2024-04-17 16:38:59.194 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'DATAARC'
+2024-04-17 16:38:59.195 [main] INFO  - Get 0 table from DATAARC schema of database oracle
+2024-04-17 16:38:59.195 [main] INFO  - Getting table list from database mysql with schema: DATAARC
+2024-04-17 16:38:59.886 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'DATAARC'
+2024-04-17 16:38:59.887 [main] INFO  - Get 0 table from DATAARC schema of database mysql
+2024-04-17 16:38:59.887 [main] INFO  - Schema: DBSFWUSER
+2024-04-17 16:38:59.887 [main] INFO  - Getting table list from database oracle with schema: DBSFWUSER
+2024-04-17 16:39:00.765 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'DBSFWUSER'
+2024-04-17 16:39:00.766 [main] INFO  - Get 3 table from DBSFWUSER schema of database oracle
+2024-04-17 16:39:00.766 [main] INFO  - Getting table list from database mysql with schema: DBSFWUSER
+2024-04-17 16:39:01.421 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'DBSFWUSER'
+2024-04-17 16:39:01.421 [main] INFO  - Get 0 table from DBSFWUSER schema of database mysql
+2024-04-17 16:39:01.421 [main] INFO  - Schema: DBSNMP
+2024-04-17 16:39:01.421 [main] INFO  - Getting table list from database oracle with schema: DBSNMP
+2024-04-17 16:39:02.315 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'DBSNMP'
+2024-04-17 16:39:02.445 [main] INFO  - Get 20 table from DBSNMP schema of database oracle
+2024-04-17 16:39:02.446 [main] INFO  - Getting table list from database mysql with schema: DBSNMP
+2024-04-17 16:39:03.165 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'DBSNMP'
+2024-04-17 16:39:03.166 [main] INFO  - Get 0 table from DBSNMP schema of database mysql
+2024-04-17 16:39:03.166 [main] INFO  - Schema: DEVICE_MANAGEMENT
+2024-04-17 16:39:03.166 [main] INFO  - Getting table list from database oracle with schema: DEVICE_MANAGEMENT
+2024-04-17 16:39:04.148 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'DEVICE_MANAGEMENT'
+2024-04-17 16:39:04.149 [main] INFO  - Get 5 table from DEVICE_MANAGEMENT schema of database oracle
+2024-04-17 16:39:04.150 [main] INFO  - Getting table list from database mysql with schema: DEVICE_MANAGEMENT
+2024-04-17 16:39:04.838 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'DEVICE_MANAGEMENT'
+2024-04-17 16:39:04.839 [main] INFO  - Get 0 table from DEVICE_MANAGEMENT schema of database mysql
+2024-04-17 16:39:04.839 [main] INFO  - Schema: DEVICE_MANAGEMENT_ADDITIONAL_DATA
+2024-04-17 16:39:04.840 [main] INFO  - Getting table list from database oracle with schema: DEVICE_MANAGEMENT_ADDITIONAL_DATA
+2024-04-17 16:39:05.794 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'DEVICE_MANAGEMENT_ADDITIONAL_DATA'
+2024-04-17 16:39:05.795 [main] INFO  - Get 3 table from DEVICE_MANAGEMENT_ADDITIONAL_DATA schema of database oracle
+2024-04-17 16:39:05.796 [main] INFO  - Getting table list from database mysql with schema: DEVICE_MANAGEMENT_ADDITIONAL_DATA
+2024-04-17 16:39:06.464 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'DEVICE_MANAGEMENT_ADDITIONAL_DATA'
+2024-04-17 16:39:06.465 [main] INFO  - Get 4 table from DEVICE_MANAGEMENT_ADDITIONAL_DATA schema of database mysql
+2024-04-17 16:39:06.466 [main] INFO  - Schema: DIP
+2024-04-17 16:39:06.466 [main] INFO  - Getting table list from database oracle with schema: DIP
+2024-04-17 16:39:07.420 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'DIP'
+2024-04-17 16:39:07.420 [main] INFO  - Get 0 table from DIP schema of database oracle
+2024-04-17 16:39:07.420 [main] INFO  - Getting table list from database mysql with schema: DIP
+2024-04-17 16:39:08.078 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'DIP'
+2024-04-17 16:39:08.079 [main] INFO  - Get 0 table from DIP schema of database mysql
+2024-04-17 16:39:08.079 [main] INFO  - Schema: DVF
+2024-04-17 16:39:08.079 [main] INFO  - Getting table list from database oracle with schema: DVF
+2024-04-17 16:39:08.965 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'DVF'
+2024-04-17 16:39:08.966 [main] INFO  - Get 0 table from DVF schema of database oracle
+2024-04-17 16:39:08.966 [main] INFO  - Getting table list from database mysql with schema: DVF
+2024-04-17 16:39:09.680 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'DVF'
+2024-04-17 16:39:09.681 [main] INFO  - Get 0 table from DVF schema of database mysql
+2024-04-17 16:39:09.682 [main] INFO  - Schema: DVSYS
+2024-04-17 16:39:09.682 [main] INFO  - Getting table list from database oracle with schema: DVSYS
+2024-04-17 16:39:10.628 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'DVSYS'
+2024-04-17 16:39:10.959 [main] INFO  - Get 44 table from DVSYS schema of database oracle
+2024-04-17 16:39:10.960 [main] INFO  - Getting table list from database mysql with schema: DVSYS
+2024-04-17 16:39:11.665 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'DVSYS'
+2024-04-17 16:39:11.667 [main] INFO  - Get 0 table from DVSYS schema of database mysql
+2024-04-17 16:39:11.667 [main] INFO  - Schema: EMPLOYEE_MANAGEMENT
+2024-04-17 16:39:11.667 [main] INFO  - Getting table list from database oracle with schema: EMPLOYEE_MANAGEMENT
+2024-04-17 16:39:12.611 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'EMPLOYEE_MANAGEMENT'
+2024-04-17 16:39:12.612 [main] INFO  - Get 3 table from EMPLOYEE_MANAGEMENT schema of database oracle
+2024-04-17 16:39:12.612 [main] INFO  - Getting table list from database mysql with schema: EMPLOYEE_MANAGEMENT
+2024-04-17 16:39:13.359 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'EMPLOYEE_MANAGEMENT'
+2024-04-17 16:39:13.360 [main] INFO  - Get 5 table from EMPLOYEE_MANAGEMENT schema of database mysql
+2024-04-17 16:39:13.360 [main] INFO  - Schema: FIDO
+2024-04-17 16:39:13.360 [main] INFO  - Getting table list from database oracle with schema: FIDO
+2024-04-17 16:39:14.317 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'FIDO'
+2024-04-17 16:39:14.318 [main] INFO  - Get 8 table from FIDO schema of database oracle
+2024-04-17 16:39:14.318 [main] INFO  - Getting table list from database mysql with schema: FIDO
+2024-04-17 16:39:15.002 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'FIDO'
+2024-04-17 16:39:15.002 [main] INFO  - Get 0 table from FIDO schema of database mysql
+2024-04-17 16:39:15.002 [main] INFO  - Schema: GGADMIN
+2024-04-17 16:39:15.002 [main] INFO  - Getting table list from database oracle with schema: GGADMIN
+2024-04-17 16:39:15.925 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'GGADMIN'
+2024-04-17 16:39:16.077 [main] INFO  - Get 26 table from GGADMIN schema of database oracle
+2024-04-17 16:39:16.078 [main] INFO  - Getting table list from database mysql with schema: GGADMIN
+2024-04-17 16:39:16.768 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'GGADMIN'
+2024-04-17 16:39:16.769 [main] INFO  - Get 1 table from GGADMIN schema of database mysql
+2024-04-17 16:39:16.769 [main] INFO  - Schema: GGSYS
+2024-04-17 16:39:16.769 [main] INFO  - Getting table list from database oracle with schema: GGSYS
+2024-04-17 16:39:17.678 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'GGSYS'
+2024-04-17 16:39:17.679 [main] INFO  - Get 0 table from GGSYS schema of database oracle
+2024-04-17 16:39:17.679 [main] INFO  - Getting table list from database mysql with schema: GGSYS
+2024-04-17 16:39:18.317 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'GGSYS'
+2024-04-17 16:39:18.318 [main] INFO  - Get 0 table from GGSYS schema of database mysql
+2024-04-17 16:39:18.318 [main] INFO  - Schema: GSMADMIN_INTERNAL
+2024-04-17 16:39:18.318 [main] INFO  - Getting table list from database oracle with schema: GSMADMIN_INTERNAL
+2024-04-17 16:39:19.250 [main] INFO  - Executing query: SELECT table_name FROM all_tables W

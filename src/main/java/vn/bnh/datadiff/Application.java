@@ -42,19 +42,18 @@ public class Application {
         log4j.info("Properties: " + informationMap);
 
         //Save the schema list to a file
-        /*Todo: Uncoment when build the application
-       queryController.getAllSchema(informationMap.get("query"), informationMap.get("source_connection_string"), informationMap.get("source_type"), informationMap.get("source_username"), informationMap.get("source_password"));
-         */
+        queryController.getAllSchema(informationMap.get("query"), informationMap.get("source_connection_string"), informationMap.get("source_type"), informationMap.get("source_username"), informationMap.get("source_password"));
+
 
         //Start comparing the schema between source and destination database
         ArrayList<String> tableList = new ArrayList<>();
-       tableList = validatorController.validateTableList(informationMap,1);
-       validatorController.validateTableList(informationMap,2);
+        tableList = validatorController.validateTableList(informationMap, 1);
+        validatorController.validateTableList(informationMap, 2);
 
 
-       //Create csv report will return a metadata different report between source and destination database
+        //Create csv report will return a metadata different report between source and destination database
 
-        ArrayList<String> test =new ArrayList<>();
+        ArrayList<String> test = new ArrayList<>();
         test.add("PAYMENT_ORDER.ARRANGEMENT_GROUP");
         test.add("PAYMENT_ORDER.PMT_TXN_ADD_PROP");
         for (String table : test) {
