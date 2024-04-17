@@ -28,6 +28,7 @@ public class DatabaseServiceImpl {
     public Statement createConnection(String connection, String username, String password) throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection conn = DriverManager.getConnection(connection, username, password);
             return conn.createStatement();
         } catch (ClassNotFoundException e) {

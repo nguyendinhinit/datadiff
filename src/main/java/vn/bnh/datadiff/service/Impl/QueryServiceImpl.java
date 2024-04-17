@@ -27,6 +27,7 @@ public class QueryServiceImpl implements QueryService {
     @Override
     public ArrayList<String> getTableList(String connectionString, String database, String username, String password, String schema) {
         ArrayList<String> tableList = new ArrayList<>();
+        Statement statement = null;
         String query;
         switch (database) {
             case "mysql":
@@ -34,9 +35,9 @@ public class QueryServiceImpl implements QueryService {
                 log4j.info("Getting table list from database " + database + " with schema: " + schema);
                 try {
                     int tableCount = 0;
-                    Statement statement = databaseServiceImpl.connectToDatabase(connectionString, username, password);
-                    ResultSet resultSet = statement.executeQuery(query + "'" + schema.toUpperCase(Locale.ROOT) + "'");
-                    log4j.info("Executing query: " + query + "'" + schema.toUpperCase(Locale.ROOT) + "'");
+                    statement = databaseServiceImpl.connectToDatabase(connectionString, username, password);
+                    ResultSet resultSet = statement.executeQuery(query + "'" + schema.toUpperCase() + "'");
+                    log4j.info("Executing query: " + query + "'" + schema.toUpperCase() + "'");
                     if (resultSet != null) {
                         while (resultSet.next()) {
                             String tableName = resultSet.getString("TABLE_NAME");
@@ -44,18 +45,19 @@ public class QueryServiceImpl implements QueryService {
                             tableCount++;
                         }
                         resultSet.close();
-                        log4j.info("Get " + tableCount + " table from " + schema + " schema of database " + database + " successfully");
+                        log4j.info("Get " + tableCount + " table from " + schema + " schema of database " + database);
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+                break;
             case "oracle":
                 query = "SELECT table_name FROM all_tables WHERE owner = ";
                 log4j.info("Getting table list from database " + database + " with schema: " + schema);
 
                 try {
                     int tableCount = 0;
-                    Statement statement = databaseServiceImpl.connectToDatabase(connectionString, username, password);
+                    statement = databaseServiceImpl.connectToDatabase(connectionString, username, password);
                     ResultSet resultSet = statement.executeQuery(query + "'" + schema.toUpperCase(Locale.ROOT) + "'");
                     log4j.info("Executing query: " + query + "'" + schema.toUpperCase(Locale.ROOT) + "'");
                     if (resultSet != null) {
@@ -65,12 +67,17 @@ public class QueryServiceImpl implements QueryService {
                             tableCount++;
                         }
                         resultSet.close();
-                        log4j.info("Get " + tableCount + " table from " + schema + " schema of database " + database + " successfully");
+                        log4j.info("Get " + tableCount + " table from " + schema + " schema of database " + database);
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-
+                break;
+        }
+        try {
+            if (statement != null) statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return tableList;
     }
@@ -362,6 +369,25 @@ public class QueryServiceImpl implements QueryService {
             e.printStackTrace();
         }
         return pK;
+    }
+
+
+    public ArrayList<String> findPk(String tableName, String tableSchema, String connectionString, String username, String password) {
+        Statement statement = databaseServiceImpl.connectToDatabase(connectionString, username, password);
+        String query = "SELECT cols.table_name, cols.column_name, cols.position, cons.status, cons.owner FROM all_constraints cons, all_cons_columns cols WHERE cols.table_name = ('" + tableName + "') AND cons.owner in ('" + tableSchema + "') AND cons.constraint_type in ('P','U') AND cons.constraint_name = cols.constraint_name AND cons.owner = cols.owner ORDER BY cols.table_name";
+
+        try {
+            ResultSet resultSetKey = statement.executeQuery(query);
+            ArrayList pK = new ArrayList();
+            if (resultSetKey == null) return null;
+            while (resultSetKey.next()) {
+                pK.add(resultSetKey.getString("COLUMN_NAME"));
+            }
+            return pK;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
