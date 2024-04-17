@@ -1,3 +1,6 @@
 Manifest-Version: 1.0
 Main-Class: vn.bnh.datadiff.Main
+Class-Path: annotations-17.0.0.jar protobuf-java-3.25.1.jar mysql-connec
+ tor-j-8.3.0.jar log4j-api-2.17.1.jar log4j-core-2.17.1.jar json-2024030
+ 3.jar ojdbc8-19.7.0.0.jar
 

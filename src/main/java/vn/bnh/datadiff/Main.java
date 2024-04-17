@@ -1,14 +1,17 @@
 package vn.bnh.datadiff;
 
-import org.jetbrains.annotations.NotNull;
 public class Main {
-
-    public static void main(String @NotNull [] args) {
-        // Get file path from command line argument
-        String filePath = args[0];
-        // Create Application object and run it
+    public static void main(String[] args) {
+        String fileName = args[0];
+        String feature = args[1];
         Application application = new Application();
-        application.run(filePath);
+        switch (feature) {
+            case "validate":
+                application.runValidateMetadata(fileName);
+                break;
+            case "count job":
+                application.runCountJob(fileName);
+        }
 
     }
 }
