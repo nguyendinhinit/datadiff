@@ -4,6 +4,9 @@ import vn.bnh.datadiff.controllers.FileProcessorController;
 import vn.bnh.datadiff.controllers.ObjectCreatorController;
 import vn.bnh.datadiff.dto.DbObject;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class Application {
@@ -21,8 +24,22 @@ public class Application {
         String srcDbName = fileProperties.getProperty("src_dbname");
         String srcUsername = fileProperties.getProperty("src_username");
         String srcPassword = fileProperties.getProperty("src_password");
-        DbObject srcDBOject = objectCreatorController.create(srcConnectionString,srcDbName,srcUsername,srcPassword);
+        DbObject srcDBOject = objectCreatorController.create(srcConnectionString,srcUsername,srcPassword,srcDbName);
 
+        String destConnectionString = fileProperties.getProperty("dest_connection_string");
+        String destDbName = fileProperties.getProperty("dest_dbname");
+        String destUserName = fileProperties.getProperty("dest_username");
+        String destPassword = fileProperties.getProperty("dest_password");
+        DbObject destDBObject = objectCreatorController.create(destConnectionString,destUserName,destPassword,destDbName);
+
+        // Custom query to get schema
+        if(fileProperties.containsKey("query")) {
+
+        }
+
+        //Save all schema metadata to LinkedHashMap include schema name, table name, table column metadata
+        LinkedHashMap<String, Map<String, ArrayList<String>>> srcMetadata;
+        LinkedHashMap<String, Map<String, ArrayList<String>>> destMetadata;
         /*
         Validate metadata of all table of all schema was listed in the schemas.txt file
          */
