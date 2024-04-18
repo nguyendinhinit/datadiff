@@ -1,5 +1,6 @@
 package vn.bnh.datadiff.services.impl;
 
+import lombok.extern.log4j.Log4j;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import vn.bnh.datadiff.services.FileProcessorService;
@@ -14,12 +15,14 @@ public class FileProcessorServiceImpl implements FileProcessorService {
 
     @Override
     public Properties readPropertiesFile(String filePath) {
+        log4j.info("Start reading file {}", filePath);
         //Check file
         File propertiesFile = new File(filePath);
         
         try{
             Properties fileProperties = new Properties();
             fileProperties.load(Files.newInputStream(Paths.get(filePath)));
+            log4j.info("Load properties file succesfully");
             return fileProperties;
         }catch (Exception e){
             log4j.error("Application properties file not found");

@@ -1,8 +1,8 @@
 package vn.bnh.datadiff.services;
 
-import vn.bnh.datadiff.dto.DbObject;
+import vn.bnh.datadiff.dto.DBObject;
 
 public interface ObjectCreator {
     
-    public DbObject create(String connectionString, String username, String password, String dbname);
+    public DBObject create(String connectionString, String username, String password, String dbname);
 }

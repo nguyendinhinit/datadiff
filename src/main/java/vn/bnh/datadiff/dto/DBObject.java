@@ -5,17 +5,17 @@ import lombok.Getter;
 import lombok.Setter;
 
 @AllArgsConstructor
-public class DbObject {
+public class DBObject {
     @Getter
     @Setter
     private String connectionString;
-    @Getter
-    @Setter
-    private String dbname;
     @Getter
     @Setter
     private String username;
     @Getter
     @Setter
     private String password;
+    @Getter
+    @Setter
+    private String dbname;
 }

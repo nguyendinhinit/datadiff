@@ -5,6 +5,7 @@ target/
 *.log
 *.txt
 *.csv
+log/*
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
