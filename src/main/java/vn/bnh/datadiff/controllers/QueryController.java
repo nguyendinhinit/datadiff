@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class QueryController {
+public class QueryController{
     QueryService queryService = new QueryServiceImpl();
 
     public ArrayList<String> getSchema(DBObject dbObject) {

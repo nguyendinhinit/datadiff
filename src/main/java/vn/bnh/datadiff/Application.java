@@ -36,7 +36,7 @@ public class Application {
         String srcDbName = fileProperties.getProperty("src_dbname");
         String srcUsername = fileProperties.getProperty("src_username");
         String srcPassword = fileProperties.getProperty("src_password");
-        DBObject srcDBOject = objectCreatorController.create(srcConnectionString, srcUsername, srcPassword, srcDbName);
+        DBObject srcDBObject = objectCreatorController.create(srcConnectionString, srcUsername, srcPassword, srcDbName);
 
         String destConnectionString = fileProperties.getProperty("dest_connection_string");
         String destDbName = fileProperties.getProperty("dest_dbname");
@@ -45,24 +45,16 @@ public class Application {
         DBObject destDBObject = objectCreatorController.create(destConnectionString, destUserName, destPassword, destDbName);
 
 
-//        // Custom query to get schema
-//        ArrayList<String> srcSchemaList = new ArrayList<>();
-//        ArrayList<String> destSchemaList = new ArrayList<>();
-//        if (fileProperties.containsKey("query")) {
-//            String query = fileProperties.getProperty("query");
-//            srcSchemaList = queryController.getSchema(srcDBOject, query);
-//            destSchemaList = queryController.getSchema(destDBObject, query);
-//
-//        } else {
-//            srcSchemaList = queryController.getSchema(srcDBOject);
-//        }
-
         //Save all schema metadata to LinkedHashMap include schema name, table name, table column metadata
-        LinkedHashMap<String, Map<String, ArrayList<TableObject>>> srcMetadata;
-        srcMetadata = queryController.getDbMetadata(srcDBOject);
+        LinkedHashMap<String, Map<String, ArrayList<TableObject>>> srcMetadata =  new LinkedHashMap<>();
+        srcMetadata = queryController.getDbMetadata(srcDBObject);
+        System.out.println(srcMetadata.toString());
 
-        LinkedHashMap<String, Map<String, ArrayList<String>>> destMetadata;
-//        destMetadata = queryController.getDbMetadata(destDBObject,schemaList);
+        LinkedHashMap<String, Map<String, ArrayList<TableObject>>> destMetadata;
+        destMetadata = queryController.getDbMetadata(destDBObject);
+        System.out.println(destMetadata.toString());
+
+        //Compare to metadata of source and destination database
 
 
         /*
