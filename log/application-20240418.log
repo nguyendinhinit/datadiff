@@ -1,0 +1,145 @@
+2024-04-18 16:43:49.496 [main] ERROR - Not enough parameter.
+2024-04-18 17:03:55.381 [main] INFO  - Start reading file application.properties
+2024-04-18 17:03:55.382 [main] INFO  - Load properties file succesfully
+2024-04-18 17:10:52.172 [main] INFO  -             _ _     _       _             
+__   ____ _| (_) __| | __ _| |_ ___  _ __ 
+\ \ / / _` | | |/ _` |/ _` | __/ _ \| '__|
+ \ V / (_| | | | (_| | (_| | || (_) | |   
+  \_/ \__,_|_|_|\__,_|\__,_|\__\___/|_|   
+
+2024-04-18 17:10:52.174 [main] INFO  - Start reading file application.properties
+2024-04-18 17:10:52.174 [main] INFO  - Load properties file succesfully
+2024-04-18 17:38:29.499 [main] INFO  - Start the Application
+2024-04-18 17:38:29.501 [main] INFO  - Start reading file application.properties
+2024-04-18 17:38:29.501 [main] INFO  - Load properties file succesfully
+2024-04-18 17:38:29.501 [main] INFO  - Creating oracle object
+2024-04-18 17:38:29.502 [main] INFO  - Creating mysql object
+2024-04-18 17:41:07.701 [main] INFO  - Start the Application
+2024-04-18 17:41:07.703 [main] INFO  - Start reading file application.properties
+2024-04-18 17:41:07.703 [main] INFO  - Load properties file succesfully
+2024-04-18 17:41:07.703 [main] INFO  - Creating oracle object
+2024-04-18 17:41:07.704 [main] INFO  - Creating mysql object
+2024-04-18 17:50:27.363 [main] INFO  - Start the Application
+2024-04-18 17:50:27.365 [main] INFO  - Start reading file application.properties
+2024-04-18 17:50:27.365 [main] INFO  - Load properties file succesfully
+2024-04-18 17:50:27.365 [main] INFO  - Creating oracle object
+2024-04-18 17:50:27.366 [main] INFO  - Creating mysql object
+2024-04-18 17:50:27.366 [main] INFO  - Starting get schema list from source database
+2024-04-18 17:50:28.939 [main] ERROR - Connection Error please check jdbc:oracle:thin:@//10.10.12.21:1521/t24core
+2024-04-18 17:53:54.426 [main] INFO  - Start the Application
+2024-04-18 17:53:54.428 [main] INFO  - Start reading file application.properties
+2024-04-18 17:53:54.428 [main] INFO  - Load properties file succesfully
+2024-04-18 17:53:54.428 [main] INFO  - Creating oracle object
+2024-04-18 17:53:54.429 [main] INFO  - Creating mysql object
+2024-04-18 17:53:54.429 [main] INFO  - Starting get schema list from source database
+2024-04-18 17:53:56.039 [main] ERROR - Connection Error please check jdbc:oracle:thin:@//10.10.12.21:1521/t24core
+2024-04-18 17:54:06.740 [main] INFO  - Start the Application
+2024-04-18 17:54:06.741 [main] INFO  - Start reading file application.properties
+2024-04-18 17:54:06.742 [main] INFO  - Load properties file succesfully
+2024-04-18 17:54:06.742 [main] INFO  - Creating oracle object
+2024-04-18 17:54:06.742 [main] INFO  - Creating mysql object
+2024-04-18 17:54:06.742 [main] INFO  - Starting get schema list from source database
+2024-04-18 17:54:08.450 [main] ERROR - connect failure!
+2024-04-18 17:54:08.451 [main] ERROR - Connection Error please check jdbc:oracle:thin:@//10.10.12.21:1521/t24core
+2024-04-18 18:04:58.118 [main] INFO  - Start the Application
+2024-04-18 18:04:58.119 [main] INFO  - Start reading file application.properties
+2024-04-18 18:04:58.120 [main] INFO  - Load properties file succesfully
+2024-04-18 18:04:58.120 [main] INFO  - Creating oracle object
+2024-04-18 18:04:58.120 [main] INFO  - Creating mysql object
+2024-04-18 18:04:58.120 [main] INFO  - Starting get schema list from source database
+2024-04-18 18:04:59.637 [main] ERROR - connect failure!
+2024-04-18 18:04:59.638 [main] ERROR - Connection Error please check jdbc:oracle:thin:@//10.10.12.21:1521/t24core
+2024-04-18 18:05:32.346 [main] INFO  - Start the Application
+2024-04-18 18:05:32.348 [main] INFO  - Start reading file application.properties
+2024-04-18 18:05:32.348 [main] INFO  - Load properties file succesfully
+2024-04-18 18:05:32.349 [main] INFO  - Creating oracle object
+2024-04-18 18:05:32.349 [main] INFO  - Creating mysql object
+2024-04-18 18:05:32.349 [main] INFO  - Starting get schema list from source database
+2024-04-18 18:05:32.349 [main] INFO  - connect to ggadmin successfully with user:oracle_4U, password: oracle
+2024-04-18 18:05:33.858 [main] ERROR - connect failure!
+2024-04-18 18:05:33.859 [main] ERROR - Connection Error please check jdbc:oracle:thin:@//10.10.12.21:1521/t24core
+2024-04-18 18:06:52.331 [main] INFO  - Start the Application
+2024-04-18 18:06:52.333 [main] INFO  - Start reading file application.properties
+2024-04-18 18:06:52.333 [main] INFO  - Load properties file succesfully
+2024-04-18 18:06:52.333 [main] INFO  - Creating oracle object
+2024-04-18 18:06:52.333 [main] INFO  - Creating mysql object
+2024-04-18 18:06:52.333 [main] INFO  - Starting get schema list from source database
+2024-04-18 18:06:52.333 [main] DEBUG - ggadmin
+2024-04-18 18:06:52.334 [main] INFO  - ggadmin
+2024-04-18 18:06:53.908 [main] ERROR - connect failure!
+2024-04-18 18:06:53.908 [main] ERROR - Connection Error please check jdbc:oracle:thin:@//10.10.12.21:1521/t24core
+2024-04-18 18:08:04.942 [main] INFO  - Start the Application
+2024-04-18 18:08:04.943 [main] INFO  - Start reading file application.properties
+2024-04-18 18:08:04.944 [main] INFO  - Load properties file succesfully
+2024-04-18 18:08:04.944 [main] INFO  - Creating oracle object
+2024-04-18 18:08:04.944 [main] INFO  - jdbc:oracle:thin:@//10.10.12.21:1521/t24core ggadmin oracle_4U oracle
+2024-04-18 18:08:04.944 [main] INFO  - Creating mysql object
+2024-04-18 18:08:04.944 [main] INFO  - jdbc:mysql://10.10.12.238:3306 dbadmin oracle_4U mysql
+2024-04-18 18:08:04.944 [main] INFO  - Starting get schema list from source database
+2024-04-18 18:08:06.436 [main] ERROR - connect failure!
+2024-04-18 18:08:06.436 [main] ERROR - Connection Error please check jdbc:oracle:thin:@//10.10.12.21:1521/t24core
+2024-04-18 18:12:36.279 [main] INFO  - Start the Application
+2024-04-18 18:12:36.281 [main] INFO  - Start reading file application.properties
+2024-04-18 18:12:36.281 [main] INFO  - Load properties file succesfully
+2024-04-18 18:12:36.281 [main] INFO  - Creating oracle object
+2024-04-18 18:12:36.281 [main] INFO  - jdbc:oracle:thin:@//10.10.12.21:1521/t24core ggadmin oracle_4U oracle
+2024-04-18 18:12:36.281 [main] INFO  - Creating mysql object
+2024-04-18 18:12:36.281 [main] INFO  - jdbc:mysql://10.10.12.238:3306 dbadmin oracle_4U mysql
+2024-04-18 18:12:36.282 [main] INFO  - Starting get schema list from source database
+2024-04-18 18:12:36.282 [main] INFO  - jdbc:oracle:thin:@//10.10.12.21:1521/t24core oracle_4U oracle ggadmin
+2024-04-18 18:12:37.808 [main] ERROR - connect failure!
+2024-04-18 18:12:37.809 [main] ERROR - Connection Error please check jdbc:oracle:thin:@//10.10.12.21:1521/t24core
+2024-04-18 18:13:49.136 [main] INFO  - Start the Application
+2024-04-18 18:13:49.137 [main] INFO  - Start reading file application.properties
+2024-04-18 18:13:49.138 [main] INFO  - Load properties file succesfully
+2024-04-18 18:13:49.138 [main] INFO  - Creating oracle object
+2024-04-18 18:13:49.138 [main] INFO  - jdbc:oracle:thin:@//10.10.12.21:1521/t24core ggadmin oracle_4U oracle
+2024-04-18 18:13:49.138 [main] INFO  - Creating mysql object
+2024-04-18 18:13:49.138 [main] INFO  - jdbc:mysql://10.10.12.238:3306 dbadmin oracle_4U mysql
+2024-04-18 18:13:49.138 [main] INFO  - Starting get schema list from source database
+2024-04-18 18:13:49.138 [main] INFO  - jdbc:oracle:thin:@//10.10.12.21:1521/t24core/oracle_4U/oracle/ggadmin
+2024-04-18 18:13:49.138 [main] INFO  - jdbc:oracle:thin:@//10.10.12.21:1521/t24core oracle_4U oracle ggadmin
+2024-04-18 18:13:50.629 [main] ERROR - connect failure!
+2024-04-18 18:13:50.630 [main] ERROR - Connection Error please check jdbc:oracle:thin:@//10.10.12.21:1521/t24core
+2024-04-18 18:15:15.565 [main] INFO  - Start the Application
+2024-04-18 18:15:15.566 [main] INFO  - Start reading file application.properties
+2024-04-18 18:15:15.567 [main] INFO  - Load properties file succesfully
+2024-04-18 18:15:15.567 [main] INFO  - Creating oracle object
+2024-04-18 18:15:15.567 [main] INFO  - Creating mysql object
+2024-04-18 18:15:15.567 [main] INFO  - Starting get schema list from source database
+2024-04-18 18:15:15.567 [main] INFO  - jdbc:oracle:thin:@//10.10.12.21:1521/t24core/ggadmin/oracle_4U/oracle
+2024-04-18 18:15:15.567 [main] INFO  - jdbc:oracle:thin:@//10.10.12.21:1521/t24core ggadmin oracle_4U oracle
+2024-04-18 18:15:16.057 [main] INFO  - connect to oracle successfully!
+2024-04-18 18:15:16.057 [main] INFO  - connect to oracle successfully with user:ggadmin, password: oracle_4U
+2024-04-18 18:15:16.157 [main] ERROR - Connection Error please check jdbc:oracle:thin:@//10.10.12.21:1521/t24core
+2024-04-18 18:19:06.893 [main] INFO  - Start the Application
+2024-04-18 18:19:06.894 [main] INFO  - Start reading file application.properties
+2024-04-18 18:19:06.894 [main] INFO  - Load properties file succesfully
+2024-04-18 18:19:06.894 [main] INFO  - Creating oracle object
+2024-04-18 18:19:06.895 [main] INFO  - Creating mysql object
+2024-04-18 18:19:06.895 [main] INFO  - Starting get schema list from source database
+2024-04-18 18:19:07.396 [main] INFO  - connect to oracle successfully!
+2024-04-18 18:20:39.143 [main] INFO  - Start the Application
+2024-04-18 18:20:39.145 [main] INFO  - Start reading file application.properties
+2024-04-18 18:20:39.145 [main] INFO  - Load properties file succesfully
+2024-04-18 18:20:39.145 [main] INFO  - Creating oracle object
+2024-04-18 18:20:39.145 [main] INFO  - Creating mysql object
+2024-04-18 18:20:39.145 [main] INFO  - Starting get schema list from source database
+2024-04-18 18:20:39.674 [main] INFO  - connect to oracle successfully!
+2024-04-18 18:22:01.904 [main] INFO  - Start the Application
+2024-04-18 18:22:01.906 [main] INFO  - Start reading file application.properties
+2024-04-18 18:22:01.906 [main] INFO  - Load properties file succesfully
+2024-04-18 18:22:01.906 [main] INFO  - Creating oracle object
+2024-04-18 18:22:01.906 [main] INFO  - Creating mysql object
+2024-04-18 18:22:01.906 [main] INFO  - Query properties not found, starting get schema list from source database with default query
+2024-04-18 18:22:01.906 [main] INFO  - Starting get schema list from source database
+2024-04-18 18:22:02.440 [main] INFO  - connect to oracle successfully!
+2024-04-18 18:23:27.947 [main] INFO  - Start the Application
+2024-04-18 18:23:27.949 [main] INFO  - Start reading file application.properties
+2024-04-18 18:23:27.949 [main] INFO  - Load properties file succesfully
+2024-04-18 18:23:27.949 [main] INFO  - Creating oracle object
+2024-04-18 18:23:27.949 [main] INFO  - Creating mysql object
+2024-04-18 18:23:27.949 [main] INFO  - Query properties not found, starting get schema list from source database with default query
+2024-04-18 18:23:27.949 [main] INFO  - Starting get schema list from source database
+2024-04-18 18:23:28.454 [main] INFO  - connect to oracle successfully!
+2024-04-18 18:23:29.163 [main] INFO  - Load 108 schema from oracle

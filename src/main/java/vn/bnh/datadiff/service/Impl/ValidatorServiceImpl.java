@@ -319,9 +319,9 @@ public class ValidatorServiceImpl implements ValidatorService {
                     //Start validate
                     writer.write(schema + "," + tbl + "," + sourceColumnName + "," + sourceDataType + "," + sourceLength + "," + sourcePrecision + "," + sourceScale + "," + sourceNullable + "," + sourceDataDefault + "," + sourcePrimaryKey + "," + descColumnName + "," + descDataType + "," + descLength + "," + descPrecision + "," + descScale + "," + descNullable + "," + descKey + "," + descDataDefault + ",");
 
-                    log4j.info("append: schema: " + schema + ", tbl: " + tbl + ", source col name: " + sourceColumnName + ", source data type: " + sourceDataType + ", source length: " + sourceLength + ", source percision: " + sourcePrecision + ", source scale: " + sourceScale + ", source nullable: " + sourceNullable + ", source data default: " + sourceDataDefault + ", source pk: " + sourcePrimaryKey + ", desc col name: " + descColumnName + ", desc data type:" + descDataType + ", desc len: " + descLength + ", desc precision: " + descPrecision + ", desc scale: " + descScale + ", desc nullable: " + descNullable + ", desc key: " + descKey + ", desc data default" + descDataDefault);
+                    log4j.info("append: schema: " + schema + ", tbl: " + tbl + ", source col name: " + sourceColumnName + ", source data type: " + sourceDataType + ", source length: " + sourceLength + ", source percision: " + sourcePrecision + ", source scale: " + sourceScale + ", source nullable: " + sourceNullable + ", source data default: " + sourceDataDefault + ", source pk: " + sourcePrimaryKey + ", desc col name: " + descColumnName + ", desc data type:" + descDataType + ", desc len: " + descLength + ", desc precision: " + descPrecision + ", desc scale: " + descScale + ", desc nullable: " + descNullable + ", desc key: " + descKey + ", desc data default: " + descDataDefault);
 
-                    if (validateColumn(sourceColumnName, descColumnName)) writer.write("TRUE,");
+                    if (validateColumn("col name",sourceColumnName, descColumnName)) writer.write("TRUE,");
                     else writer.write("FALSE,");
 
                     String[] mapping = dataTypeMapper.getDataTypeMapping().get(sourceDataType);
@@ -329,7 +329,7 @@ public class ValidatorServiceImpl implements ValidatorService {
                     if (mapping != null) {
                         for (String descType : mapping) {
                             if (descType.equalsIgnoreCase(descDataType)) {
-                                log4j.info("Validate data type with Source Type:" + sourceDataType + ", Desc type: " + descDataType.toUpperCase() + " Status: TRUE");
+                                log4j.info("Validate data type with Source Type:{} , Desc type: {} .Status: TRUE",sourceDataType, descDataType.toUpperCase());
                                 writer.write("TRUE,");
                                 break;
                             } else {
@@ -339,26 +339,24 @@ public class ValidatorServiceImpl implements ValidatorService {
                         }
                     }
 
-                    if (validateColumn(sourceLength, descLength)) writer.write("TRUE,");
+                    if (validateColumn("col len",sourceLength, descLength)) writer.write("TRUE,");
                     else writer.write("FALSE,");
 
-                    if (validateColumn(sourcePrecision, descPrecision)) writer.write("TRUE,");
+                    if (validateColumn("col precision",sourcePrecision, descPrecision)) writer.write("TRUE,");
                     else writer.write("FALSE,");
 
-                    if (validateColumn(sourceScale, descScale)) writer.write("TRUE,");
+                    if (validateColumn("col scale",sourceScale, descScale)) writer.write("TRUE,");
                     else writer.write("FALSE,");
 
-                    if (validateColumn(sourceNullable, descNullable)) writer.write("TRUE,");
+                    if (validateColumn("col nullable",sourceNullable, descNullable)) writer.write("TRUE,");
                     else writer.write("FALSE,");
 
 
-                    if (validateColumn(sourcePrimaryKey, descKey)) writer.write("TRUE\n");
+                    if (validateColumn("col pk",sourcePrimaryKey, descKey)) writer.write("TRUE\n");
                     else writer.write("FALSE\n");
 
                     log4j.info("Write to report.csv");
-
                 }
-
             sourceResultSet.close();
             descResultSet.close();
             stmtSource.close();
@@ -379,17 +377,21 @@ public class ValidatorServiceImpl implements ValidatorService {
 
 
     @Override
-    public boolean validateColumn(String src, String desc) {
+    public boolean validateColumn(String columnName,String src, String desc) {
         //Validate Column
         if (src != null && desc != null) {
             if (src.equals(desc)) {
+                log4j.info("validateColumn {} with src value: {}, dest value: {} is true", columnName, src, desc);
                 return true;
             } else {
+                log4j.info("validateColumn {} with src value: {}, dest value: {} is false", columnName, src, desc);
                 return false;
             }
         } else if (src == null && desc == null) {
+            log4j.info("validateColumn {} with src value: {}, dest value: {} is true", columnName, src, desc);
             return true;
         } else {
+            log4j.info("validateColumn {} with src value: {}, dest value: {} is false", columnName, src, desc);
             return false;
         }
     }

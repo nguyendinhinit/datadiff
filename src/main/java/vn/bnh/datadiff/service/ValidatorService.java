@@ -21,5 +21,5 @@ public interface ValidatorService {
 
     public void validateKey (JSONObject source, JSONObject desc, ArrayList<String> sourceTableList, ArrayList<String> descTableList, String schemaName);
 
-    public boolean validateColumn(String src, String desc);
+    public boolean validateColumn(String columnName,String src, String desc);
 }
