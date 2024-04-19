@@ -292,13 +292,13 @@ public class QueryServiceImpl implements QueryService {
         return pK;
     }
 
-    ArrayList<String> findIncremental(DBObject dbObject, String tableName, String schemaName){
+    ArrayList<String> findIncremental(DBObject dbObject, String tableName, String schemaName) {
         Statement statement = getStatement(dbObject);
         String query = null;
         String dbName = dbObject.getDbname();
         switch (dbName) {
             case "oracle":
-                query = String.format("SELECT COLUMN_NAME FROM all_tab_columns WHERE IDENTITY_COLUMN = 'YES' and OWNER = '%s' and TABLE_NAME = '%s'",schemaName, tableName);
+                query = String.format("SELECT COLUMN_NAME FROM all_tab_columns WHERE IDENTITY_COLUMN = 'YES' and OWNER = '%s' and TABLE_NAME = '%s'", schemaName, tableName);
                 break;
             case "mysql":
                 query = String.format("SELECT COLUMN_NAME FROM information_schema.columns WHERE EXTRA = 'auto_increment' and TABLE_SCHEMA = '%s' and TABLE_NAME = '%s'", schemaName, tableName);
@@ -311,6 +311,31 @@ public class QueryServiceImpl implements QueryService {
                 incremental.add(rs.getString("COLUMN_NAME"));
             }
             return incremental;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    ArrayList<String> findConstraints(DBObject dbObject, String tableName, String schemaName) {
+        Statement statement = getStatement(dbObject);
+        String query = null;
+        String dbName = dbObject.getDbname();
+        switch (dbName) {
+            case "oracle":
+                query = String.format("SELECT CONSTRAINT_NAME FROM all_constraints WHERE TABLE_NAME = '%s' and OWNER = '%s'", tableName, schemaName);
+                break;
+            case "mysql":
+                query = String.format("SELECT CONSTRAINT_NAME FROM information_schema.table_constraints WHERE TABLE_NAME = '%s' and TABLE_SCHEMA = '%s'", tableName, schemaName);
+                break;
+        }
+        try {
+            ResultSet rs = statement.executeQuery(query);
+            ArrayList<String> constraints = new ArrayList<>();
+            while (rs.next()) {
+                constraints.add(rs.getString("CONSTRAINT_NAME"));
+            }
+            return constraints;
         } catch (Exception e) {
             e.printStackTrace();
         }
