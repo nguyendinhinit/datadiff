@@ -6,11 +6,9 @@ import vn.bnh.datadiff.controllers.FileProcessorController;
 import vn.bnh.datadiff.controllers.ObjectCreatorController;
 import vn.bnh.datadiff.controllers.QueryController;
 import vn.bnh.datadiff.dto.DBObject;
+import vn.bnh.datadiff.dto.TableObject;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class Application {
 
@@ -47,24 +45,26 @@ public class Application {
         DBObject destDBObject = objectCreatorController.create(destConnectionString, destUserName, destPassword, destDbName);
 
 
-        // Custom query to get schema
-        ArrayList<String> schemaList = new ArrayList<>();
-        if (fileProperties.containsKey("query")) {
-            String query = fileProperties.getProperty("query");
-            schemaList = queryController.getSchema(srcDBOject, query);
-        } else {
-            schemaList = queryController.getSchema(srcDBOject);
-        }
+//        // Custom query to get schema
+//        ArrayList<String> srcSchemaList = new ArrayList<>();
+//        ArrayList<String> destSchemaList = new ArrayList<>();
+//        if (fileProperties.containsKey("query")) {
+//            String query = fileProperties.getProperty("query");
+//            srcSchemaList = queryController.getSchema(srcDBOject, query);
+//            destSchemaList = queryController.getSchema(destDBObject, query);
+//
+//        } else {
+//            srcSchemaList = queryController.getSchema(srcDBOject);
+//        }
 
         //Save all schema metadata to LinkedHashMap include schema name, table name, table column metadata
-        LinkedHashMap<String, Map<String, ArrayList<String>>> srcMetadata;
-
-        for(String schema: schemaList){
-            queryController.getTable(srcDBOject,schema);
-        }
-
+        LinkedHashMap<String, Map<String, ArrayList<TableObject>>> srcMetadata;
+        srcMetadata = queryController.getDbMetadata(srcDBOject);
 
         LinkedHashMap<String, Map<String, ArrayList<String>>> destMetadata;
+//        destMetadata = queryController.getDbMetadata(destDBObject,schemaList);
+
+
         /*
         Validate metadata of all table of all schema was listed in the schemas.txt file
          */

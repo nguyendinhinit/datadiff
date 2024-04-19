@@ -16,6 +16,7 @@ public class Main {
                 break;
             case "count job":
                 application.runCountJob(fileName);
+                break;
         }
 
       }catch (Exception e){
