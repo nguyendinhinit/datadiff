@@ -1,0 +1,878 @@
+2024-04-22 10:42:36.077 [main] INFO  - Application started
+2024-04-22 10:42:36.078 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 10:42:36.078 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 10:42:36.079 [main] INFO  - Properties file read successfully
+2024-04-22 10:42:36.081 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 10:42:36.081 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 10:42:36.517 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 10:42:36.517 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 10:42:36.517 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 10:42:36.517 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 10:42:37.518 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 10:42:37.536 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 10:42:37.631 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 10:44:57.433 [main] INFO  - Start get table metadata from source database
+2024-04-22 10:44:57.450 [main] INFO  - Start get table metadata from desc database
+2024-04-22 10:44:57.460 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 10:47:30.730 [main] INFO  - Application started
+2024-04-22 10:47:30.731 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 10:47:30.731 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 10:47:30.731 [main] INFO  - Properties file read successfully
+2024-04-22 10:47:30.734 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 10:47:30.734 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 10:47:31.129 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 10:47:31.129 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 10:47:31.129 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 10:47:31.130 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 10:47:31.524 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 10:47:31.537 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 10:47:31.550 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 10:47:31.563 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 10:52:22.728 [main] INFO  - Start get table metadata from source database
+2024-04-22 10:52:22.750 [main] INFO  - Start get table metadata from desc database
+2024-04-22 10:52:22.760 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 10:52:24.477 [main] INFO  - Application started
+2024-04-22 10:52:24.478 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 10:52:24.479 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 10:52:24.479 [main] INFO  - Properties file read successfully
+2024-04-22 10:52:24.481 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 10:52:24.481 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 10:52:24.876 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 10:52:24.876 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 10:52:24.876 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 10:52:24.876 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 10:52:25.211 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 10:52:25.223 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 10:52:25.238 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 10:52:25.250 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 10:52:25.250 [main] INFO  - Start get table metadata from source database
+2024-04-22 10:52:25.265 [main] INFO  - Start get table metadata from desc database
+2024-04-22 10:52:25.273 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 10:57:09.883 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc data default: null
+2024-04-22 10:57:09.887 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 10:57:09.888 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 10:57:09.888 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 10:57:09.888 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 10:57:09.888 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 10:57:09.888 [main] INFO  - validateColumn col scale with src value: null, dest value: 0 is false
+2024-04-22 10:57:09.888 [main] INFO  - validateColumn col nullable with src value: N, dest value: N is true
+2024-04-22 10:57:09.889 [main] INFO  - validateColumn col pk with src value: PRI, dest value: PRI is true
+2024-04-22 10:57:09.889 [main] INFO  - validateColumn col index with src value: SYS_C0011695, dest value: PRIMARY is false
+2024-04-22 10:57:09.889 [main] INFO  - Write to report.csv
+2024-04-22 10:57:11.733 [main] INFO  - Application started
+2024-04-22 10:57:11.734 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 10:57:11.735 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 10:57:11.735 [main] INFO  - Properties file read successfully
+2024-04-22 10:57:11.737 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 10:57:11.737 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 10:57:12.126 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 10:57:12.127 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 10:57:12.127 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 10:57:12.127 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 10:57:12.471 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 10:57:12.486 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 10:57:12.500 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 10:57:12.513 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 10:57:12.514 [main] INFO  - Start get table metadata from source database
+2024-04-22 10:57:12.531 [main] INFO  - Start get table metadata from desc database
+2024-04-22 10:57:12.540 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 10:57:12.711 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc data default: null
+2024-04-22 10:57:12.712 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 10:57:12.712 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 10:57:12.712 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 10:57:12.713 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 10:57:12.713 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 10:57:12.713 [main] INFO  - validateColumn col scale with src value: null, dest value: 0 is false
+2024-04-22 10:57:12.713 [main] INFO  - validateColumn col nullable with src value: N, dest value: N is true
+2024-04-22 10:57:12.713 [main] INFO  - validateColumn col pk with src value: PRI, dest value: PRI is true
+2024-04-22 10:57:12.713 [main] INFO  - validateColumn col index with src value: SYS_C0011695, dest value: PRIMARY is false
+2024-04-22 10:57:12.713 [main] INFO  - validateColumn col increment with src value: true, dest value: true is true
+2024-04-22 10:57:12.713 [main] INFO  - Write to report.csv
+2024-04-22 10:57:12.872 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc data default: null
+2024-04-22 10:57:12.872 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 10:57:12.872 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 10:57:12.872 [main] INFO  - validateColumn col len with src value: 255, dest value: 255 is true
+2024-04-22 10:57:12.872 [main] INFO  - validateColumn col precision with src value: null, dest value: null is true
+2024-04-22 10:57:12.872 [main] INFO  - validateColumn col scale with src value: null, dest value: null is true
+2024-04-22 10:57:12.873 [main] INFO  - validateColumn col nullable with src value: Y, dest value: Y is true
+2024-04-22 10:57:12.873 [main] INFO  - validateColumn col pk with src value: , dest value:  is true
+2024-04-22 10:57:12.873 [main] INFO  - validateColumn col index with src value: null, dest value: null is true
+2024-04-22 10:57:12.873 [main] INFO  - validateColumn col increment with src value: false, dest value: false is true
+2024-04-22 10:57:12.873 [main] INFO  - Write to report.csv
+2024-04-22 10:57:12.881 [main] INFO  - Application ended
+2024-04-22 10:57:25.806 [main] INFO  - Application started
+2024-04-22 10:57:25.807 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 10:57:25.807 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 10:57:25.807 [main] INFO  - Properties file read successfully
+2024-04-22 10:57:25.809 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 10:57:25.810 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 10:57:26.186 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 10:57:26.186 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 10:57:26.186 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 10:57:26.187 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 10:57:26.514 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 10:57:26.526 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 10:57:26.539 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 10:57:26.552 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 10:57:26.552 [main] INFO  - Start get table metadata from source database
+2024-04-22 10:57:26.567 [main] INFO  - Start get table metadata from desc database
+2024-04-22 10:57:26.574 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 10:57:26.749 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc data default: null
+2024-04-22 10:57:26.751 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 10:57:26.751 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 10:57:26.751 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 10:57:26.751 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 10:57:26.751 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 10:57:26.751 [main] INFO  - validateColumn col scale with src value: null, dest value: 0 is false
+2024-04-22 10:57:26.751 [main] INFO  - validateColumn col nullable with src value: N, dest value: N is true
+2024-04-22 10:57:26.751 [main] INFO  - validateColumn col pk with src value: PRI, dest value: PRI is true
+2024-04-22 10:57:26.751 [main] INFO  - validateColumn col index with src value: SYS_C0011695, dest value: PRIMARY is false
+2024-04-22 10:57:26.751 [main] INFO  - validateColumn col increment with src value: true, dest value: true is true
+2024-04-22 10:57:26.751 [main] INFO  - Write to report.csv
+2024-04-22 10:57:26.908 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc data default: null
+2024-04-22 10:57:26.908 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 10:57:26.908 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 10:57:26.908 [main] INFO  - validateColumn col len with src value: 255, dest value: 255 is true
+2024-04-22 10:57:26.908 [main] INFO  - validateColumn col precision with src value: null, dest value: null is true
+2024-04-22 10:57:26.908 [main] INFO  - validateColumn col scale with src value: null, dest value: null is true
+2024-04-22 10:57:26.908 [main] INFO  - validateColumn col nullable with src value: Y, dest value: Y is true
+2024-04-22 10:57:26.908 [main] INFO  - validateColumn col pk with src value: , dest value:  is true
+2024-04-22 10:57:26.909 [main] INFO  - validateColumn col index with src value: null, dest value: null is true
+2024-04-22 10:57:26.909 [main] INFO  - validateColumn col increment with src value: false, dest value: false is true
+2024-04-22 10:57:26.909 [main] INFO  - Write to report.csv
+2024-04-22 10:57:26.914 [main] INFO  - Application ended
+2024-04-22 11:04:34.941 [main] INFO  - Application started
+2024-04-22 11:04:34.942 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:04:34.942 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:04:34.942 [main] INFO  - Properties file read successfully
+2024-04-22 11:04:34.944 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:04:34.945 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:04:35.331 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:04:35.331 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:04:35.331 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:04:35.332 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 11:04:35.694 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 11:04:35.705 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 11:04:35.718 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:04:35.730 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:04:35.731 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:04:35.745 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:04:35.755 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:04:36.629 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, source indexSYS_C0011695, source sequencetrue, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc index: PRIMARY, desc auto increment: true, desc data default: null
+2024-04-22 11:04:36.633 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 11:04:36.634 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:04:36.634 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:04:36.634 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 11:04:36.634 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 11:04:36.635 [main] INFO  - validateColumn col scale with src value: null, dest value: 0 is false
+2024-04-22 11:04:36.635 [main] INFO  - validateColumn col nullable with src value: N, dest value: N is true
+2024-04-22 11:04:36.635 [main] INFO  - validateColumn col pk with src value: PRI, dest value: PRI is true
+2024-04-22 11:04:36.635 [main] INFO  - validateColumn col index with src value: SYS_C0011695, dest value: PRIMARY is false
+2024-04-22 11:04:36.635 [main] INFO  - validateColumn col increment with src value: true, dest value: true is true
+2024-04-22 11:04:36.635 [main] INFO  - Write to report.csv
+2024-04-22 11:04:37.479 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , source indexnull, source sequencefalse, desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc index: null, desc auto increment: false, desc data default: null
+2024-04-22 11:04:37.480 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 11:04:37.481 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 11:04:37.481 [main] INFO  - validateColumn col len with src value: 255, dest value: 255 is true
+2024-04-22 11:04:37.482 [main] INFO  - validateColumn col precision with src value: null, dest value: null is true
+2024-04-22 11:04:37.482 [main] INFO  - validateColumn col scale with src value: null, dest value: null is true
+2024-04-22 11:04:37.482 [main] INFO  - validateColumn col nullable with src value: Y, dest value: Y is true
+2024-04-22 11:04:37.482 [main] INFO  - validateColumn col pk with src value: , dest value:  is true
+2024-04-22 11:04:37.483 [main] INFO  - validateColumn col index with src value: null, dest value: null is true
+2024-04-22 11:04:37.483 [main] INFO  - validateColumn col increment with src value: false, dest value: false is true
+2024-04-22 11:04:37.483 [main] INFO  - Write to report.csv
+2024-04-22 11:04:37.490 [main] INFO  - Application ended
+2024-04-22 11:06:59.233 [main] INFO  - Application started
+2024-04-22 11:06:59.234 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:06:59.234 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:06:59.235 [main] INFO  - Properties file read successfully
+2024-04-22 11:06:59.237 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:06:59.237 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:06:59.622 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:06:59.622 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:06:59.623 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:06:59.623 [main] INFO  - Starting compare table : PMT_TXN at schema: PAYMENT_ORDER
+2024-04-22 11:06:59.980 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:06:59.996 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:07:00.113 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:07:00.121 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:07:00.122 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:07:00.234 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:07:00.244 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:07:00.245 [main] INFO  - Application ended
+2024-04-22 11:08:03.421 [main] INFO  - Application started
+2024-04-22 11:08:03.422 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:08:03.422 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:08:03.422 [main] INFO  - Properties file read successfully
+2024-04-22 11:08:03.424 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:08:03.425 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:08:03.811 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:08:03.811 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:08:03.811 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:08:03.812 [main] INFO  - Starting compare table : PMT_TXN at schema: PAYMENT_ORDER
+2024-04-22 11:08:04.155 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:08:04.166 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:08:04.180 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:08:04.188 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:08:04.188 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:08:04.200 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:08:04.208 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:08:04.209 [main] INFO  - Application ended
+2024-04-22 11:09:37.462 [main] INFO  - Application started
+2024-04-22 11:09:37.464 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:09:37.464 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:09:37.464 [main] INFO  - Properties file read successfully
+2024-04-22 11:09:37.467 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:09:37.467 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:09:37.879 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:09:37.879 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:09:37.879 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:09:37.879 [main] INFO  - Starting compare table : PMT_TXN at schema: PAYMENT_ORDER
+2024-04-22 11:09:38.226 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:09:38.237 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:09:38.250 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:09:38.258 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:09:38.258 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:09:38.271 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:09:38.279 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:09:38.279 [main] INFO  - Application ended
+2024-04-22 11:09:45.948 [main] INFO  - Application started
+2024-04-22 11:09:45.949 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:09:45.949 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:09:45.949 [main] INFO  - Properties file read successfully
+2024-04-22 11:09:45.952 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:09:45.952 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:09:46.343 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:09:46.344 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:09:46.344 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:09:46.344 [main] INFO  - Starting compare table : PMT_TXN at schema: PAYMENT_ORDER
+2024-04-22 11:09:46.679 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:09:46.691 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:09:46.704 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:09:46.712 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:09:46.712 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:09:46.724 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:09:46.732 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:09:46.732 [main] INFO  - Application ended
+2024-04-22 11:10:09.325 [main] INFO  - Application started
+2024-04-22 11:10:09.326 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:10:09.326 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:10:09.326 [main] INFO  - Properties file read successfully
+2024-04-22 11:10:09.329 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:10:09.329 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:10:09.735 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:10:09.735 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:10:09.736 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:10:09.736 [main] INFO  - Starting compare table : PMT_TXN at schema: PAYMENT_ORDER
+2024-04-22 11:10:10.067 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:10:10.079 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:10:10.092 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:10:10.099 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:10:33.988 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:10:34.010 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:10:34.019 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:10:34.019 [main] INFO  - Application ended
+2024-04-22 11:10:34.674 [main] INFO  - Application started
+2024-04-22 11:10:34.675 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:10:34.675 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:10:34.675 [main] INFO  - Properties file read successfully
+2024-04-22 11:10:34.678 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:10:34.678 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:10:35.070 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:10:35.070 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:10:35.070 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:10:35.070 [main] INFO  - Starting compare table : PMT_TXN at schema: PAYMENT_ORDER
+2024-04-22 11:10:35.404 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:10:35.416 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:10:35.428 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:10:35.436 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:10:35.436 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:10:35.449 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:10:35.456 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:11:38.371 [main] INFO  - Application ended
+2024-04-22 11:11:39.100 [main] INFO  - Application started
+2024-04-22 11:11:39.101 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:11:39.101 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:11:39.101 [main] INFO  - Properties file read successfully
+2024-04-22 11:11:39.104 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:11:39.104 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:11:39.506 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:11:39.506 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:11:39.506 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:11:39.507 [main] INFO  - Starting compare table : PMT_TXN at schema: PAYMENT_ORDER
+2024-04-22 11:11:39.850 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:11:39.862 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:11:39.876 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:11:39.884 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:11:39.884 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:11:39.898 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:11:39.910 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:11:41.295 [main] INFO  - Application ended
+2024-04-22 11:12:49.793 [main] INFO  - Application started
+2024-04-22 11:12:49.794 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:12:49.794 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:12:49.794 [main] INFO  - Properties file read successfully
+2024-04-22 11:12:49.796 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:12:49.796 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:12:50.202 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:12:50.202 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:12:50.202 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:12:50.203 [main] INFO  - Starting compare table : PMT_TXN at schema: PAYMENT_ORDER
+2024-04-22 11:12:50.540 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:12:50.552 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:12:50.565 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:12:50.573 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:12:50.573 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:12:50.585 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:12:50.592 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:12:50.592 [main] INFO  - Application ended
+2024-04-22 11:12:52.209 [main] INFO  - Application started
+2024-04-22 11:12:52.210 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:12:52.210 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:12:52.210 [main] INFO  - Properties file read successfully
+2024-04-22 11:12:52.213 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:12:52.213 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:12:52.608 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:12:52.608 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:12:52.608 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:12:52.609 [main] INFO  - Starting compare table : PMT_TXN at schema: PAYMENT_ORDER
+2024-04-22 11:12:52.948 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:12:52.960 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:12:52.973 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:12:52.981 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:12:52.981 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:12:52.993 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:12:53.000 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:12:53.000 [main] INFO  - Application ended
+2024-04-22 11:14:20.304 [main] INFO  - Application started
+2024-04-22 11:14:20.305 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:14:20.305 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:14:20.305 [main] INFO  - Properties file read successfully
+2024-04-22 11:14:20.307 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:14:20.307 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:14:20.680 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:14:20.680 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:14:20.680 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:14:20.680 [main] INFO  - Starting compare table : PMT_TXN at schema: PAYMENT_ORDER
+2024-04-22 11:14:21.016 [main] INFO  - Source indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:14:21.027 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' and TABLE_NAME = 'PMT_TXN'
+2024-04-22 11:14:21.027 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:14:21.040 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:14:21.048 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'PAYMENT_ORDER' AND TABLE_NAME = 'PMT_TXN' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:14:21.049 [main] INFO  - Application ended
+2024-04-22 11:19:43.149 [main] INFO  - Application started
+2024-04-22 11:19:43.150 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:19:43.150 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:19:43.150 [main] INFO  - Properties file read successfully
+2024-04-22 11:19:43.152 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:19:43.153 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:19:43.527 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:19:43.527 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:19:43.527 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:19:43.528 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 11:19:43.881 [main] INFO  - Source indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 11:19:43.892 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 11:19:43.892 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:19:43.908 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:19:43.919 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:19:44.736 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc data default: null
+2024-04-22 11:19:44.741 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 11:19:44.741 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:19:44.741 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:19:44.742 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 11:19:44.742 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 11:19:44.742 [main] INFO  - validateColumn col scale with src value: null, dest value: 0 is false
+2024-04-22 11:19:44.742 [main] INFO  - validateColumn col nullable with src value: N, dest value: N is true
+2024-04-22 11:19:44.743 [main] INFO  - validateColumn col pk with src value: PRI, dest value: PRI is true
+2024-04-22 11:19:44.743 [main] INFO  - validateColumn col index with src value: SYS_C0011695, dest value: PRIMARY is false
+2024-04-22 11:19:44.743 [main] INFO  - Write to report.csv
+2024-04-22 11:19:44.940 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc data default: null
+2024-04-22 11:19:44.940 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 11:19:44.940 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 11:19:44.940 [main] INFO  - validateColumn col len with src value: 255, dest value: 255 is true
+2024-04-22 11:19:44.940 [main] INFO  - validateColumn col precision with src value: null, dest value: null is true
+2024-04-22 11:19:44.940 [main] INFO  - validateColumn col scale with src value: null, dest value: null is true
+2024-04-22 11:19:44.940 [main] INFO  - validateColumn col nullable with src value: Y, dest value: Y is true
+2024-04-22 11:19:44.941 [main] INFO  - validateColumn col pk with src value: , dest value:  is true
+2024-04-22 11:19:44.941 [main] INFO  - validateColumn col index with src value: null, dest value: null is true
+2024-04-22 11:19:44.941 [main] INFO  - Write to report.csv
+2024-04-22 11:19:44.948 [main] INFO  - Application ended
+2024-04-22 11:23:20.045 [main] INFO  - Application started
+2024-04-22 11:23:20.046 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:23:20.046 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:23:20.046 [main] INFO  - Properties file read successfully
+2024-04-22 11:23:20.049 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:23:20.049 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:23:20.428 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:23:20.428 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:23:20.428 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:23:20.429 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 11:23:20.784 [main] INFO  - Source indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 11:23:20.796 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 11:23:20.796 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:23:20.812 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:23:20.820 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:23:20.988 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc data default: null
+2024-04-22 11:23:20.989 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 11:23:20.989 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:23:20.989 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:23:20.989 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 11:23:20.989 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 11:23:20.989 [main] INFO  - validateColumn col scale with src value: null, dest value: 0 is false
+2024-04-22 11:23:20.990 [main] INFO  - validateColumn col nullable with src value: N, dest value: N is true
+2024-04-22 11:23:20.990 [main] INFO  - validateColumn col pk with src value: PRI, dest value: PRI is true
+2024-04-22 11:23:20.990 [main] INFO  - validateColumn col index with src value: SYS_C0011695, dest value: PRIMARY is false
+2024-04-22 11:23:20.990 [main] INFO  - Write to report.csv
+2024-04-22 11:23:21.167 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc data default: null
+2024-04-22 11:23:21.168 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 11:23:21.168 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 11:23:21.168 [main] INFO  - validateColumn col len with src value: 255, dest value: 255 is true
+2024-04-22 11:23:21.168 [main] INFO  - validateColumn col precision with src value: null, dest value: null is true
+2024-04-22 11:23:21.168 [main] INFO  - validateColumn col scale with src value: null, dest value: null is true
+2024-04-22 11:23:21.168 [main] INFO  - validateColumn col nullable with src value: Y, dest value: Y is true
+2024-04-22 11:23:21.168 [main] INFO  - validateColumn col pk with src value: , dest value:  is true
+2024-04-22 11:23:21.168 [main] INFO  - validateColumn col index with src value: null, dest value: null is true
+2024-04-22 11:23:21.168 [main] INFO  - Write to report.csv
+2024-04-22 11:23:21.177 [main] INFO  - Application ended
+2024-04-22 11:28:47.032 [main] INFO  - Application started
+2024-04-22 11:28:47.033 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:28:47.033 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:28:47.034 [main] INFO  - Properties file read successfully
+2024-04-22 11:28:47.036 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:28:47.036 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:28:47.443 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:28:47.443 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:28:47.443 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:28:47.444 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 11:28:47.805 [main] INFO  - Source indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 11:28:47.818 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 11:28:47.818 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:28:47.834 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:28:47.842 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:29:10.947 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc data default: null
+2024-04-22 11:29:10.951 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 11:29:10.952 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:29:10.952 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:29:10.952 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 11:29:10.952 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 11:29:10.952 [main] INFO  - validateColumn col scale with src value: null, dest value: 0 is false
+2024-04-22 11:29:10.953 [main] INFO  - validateColumn col nullable with src value: N, dest value: N is true
+2024-04-22 11:29:10.953 [main] INFO  - validateColumn col pk with src value: PRI, dest value: PRI is true
+2024-04-22 11:29:10.953 [main] INFO  - validateColumn col index with src value: SYS_C0011695, dest value: PRIMARY is false
+2024-04-22 11:29:10.953 [main] INFO  - Write to report.csv
+2024-04-22 11:32:45.251 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc data default: null
+2024-04-22 11:32:45.253 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 11:32:45.253 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 11:32:45.253 [main] INFO  - validateColumn col len with src value: 255, dest value: 255 is true
+2024-04-22 11:32:45.253 [main] INFO  - validateColumn col precision with src value: null, dest value: null is true
+2024-04-22 11:32:45.254 [main] INFO  - validateColumn col scale with src value: null, dest value: null is true
+2024-04-22 11:32:45.254 [main] INFO  - validateColumn col nullable with src value: Y, dest value: Y is true
+2024-04-22 11:32:45.254 [main] INFO  - validateColumn col pk with src value: , dest value:  is true
+2024-04-22 11:32:45.254 [main] INFO  - validateColumn col index with src value: null, dest value: null is true
+2024-04-22 11:32:45.254 [main] INFO  - Write to report.csv
+2024-04-22 11:32:45.265 [main] INFO  - Application ended
+2024-04-22 11:32:47.206 [main] INFO  - Application started
+2024-04-22 11:32:47.207 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:32:47.207 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:32:47.207 [main] INFO  - Properties file read successfully
+2024-04-22 11:32:47.209 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:32:47.209 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:32:47.589 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:32:47.589 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:32:47.589 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:32:47.590 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 11:32:47.922 [main] INFO  - Source indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 11:32:47.934 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 11:32:47.934 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:32:47.950 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:32:47.959 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:32:48.129 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc data default: null
+2024-04-22 11:32:48.131 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 11:32:48.131 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:32:48.131 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:32:48.131 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 11:32:48.131 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 11:32:48.131 [main] INFO  - validateColumn col scale with src value: null, dest value: 0 is false
+2024-04-22 11:32:48.131 [main] INFO  - validateColumn col nullable with src value: N, dest value: N is true
+2024-04-22 11:32:48.131 [main] INFO  - Write to report.csv
+2024-04-22 11:32:48.298 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc data default: null
+2024-04-22 11:32:48.298 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 11:32:48.299 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 11:32:48.299 [main] INFO  - validateColumn col len with src value: 255, dest value: 255 is true
+2024-04-22 11:32:48.299 [main] INFO  - validateColumn col precision with src value: null, dest value: null is true
+2024-04-22 11:32:48.299 [main] INFO  - validateColumn col scale with src value: null, dest value: null is true
+2024-04-22 11:32:48.299 [main] INFO  - validateColumn col nullable with src value: Y, dest value: Y is true
+2024-04-22 11:32:48.299 [main] INFO  - Write to report.csv
+2024-04-22 11:32:48.305 [main] INFO  - Application ended
+2024-04-22 11:37:23.757 [main] INFO  - Application started
+2024-04-22 11:37:23.758 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:37:23.758 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:37:23.758 [main] INFO  - Properties file read successfully
+2024-04-22 11:37:23.760 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:37:23.760 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:37:24.156 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:37:24.156 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:37:24.156 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:37:24.157 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 11:37:24.519 [main] INFO  - Source indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 11:37:24.531 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 11:37:24.531 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:37:24.546 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:37:24.555 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:37:24.718 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc data default: null
+2024-04-22 11:37:24.720 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 11:37:24.720 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:37:24.720 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:37:24.720 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 11:37:24.720 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 11:37:24.720 [main] INFO  - validateColumn col scale with src value: null, dest value: 0 is false
+2024-04-22 11:37:24.720 [main] INFO  - Write to report.csv
+2024-04-22 11:37:24.901 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc data default: null
+2024-04-22 11:37:24.901 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 11:37:24.901 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 11:37:24.901 [main] INFO  - validateColumn col len with src value: 255, dest value: 255 is true
+2024-04-22 11:37:24.901 [main] INFO  - validateColumn col precision with src value: null, dest value: null is true
+2024-04-22 11:37:24.901 [main] INFO  - validateColumn col scale with src value: null, dest value: null is true
+2024-04-22 11:37:24.901 [main] INFO  - Write to report.csv
+2024-04-22 11:37:24.907 [main] INFO  - Application ended
+2024-04-22 11:39:24.194 [main] INFO  - Application started
+2024-04-22 11:39:24.195 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:39:24.195 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:39:24.196 [main] INFO  - Properties file read successfully
+2024-04-22 11:39:24.198 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:39:24.198 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:39:24.565 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:39:24.565 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:39:24.565 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:39:24.566 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 11:39:24.922 [main] INFO  - Source indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 11:39:24.935 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 11:39:24.935 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:39:24.951 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:39:24.960 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:39:25.135 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc data default: null
+2024-04-22 11:39:25.137 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 11:39:25.137 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:39:25.137 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:39:25.137 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 11:39:25.137 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 11:39:25.137 [main] INFO  - Write to report.csv
+2024-04-22 11:39:25.309 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc data default: null
+2024-04-22 11:39:25.309 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 11:39:25.309 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 11:39:25.309 [main] INFO  - validateColumn col len with src value: 255, dest value: 255 is true
+2024-04-22 11:39:25.309 [main] INFO  - validateColumn col precision with src value: null, dest value: null is true
+2024-04-22 11:39:25.309 [main] INFO  - Write to report.csv
+2024-04-22 11:39:25.315 [main] INFO  - Application ended
+2024-04-22 11:40:39.714 [main] INFO  - Application started
+2024-04-22 11:40:39.715 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:40:39.715 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:40:39.715 [main] INFO  - Properties file read successfully
+2024-04-22 11:40:39.717 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:40:39.717 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:40:40.095 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:40:40.095 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:40:40.095 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:40:40.096 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 11:40:40.449 [main] INFO  - Source indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 11:40:40.461 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 11:40:40.462 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:40:40.478 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:40:40.487 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:40:40.655 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc data default: null
+2024-04-22 11:40:40.656 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 11:40:40.656 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:40:40.656 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:40:40.656 [main] INFO  - Write to report.csv
+2024-04-22 11:40:40.826 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc data default: null
+2024-04-22 11:40:40.827 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 11:40:40.827 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 11:40:40.827 [main] INFO  - Write to report.csv
+2024-04-22 11:40:40.834 [main] INFO  - Application ended
+2024-04-22 11:41:34.921 [main] INFO  - Application started
+2024-04-22 11:41:34.922 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:41:34.922 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:41:34.922 [main] INFO  - Properties file read successfully
+2024-04-22 11:41:34.925 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:41:34.925 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:41:35.300 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:41:35.300 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:41:35.300 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:41:35.301 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 11:41:35.658 [main] INFO  - Source indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 11:41:35.670 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 11:41:35.670 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:41:35.686 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:41:35.696 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:41:35.857 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc data default: null
+2024-04-22 11:41:35.858 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 11:41:35.859 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:41:35.859 [main] INFO  - Write to report.csv
+2024-04-22 11:41:36.028 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc data default: null
+2024-04-22 11:41:36.028 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 11:41:36.028 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 11:41:36.028 [main] INFO  - Write to report.csv
+2024-04-22 11:41:36.035 [main] INFO  - Application ended
+2024-04-22 11:43:56.602 [main] INFO  - Application started
+2024-04-22 11:43:56.603 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:43:56.603 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:43:56.603 [main] INFO  - Properties file read successfully
+2024-04-22 11:43:56.605 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:43:56.605 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:43:56.979 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:43:56.979 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:43:56.979 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:43:56.980 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 11:43:57.331 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 11:43:57.342 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 11:43:57.356 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:43:57.369 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:43:57.369 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:43:57.386 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:43:57.395 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:43:57.558 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, source indexSYS_C0011695, source sequencetrue, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc index: PRIMARY, desc auto increment: true, desc data default: null
+2024-04-22 11:43:57.560 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 11:43:57.560 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:43:57.560 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 11:43:57.560 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 11:43:57.560 [main] INFO  - validateColumn col scale with src value: null, dest value: 0 is false
+2024-04-22 11:43:57.560 [main] INFO  - validateColumn col nullable with src value: N, dest value: N is true
+2024-04-22 11:43:57.560 [main] INFO  - validateColumn col pk with src value: PRI, dest value: PRI is true
+2024-04-22 11:43:57.560 [main] INFO  - validateColumn col index with src value: SYS_C0011695, dest value: PRIMARY is false
+2024-04-22 11:43:57.560 [main] INFO  - validateColumn col increment with src value: true, dest value: true is true
+2024-04-22 11:43:57.560 [main] INFO  - Write to report.csv
+2024-04-22 11:43:57.735 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , source indexnull, source sequencefalse, desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc index: null, desc auto increment: false, desc data default: null
+2024-04-22 11:43:57.735 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 11:43:57.735 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 11:43:57.735 [main] INFO  - validateColumn col len with src value: 255, dest value: 255 is true
+2024-04-22 11:43:57.736 [main] INFO  - validateColumn col precision with src value: null, dest value: null is true
+2024-04-22 11:43:57.736 [main] INFO  - validateColumn col scale with src value: null, dest value: null is true
+2024-04-22 11:43:57.736 [main] INFO  - validateColumn col nullable with src value: Y, dest value: Y is true
+2024-04-22 11:43:57.736 [main] INFO  - validateColumn col pk with src value: , dest value:  is true
+2024-04-22 11:43:57.736 [main] INFO  - validateColumn col index with src value: null, dest value: null is true
+2024-04-22 11:43:57.736 [main] INFO  - validateColumn col increment with src value: false, dest value: false is true
+2024-04-22 11:43:57.736 [main] INFO  - Write to report.csv
+2024-04-22 11:43:57.743 [main] INFO  - Application ended
+2024-04-22 11:44:05.378 [main] INFO  - Application started
+2024-04-22 11:44:05.379 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:44:05.379 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:44:05.379 [main] INFO  - Properties file read successfully
+2024-04-22 11:44:05.381 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:44:05.382 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:44:05.753 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:44:05.753 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:44:05.753 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:44:05.754 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 11:44:06.085 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 11:44:06.097 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 11:44:06.111 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:44:06.127 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:44:06.127 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:44:06.141 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:44:06.150 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:44:06.319 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, source indexSYS_C0011695, source sequencetrue, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc index: PRIMARY, desc auto increment: true, desc data default: null
+2024-04-22 11:44:06.320 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 11:44:06.320 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:44:06.320 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 11:44:06.320 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 11:44:06.320 [main] INFO  - validateColumn col scale with src value: null, dest value: 0 is false
+2024-04-22 11:44:06.321 [main] INFO  - validateColumn col nullable with src value: N, dest value: N is true
+2024-04-22 11:44:06.321 [main] INFO  - validateColumn col pk with src value: PRI, dest value: PRI is true
+2024-04-22 11:44:06.321 [main] INFO  - validateColumn col index with src value: SYS_C0011695, dest value: PRIMARY is false
+2024-04-22 11:44:06.321 [main] INFO  - validateColumn col increment with src value: true, dest value: true is true
+2024-04-22 11:44:06.321 [main] INFO  - Write to report.csv
+2024-04-22 11:44:06.487 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , source indexnull, source sequencefalse, desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc index: null, desc auto increment: false, desc data default: null
+2024-04-22 11:44:06.487 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 11:44:06.488 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 11:44:06.488 [main] INFO  - validateColumn col len with src value: 255, dest value: 255 is true
+2024-04-22 11:44:06.488 [main] INFO  - validateColumn col precision with src value: null, dest value: null is true
+2024-04-22 11:44:06.488 [main] INFO  - validateColumn col scale with src value: null, dest value: null is true
+2024-04-22 11:44:06.488 [main] INFO  - validateColumn col nullable with src value: Y, dest value: Y is true
+2024-04-22 11:44:06.488 [main] INFO  - validateColumn col pk with src value: , dest value:  is true
+2024-04-22 11:44:06.488 [main] INFO  - validateColumn col index with src value: null, dest value: null is true
+2024-04-22 11:44:06.488 [main] INFO  - validateColumn col increment with src value: false, dest value: false is true
+2024-04-22 11:44:06.488 [main] INFO  - Write to report.csv
+2024-04-22 11:44:06.494 [main] INFO  - Application ended
+2024-04-22 11:54:56.427 [main] INFO  - Application started
+2024-04-22 11:54:56.428 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:54:56.429 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:54:56.429 [main] INFO  - Properties file read successfully
+2024-04-22 11:54:56.431 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:54:56.431 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:54:56.800 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:54:56.800 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:54:56.800 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:54:56.801 [main] INFO  - Schema: ACCESSCONTROL_PANDP
+2024-04-22 11:54:56.801 [main] INFO  - Getting table list from database oracle with schema: ACCESSCONTROL_PANDP
+2024-04-22 11:54:57.981 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'ACCESSCONTROL_PANDP'
+2024-04-22 11:54:57.982 [main] INFO  - Get 0 table from ACCESSCONTROL_PANDP schema of database oracle
+2024-04-22 11:54:57.982 [main] INFO  - Getting table list from database mysql with schema: ACCESSCONTROL_PANDP
+2024-04-22 11:54:58.195 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'ACCESSCONTROL_PANDP'
+2024-04-22 11:54:58.195 [main] INFO  - Get 0 table from ACCESSCONTROL_PANDP schema of database mysql
+2024-04-22 11:54:58.196 [main] INFO  - Schema: ACTION
+2024-04-22 11:54:58.196 [main] INFO  - Getting table list from database oracle with schema: ACTION
+2024-04-22 11:54:59.227 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'ACTION'
+2024-04-22 11:54:59.228 [main] INFO  - Get 0 table from ACTION schema of database oracle
+2024-04-22 11:54:59.228 [main] INFO  - Getting table list from database mysql with schema: ACTION
+2024-04-22 11:54:59.300 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'ACTION'
+2024-04-22 11:54:59.300 [main] INFO  - Get 17 table from ACTION schema of database mysql
+2024-04-22 11:54:59.301 [main] INFO  - Schema: ANONYMOUS
+2024-04-22 11:54:59.301 [main] INFO  - Getting table list from database oracle with schema: ANONYMOUS
+2024-04-22 11:55:00.286 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'ANONYMOUS'
+2024-04-22 11:55:00.287 [main] INFO  - Get 0 table from ANONYMOUS schema of database oracle
+2024-04-22 11:55:00.288 [main] INFO  - Getting table list from database mysql with schema: ANONYMOUS
+2024-04-22 11:55:00.360 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'ANONYMOUS'
+2024-04-22 11:55:00.360 [main] INFO  - Get 0 table from ANONYMOUS schema of database mysql
+2024-04-22 11:55:00.361 [main] INFO  - Schema: APPQOSSYS
+2024-04-22 11:55:00.361 [main] INFO  - Getting table list from database oracle with schema: APPQOSSYS
+2024-04-22 11:55:01.437 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'APPQOSSYS'
+2024-04-22 11:55:01.438 [main] INFO  - Get 5 table from APPQOSSYS schema of database oracle
+2024-04-22 11:55:01.438 [main] INFO  - Getting table list from database mysql with schema: APPQOSSYS
+2024-04-22 11:55:01.500 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'APPQOSSYS'
+2024-04-22 11:55:01.500 [main] INFO  - Get 0 table from APPQOSSYS schema of database mysql
+2024-04-22 11:55:01.500 [main] INFO  - Schema: APPROVAL_SERVICE
+2024-04-22 11:55:01.501 [main] INFO  - Getting table list from database oracle with schema: APPROVAL_SERVICE
+2024-04-22 11:55:02.368 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'APPROVAL_SERVICE'
+2024-04-22 11:55:02.375 [main] INFO  - Get 13 table from APPROVAL_SERVICE schema of database oracle
+2024-04-22 11:55:02.376 [main] INFO  - Getting table list from database mysql with schema: APPROVAL_SERVICE
+2024-04-22 11:55:02.441 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'APPROVAL_SERVICE'
+2024-04-22 11:55:02.442 [main] INFO  - Get 14 table from APPROVAL_SERVICE schema of database mysql
+2024-04-22 11:55:02.442 [main] INFO  - Schema: ARRANGEMENT_MANAGER
+2024-04-22 11:55:02.442 [main] INFO  - Getting table list from database oracle with schema: ARRANGEMENT_MANAGER
+2024-04-22 11:55:03.075 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'ARRANGEMENT_MANAGER'
+2024-04-22 11:55:03.088 [main] INFO  - Get 23 table from ARRANGEMENT_MANAGER schema of database oracle
+2024-04-22 11:55:03.089 [main] INFO  - Getting table list from database mysql with schema: ARRANGEMENT_MANAGER
+2024-04-22 11:55:03.163 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'ARRANGEMENT_MANAGER'
+2024-04-22 11:55:03.163 [main] INFO  - Get 0 table from ARRANGEMENT_MANAGER schema of database mysql
+2024-04-22 11:55:03.164 [main] INFO  - Schema: AUDIT_PERSISTENCE
+2024-04-22 11:55:03.164 [main] INFO  - Getting table list from database oracle with schema: AUDIT_PERSISTENCE
+2024-04-22 11:55:38.244 [main] INFO  - Application started
+2024-04-22 11:55:38.245 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:55:38.245 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:55:38.245 [main] INFO  - Properties file read successfully
+2024-04-22 11:55:38.247 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:55:38.247 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:55:38.614 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:55:38.614 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:55:38.614 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:55:38.614 [main] INFO  - Schema: CX6_AUDITING
+2024-04-22 11:55:38.614 [main] INFO  - Getting table list from database oracle with schema: CX6_AUDITING
+2024-04-22 11:55:38.840 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CX6_AUDITING'
+2024-04-22 11:55:38.840 [main] INFO  - Get 1 table from CX6_AUDITING schema of database oracle
+2024-04-22 11:55:38.840 [main] INFO  - Getting table list from database mysql with schema: CX6_AUDITING
+2024-04-22 11:55:39.027 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CX6_AUDITING'
+2024-04-22 11:55:39.027 [main] INFO  - Get 4 table from CX6_AUDITING schema of database mysql
+2024-04-22 11:55:39.027 [main] INFO  - Source Tables: {CX6_AUDITING=[CX6_AUDITING.TEST]}
+2024-04-22 11:55:39.027 [main] INFO  - Desc Tables: {CX6_AUDITING=[CX6_AUDITING.AUDIT_EVENTS, CX6_AUDITING.DATABASECHANGELOG, CX6_AUDITING.DATABASECHANGELOGLOCK, CX6_AUDITING.TEST]}
+2024-04-22 11:55:39.027 [main] INFO  - Missing Table: []
+2024-04-22 11:55:39.027 [main] INFO  - Table List: [CX6_AUDITING.TEST]
+2024-04-22 11:55:39.028 [main] INFO  - Schema: CX6_AUDITING
+2024-04-22 11:55:39.028 [main] INFO  - Getting table list from database oracle with schema: CX6_AUDITING
+2024-04-22 11:55:39.223 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CX6_AUDITING'
+2024-04-22 11:55:39.224 [main] INFO  - Get 1 table from CX6_AUDITING schema of database oracle
+2024-04-22 11:55:39.224 [main] INFO  - Getting table list from database mysql with schema: CX6_AUDITING
+2024-04-22 11:55:39.285 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CX6_AUDITING'
+2024-04-22 11:55:39.285 [main] INFO  - Get 4 table from CX6_AUDITING schema of database mysql
+2024-04-22 11:55:39.285 [main] INFO  - Source Tables: {CX6_AUDITING=[CX6_AUDITING.AUDIT_EVENTS, CX6_AUDITING.DATABASECHANGELOG, CX6_AUDITING.DATABASECHANGELOGLOCK, CX6_AUDITING.TEST]}
+2024-04-22 11:55:39.285 [main] INFO  - Desc Tables: {CX6_AUDITING=[CX6_AUDITING.TEST]}
+2024-04-22 11:55:39.286 [main] INFO  - Missing Table: [CX6_AUDITING.AUDIT_EVENTS, CX6_AUDITING.DATABASECHANGELOG, CX6_AUDITING.DATABASECHANGELOGLOCK]
+2024-04-22 11:55:39.286 [main] INFO  - Missing Table: CX6_AUDITING.AUDIT_EVENTS
+2024-04-22 11:55:39.286 [main] INFO  - Missing Table: CX6_AUDITING.DATABASECHANGELOG
+2024-04-22 11:55:39.286 [main] INFO  - Missing Table: CX6_AUDITING.DATABASECHANGELOGLOCK
+2024-04-22 11:55:39.287 [main] INFO  - Table List: [CX6_AUDITING.TEST]
+2024-04-22 11:55:39.287 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 11:55:39.499 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 11:55:39.507 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 11:55:39.522 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:55:39.537 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:55:39.537 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:55:39.556 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:55:39.565 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:55:39.730 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, source indexSYS_C0011695, source sequencetrue, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc index: PRIMARY, desc auto increment: true, desc data default: null
+2024-04-22 11:55:39.732 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 11:55:39.732 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:55:39.732 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 11:55:39.732 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 11:55:39.732 [main] INFO  - validateColumn col scale with src value: null, dest value: 0 is false
+2024-04-22 11:55:39.732 [main] INFO  - validateColumn col nullable with src value: N, dest value: N is true
+2024-04-22 11:55:39.732 [main] INFO  - validateColumn col pk with src value: PRI, dest value: PRI is true
+2024-04-22 11:55:39.733 [main] INFO  - validateColumn col index with src value: SYS_C0011695, dest value: PRIMARY is false
+2024-04-22 11:55:39.733 [main] INFO  - validateColumn col increment with src value: true, dest value: true is true
+2024-04-22 11:55:39.733 [main] INFO  - Write to report.csv
+2024-04-22 11:55:39.906 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , source indexnull, source sequencefalse, desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc index: null, desc auto increment: false, desc data default: null
+2024-04-22 11:55:39.907 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 11:55:39.907 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 11:55:39.907 [main] INFO  - validateColumn col len with src value: 255, dest value: 255 is true
+2024-04-22 11:55:39.907 [main] INFO  - validateColumn col precision with src value: null, dest value: null is true
+2024-04-22 11:55:39.907 [main] INFO  - validateColumn col scale with src value: null, dest value: null is true
+2024-04-22 11:55:39.907 [main] INFO  - validateColumn col nullable with src value: Y, dest value: Y is true
+2024-04-22 11:55:39.907 [main] INFO  - validateColumn col pk with src value: , dest value:  is true
+2024-04-22 11:55:39.907 [main] INFO  - validateColumn col index with src value: null, dest value: null is true
+2024-04-22 11:55:39.909 [main] INFO  - validateColumn col increment with src value: false, dest value: false is true
+2024-04-22 11:55:39.909 [main] INFO  - Write to report.csv
+2024-04-22 11:55:39.915 [main] INFO  - Application ended
+2024-04-22 11:57:27.142 [main] INFO  - Application started
+2024-04-22 11:57:27.143 [main] INFO  - Start reading properties file: application.properties
+2024-04-22 11:57:27.143 [main] INFO  - Current path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff
+2024-04-22 11:57:27.143 [main] INFO  - Properties file read successfully
+2024-04-22 11:57:27.146 [main] INFO  - Properties: {destination_type=mysql, source_connection_string=jdbc:oracle:thin:@//10.10.12.21:1521/t24core, destination_password=oracle_4U, source_username=ggadmin, source_type=oracle, destination_connection_string=jdbc:mysql://10.10.12.238:3306, source_password=oracle_4U, destination_username=dbadmin}
+2024-04-22 11:57:27.146 [main] INFO  - Found query to get all schema is null from properties file. Using default query: select username as schema_name from sys.all_users order by username
+2024-04-22 11:57:27.520 [main] INFO  - Checking file exist: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:57:27.520 [main] INFO  - File exist at the path: /Users/phamduongw/Library/CloudStorage/OneDrive-Personal/Workspace/java/datadiff/schemas.txt
+2024-04-22 11:57:27.520 [main] INFO  - schemas.txt file already exists, stop query the schema from database
+2024-04-22 11:57:27.520 [main] INFO  - Schema: CX6_AUDITING
+2024-04-22 11:57:27.520 [main] INFO  - Getting table list from database oracle with schema: CX6_AUDITING
+2024-04-22 11:57:27.735 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CX6_AUDITING'
+2024-04-22 11:57:27.735 [main] INFO  - Get 1 table from CX6_AUDITING schema of database oracle
+2024-04-22 11:57:27.735 [main] INFO  - Getting table list from database mysql with schema: CX6_AUDITING
+2024-04-22 11:57:27.922 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CX6_AUDITING'
+2024-04-22 11:57:27.922 [main] INFO  - Get 4 table from CX6_AUDITING schema of database mysql
+2024-04-22 11:57:27.922 [main] INFO  - Source Tables: {CX6_AUDITING=[CX6_AUDITING.TEST]}
+2024-04-22 11:57:27.922 [main] INFO  - Desc Tables: {CX6_AUDITING=[CX6_AUDITING.AUDIT_EVENTS, CX6_AUDITING.DATABASECHANGELOG, CX6_AUDITING.DATABASECHANGELOGLOCK, CX6_AUDITING.TEST]}
+2024-04-22 11:57:27.922 [main] INFO  - Missing Table: []
+2024-04-22 11:57:27.923 [main] INFO  - Table List: [CX6_AUDITING.TEST]
+2024-04-22 11:57:27.923 [main] INFO  - Schema: CX6_AUDITING
+2024-04-22 11:57:27.923 [main] INFO  - Getting table list from database oracle with schema: CX6_AUDITING
+2024-04-22 11:57:28.122 [main] INFO  - Executing query: SELECT table_name FROM all_tables WHERE owner = 'CX6_AUDITING'
+2024-04-22 11:57:28.122 [main] INFO  - Get 1 table from CX6_AUDITING schema of database oracle
+2024-04-22 11:57:28.122 [main] INFO  - Getting table list from database mysql with schema: CX6_AUDITING
+2024-04-22 11:57:28.179 [main] INFO  - Executing query: SELECT table_name FROM information_schema.tables WHERE table_schema = 'CX6_AUDITING'
+2024-04-22 11:57:28.179 [main] INFO  - Get 4 table from CX6_AUDITING schema of database mysql
+2024-04-22 11:57:28.179 [main] INFO  - Source Tables: {CX6_AUDITING=[CX6_AUDITING.AUDIT_EVENTS, CX6_AUDITING.DATABASECHANGELOG, CX6_AUDITING.DATABASECHANGELOGLOCK, CX6_AUDITING.TEST]}
+2024-04-22 11:57:28.179 [main] INFO  - Desc Tables: {CX6_AUDITING=[CX6_AUDITING.TEST]}
+2024-04-22 11:57:28.179 [main] INFO  - Missing Table: [CX6_AUDITING.AUDIT_EVENTS, CX6_AUDITING.DATABASECHANGELOG, CX6_AUDITING.DATABASECHANGELOGLOCK]
+2024-04-22 11:57:28.180 [main] INFO  - Missing Table: CX6_AUDITING.AUDIT_EVENTS
+2024-04-22 11:57:28.180 [main] INFO  - Missing Table: CX6_AUDITING.DATABASECHANGELOG
+2024-04-22 11:57:28.180 [main] INFO  - Missing Table: CX6_AUDITING.DATABASECHANGELOGLOCK
+2024-04-22 11:57:28.180 [main] INFO  - Table List: [CX6_AUDITING.TEST]
+2024-04-22 11:57:28.181 [main] INFO  - Starting compare table : TEST at schema: CX6_AUDITING
+2024-04-22 11:57:28.378 [main] INFO  - Src indexes query : SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST'
+2024-04-22 11:57:28.384 [main] INFO  - Dest indexes query : SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST'
+2024-04-22 11:57:28.399 [main] INFO  - Src sequences query : SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' AND IDENTITY_COLUMN = 'YES'
+2024-04-22 11:57:28.413 [main] INFO  - Dest auto increments query : SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'CX6_AUDITING' and TABLE_NAME = 'TEST' and EXTRA = 'AUTO_INCREMENT'
+2024-04-22 11:57:28.413 [main] INFO  - Start get table metadata from source database
+2024-04-22 11:57:28.427 [main] INFO  - Start get table metadata from desc database
+2024-04-22 11:57:28.434 [main] INFO  - SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, IS_NULLABLE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COLUMN_KEY,COLUMN_DEFAULT,DATETIME_PRECISION  FROM information_schema.columns WHERE TABLE_SCHEMA = 'CX6_AUDITING' AND TABLE_NAME = 'TEST' ORDER BY COLUMN_NAME collate utf8_bin
+2024-04-22 11:57:28.598 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: ID, source data type: NUMBER, source length: 22, source percision: null, source scale: null, source nullable: N, source data default: "CX6_AUDITING"."ISEQ$$_94373".nextval, source pk: PRI, source indexSYS_C0011695, source sequencetrue, desc col name: ID, desc data type:int, desc len: null, desc precision: 10, desc scale: 0, desc nullable: N, desc key: PRI, desc index: PRIMARY, desc auto increment: true, desc data default: null
+2024-04-22 11:57:28.600 [main] INFO  - validateColumn col name with src value: ID, dest value: ID is true
+2024-04-22 11:57:28.600 [main] INFO  - Validate data type with Source Type:NUMBER, Desc type: INT Status: FALSE
+2024-04-22 11:57:28.600 [main] INFO  - validateColumn col len with src value: 22, dest value: null is false
+2024-04-22 11:57:28.600 [main] INFO  - validateColumn col precision with src value: null, dest value: 10 is false
+2024-04-22 11:57:28.600 [main] INFO  - validateColumn col scale with src value: null, dest value: 0 is false
+2024-04-22 11:57:28.600 [main] INFO  - validateColumn col nullable with src value: N, dest value: N is true
+2024-04-22 11:57:28.600 [main] INFO  - validateColumn col pk with src value: PRI, dest value: PRI is true
+2024-04-22 11:57:28.600 [main] INFO  - validateColumn col index with src value: SYS_C0011695, dest value: PRIMARY is false
+2024-04-22 11:57:28.600 [main] INFO  - validateColumn col increment with src value: true, dest value: true is true
+2024-04-22 11:57:28.600 [main] INFO  - Write to report.csv
+2024-04-22 11:57:28.765 [main] INFO  - append: schema: CX6_AUDITING, tbl: TEST, source col name: NAME, source data type: VARCHAR2, source length: 255, source percision: null, source scale: null, source nullable: Y, source data default: null, source pk: , source indexnull, source sequencefalse, desc col name: NAME, desc data type:varchar, desc len: 255, desc precision: null, desc scale: null, desc nullable: Y, desc key: , desc index: null, desc auto increment: false, desc data default: null
+2024-04-22 11:57:28.765 [main] INFO  - validateColumn col name with src value: NAME, dest value: NAME is true
+2024-04-22 11:57:28.765 [main] INFO  - Validate data type with Source Type:VARCHAR2 , Desc type: VARCHAR .Status: TRUE
+2024-04-22 11:57:28.765 [main] INFO  - validateColumn col len with src value: 255, dest value: 255 is true
+2024-04-22 11:57:28.766 [main] INFO  - validateColumn col precision with src value: null, dest value: null is true
+2024-04-22 11:57:28.766 [main] INFO  - validateColumn col scale with src value: null, dest value: null is true
+2024-04-22 11:57:28.766 [main] INFO  - validateColumn col nullable with src value: Y, dest value: Y is true
+2024-04-22 11:57:28.766 [main] INFO  - validateColumn col pk with src value: , dest value:  is true
+2024-04-22 11:57:28.766 [main] INFO  - validateColumn col index with src value: null, dest value: null is true
+2024-04-22 11:57:28.771 [main] INFO  - validateColumn col increment with src value: false, dest value: false is true
+2024-04-22 11:57:28.771 [main] INFO  - Write to report.csv
+2024-04-22 11:57:28.778 [main] INFO  - Application ended

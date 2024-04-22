@@ -65,7 +65,6 @@ public class ValidatorServiceImpl implements ValidatorService {
                     }
                 }
             }
-
         } catch (Exception e) {
             log4j.error("Error: " + e);
         } finally {
@@ -75,7 +74,6 @@ public class ValidatorServiceImpl implements ValidatorService {
                 log4j.error("Error: " + e);
             }
         }
-
 
         switch (compareOption) {
             case 1:
@@ -112,21 +110,16 @@ public class ValidatorServiceImpl implements ValidatorService {
                     }
                 }
             }
-
         } catch (Exception e) {
             log4j.error("Error: " + e);
         }
-
     }
-
 
     @Deprecated
     public void createCSVReport(JSONObject source, JSONObject desc, ArrayList<String> sourceTableList, ArrayList<String> descTableList, String schemaName) throws FileNotFoundException {
         //Create CSV report
 
-        PrintWriter writer = new PrintWriter(new FileOutputStream(
-                new File("report.csv"),
-                true /* append = true */));
+        PrintWriter writer = new PrintWriter(new FileOutputStream(new File("report.csv"), true /* append = true */));
 
         String tableName;
         JSONArray sourceArray = source.getJSONArray(schemaName);
@@ -137,7 +130,6 @@ public class ValidatorServiceImpl implements ValidatorService {
             tableName = sourceTableList.get(i).split("\\.")[1];
             JSONObject sourceTable = sourceArray.getJSONObject(i);
             sourceList.put(tableName, sourceTable);
-
         }
 
         for (int i = 0; i < descArray.length(); i++) {
@@ -181,10 +173,8 @@ public class ValidatorServiceImpl implements ValidatorService {
 
                     //Validator
                     String columnNameValidator;
-                    if (sourceColumnName.equals(descColumnName))
-                        columnNameValidator = "TRUE";
-                    else
-                        columnNameValidator = "FALSE";
+                    if (sourceColumnName.equals(descColumnName)) columnNameValidator = "TRUE";
+                    else columnNameValidator = "FALSE";
 
                     String dataTypeValidator = "FALSE";
                     String[] descDataTypeArray = dataTypeMapping.get(sourceDataType);
@@ -201,53 +191,37 @@ public class ValidatorServiceImpl implements ValidatorService {
                         dataTypeValidator = "FALSE";
                     }
 
-
                     String lengthValidator;
-                    if (sourceLength.equals(descLength))
-                        lengthValidator = "TRUE";
-                    else
-                        lengthValidator = "FALSE";
+                    if (sourceLength.equals(descLength)) lengthValidator = "TRUE";
+                    else lengthValidator = "FALSE";
 
                     String precisionValidator;
-                    if (sourcePrecision.equals(descPrecision))
-                        precisionValidator = "TRUE";
-                    else
-                        precisionValidator = "FALSE";
+                    if (sourcePrecision.equals(descPrecision)) precisionValidator = "TRUE";
+                    else precisionValidator = "FALSE";
 
                     String scaleValidator;
-                    if (sourceScale.equals(descScale))
-                        scaleValidator = "TRUE";
-                    else
-                        scaleValidator = "FALSE";
+                    if (sourceScale.equals(descScale)) scaleValidator = "TRUE";
+                    else scaleValidator = "FALSE";
 
                     String nullableValidator;
                     String descNull = String.valueOf(descNullable.charAt(0));
-                    if (sourceNullable.equals(descNull))
-                        nullableValidator = "TRUE";
-                    else
-                        nullableValidator = "FALSE";
+                    if (sourceNullable.equals(descNull)) nullableValidator = "TRUE";
+                    else nullableValidator = "FALSE";
 
                     String keyValidator;
-                    if (sourceKey.equals(descKey))
-                        keyValidator = "TRUE";
-                    else
-                        keyValidator = "FALSE";
+                    if (sourceKey.equals(descKey)) keyValidator = "TRUE";
+                    else keyValidator = "FALSE";
 
                     String dataDefaultValidator;
-                    if (sourceDataDefault.equals(descDataDefault))
-                        dataDefaultValidator = "TRUE";
-                    else
-                        dataDefaultValidator = "FALSE";
+                    if (sourceDataDefault.equals(descDataDefault)) dataDefaultValidator = "TRUE";
+                    else dataDefaultValidator = "FALSE";
 
                     writer.write(sourceColumnSchema + "," + sourceColumnTableName + "," + sourceColumnName + "," + sourceDataType + "," + sourceLength + "," + sourcePrecision + "," + sourceScale + "," + sourceNullable + "," + sourceKey + "," + sourceDataDefault + "," + descColumnName + "," + descDataType + "," + descLength + "," + descPrecision + "," + descScale + "," + descNullable + "," + descKey + "," + descDataDefault + "," + columnNameValidator + "," + dataTypeValidator + "," + lengthValidator + "," + precisionValidator + "," + scaleValidator + "," + nullableValidator + "," + keyValidator + "," + dataDefaultValidator + "\n");
                 }
-
-
             }
         }
         writer.close();
     }
-
 
     public void createCSVReport(String table, String sourceConnectionString, String source_username, String source_password, String descConnectionString, String desc_username, String desc_password) {
         String schema = table.split("\\.")[0];
@@ -259,7 +233,7 @@ public class ValidatorServiceImpl implements ValidatorService {
         if (!file.exists()) {
             try {
                 PrintWriter writer = new PrintWriter(file);
-                writer.write("Schema Name,Table Name,Source Column Name,Source Data Type,Source Length,Source Precision,Source Scale,Source Nullable,Source Data Default,Source Key,Destination Column Name,Destination Data Type,Destination Length,Destination Precision,Destination Scale,Destination Nullable,Destination Key,Destination Data Default,Column Name Validator,Data Type Validator,Length Validator,Precision Validator,Scale Validator,Nullable Validator,Key Validator,Data Default\n");
+                writer.write("Schema Name,Table Name,Source Column Name,Source Data Type,Source Length,Source Precision,Source Scale,Source Nullable,Source Data Default,Source Key,Source Index Name,Source Sequence,Destination Column Name,Destination Data Type,Destination Length,Destination Precision,Destination Scale,Destination Nullable,Destination Key,Destination Index Name,Destination Auto Increment,Destination Data Default,Column Name Validator,Data Type Validator,Length Validator,Precision Validator,Scale Validator,Nullable Validator,Key Validator,Index Name Validator,Incremental Validator,Data Default\n");
                 writer.close();
             } catch (Exception e) {
                 log4j.error("Error: " + e);
@@ -267,13 +241,52 @@ public class ValidatorServiceImpl implements ValidatorService {
         }
 
         try {
-            PrintWriter writer = new PrintWriter(new FileOutputStream(
-                    new File("report.csv"),
-                    true /* append = true */));
+            PrintWriter writer = new PrintWriter(new FileOutputStream(new File("report.csv"), true /* append = true */));
             log4j.info("Starting compare table : " + tbl + " at schema: " + schema);
             Statement stmtSource = databaseService.connectToDatabase(sourceConnectionString, source_username, source_password);
             Statement stmtDesc = databaseService.connectToDatabase(descConnectionString, desc_username, desc_password);
+
             try {
+                // Index Name Validator
+                HashMap<String, String> srcIndexes = new HashMap<>();
+                HashMap<String, String> destIndexes = new HashMap<>();
+
+                // Get Source Indexes
+                String getSrcIndexesQuery = String.format("SELECT * FROM ALL_IND_COLUMNS WHERE TABLE_OWNER = '%s' AND TABLE_NAME = '%s'", schema, tbl);
+                ResultSet srcIndexesResultSet = stmtSource.executeQuery(getSrcIndexesQuery);
+                log4j.info("Src indexes query : " + getSrcIndexesQuery);
+                while (srcIndexesResultSet.next()) {
+                    srcIndexes.put(srcIndexesResultSet.getString("COLUMN_NAME"), srcIndexesResultSet.getString("INDEX_NAME"));
+                }
+
+                // Get Destination Indexes
+                String getDestIndexesQuery = String.format("SELECT DISTINCT TABLE_NAME, INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = '%s' and TABLE_NAME = '%s'", schema, tbl);
+                ResultSet destIndexesResultSet = stmtDesc.executeQuery(getDestIndexesQuery);
+                log4j.info("Dest indexes query : " + getDestIndexesQuery);
+                while (destIndexesResultSet.next()) {
+                    destIndexes.put(destIndexesResultSet.getString("COLUMN_NAME"), destIndexesResultSet.getString("INDEX_NAME"));
+                }
+
+                // Incremental Validator
+                ArrayList<String> srcSequences = new ArrayList<>();
+                ArrayList<String> destAutoIncrements = new ArrayList<>();
+
+                // Get Source Sequences
+                String getSrcSequencesQuery = String.format("SELECT DATA_DEFAULT AS SEQUENCE_VAL , TABLE_NAME , COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE OWNER = '%s' AND TABLE_NAME = '%s' AND IDENTITY_COLUMN = 'YES'", schema, tbl);
+                ResultSet srcSequencesResultSet = stmtSource.executeQuery(getSrcSequencesQuery);
+                log4j.info("Src sequences query : " + getSrcSequencesQuery);
+                while (srcSequencesResultSet.next()) {
+                    srcSequences.add(srcSequencesResultSet.getString("COLUMN_NAME"));
+                }
+
+                // Get Destination Auto Increments
+                String getDestAutoIncrementsQuery = String.format("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '%s' and TABLE_NAME = '%s' and EXTRA = 'AUTO_INCREMENT'", schema, tbl);
+                ResultSet destAutoIncrementsResultSet = stmtDesc.executeQuery(getDestAutoIncrementsQuery);
+                log4j.info("Dest auto increments query : " + getDestAutoIncrementsQuery);
+                while (destAutoIncrementsResultSet.next()) {
+                    destAutoIncrements.add(destAutoIncrementsResultSet.getString("COLUMN_NAME"));
+                }
+
                 log4j.info("Start get table metadata from source database");
                 ResultSet sourceResultSet = stmtSource.executeQuery(oracleQuery + schema.toUpperCase() + "' AND TABLE_NAME = '" + tbl.toUpperCase() + "' order by COLUMN_NAME");
                 log4j.info("Start get table metadata from desc database");
@@ -302,7 +315,6 @@ public class ValidatorServiceImpl implements ValidatorService {
                         sourcePrimaryKey = "PRI";
                     }
 
-
                     String descColumnName = descResultSet.getString("COLUMN_NAME");
                     String descDataType = descResultSet.getString("DATA_TYPE");
                     String descLength = descResultSet.getString("CHARACTER_MAXIMUM_LENGTH");
@@ -316,12 +328,21 @@ public class ValidatorServiceImpl implements ValidatorService {
                     if (descDateTimePrecision != null) {
                         descDataType = descDataType + "(" + descDateTimePrecision + ")";
                     }
+
+                    // Mapping index name based on column name
+                    String srcIndexName = srcIndexes.get(sourceColumnName);
+                    String destIndexName = destIndexes.get(descColumnName);
+
+                    // Mapping increment based on column name
+                    String isSrcSequence = String.valueOf(srcSequences.contains(sourceColumnName));
+                    String isDestAutoIncrement = String.valueOf(destAutoIncrements.contains(descColumnName));
+
                     //Start validate
-                    writer.write(schema + "," + tbl + "," + sourceColumnName + "," + sourceDataType + "," + sourceLength + "," + sourcePrecision + "," + sourceScale + "," + sourceNullable + "," + sourceDataDefault + "," + sourcePrimaryKey + "," + descColumnName + "," + descDataType + "," + descLength + "," + descPrecision + "," + descScale + "," + descNullable + "," + descKey + "," + descDataDefault + ",");
+                    writer.write(schema + "," + tbl + "," + sourceColumnName + "," + sourceDataType + "," + sourceLength + "," + sourcePrecision + "," + sourceScale + "," + sourceNullable + "," + sourceDataDefault + "," + sourcePrimaryKey + "," + srcIndexName + "," + isSrcSequence + "," + descColumnName + "," + descDataType + "," + descLength + "," + descPrecision + "," + descScale + "," + descNullable + "," + descKey + "," + destIndexName + "," + isDestAutoIncrement + "," + descDataDefault + ",");
 
-                    log4j.info("append: schema: " + schema + ", tbl: " + tbl + ", source col name: " + sourceColumnName + ", source data type: " + sourceDataType + ", source length: " + sourceLength + ", source percision: " + sourcePrecision + ", source scale: " + sourceScale + ", source nullable: " + sourceNullable + ", source data default: " + sourceDataDefault + ", source pk: " + sourcePrimaryKey + ", desc col name: " + descColumnName + ", desc data type:" + descDataType + ", desc len: " + descLength + ", desc precision: " + descPrecision + ", desc scale: " + descScale + ", desc nullable: " + descNullable + ", desc key: " + descKey + ", desc data default: " + descDataDefault);
+                    log4j.info("append: schema: " + schema + ", tbl: " + tbl + ", source col name: " + sourceColumnName + ", source data type: " + sourceDataType + ", source length: " + sourceLength + ", source percision: " + sourcePrecision + ", source scale: " + sourceScale + ", source nullable: " + sourceNullable + ", source data default: " + sourceDataDefault + ", source pk: " + sourcePrimaryKey + ", source index" + srcIndexName + ", source sequence" + isSrcSequence + ", desc col name: " + descColumnName + ", desc data type:" + descDataType + ", desc len: " + descLength + ", desc precision: " + descPrecision + ", desc scale: " + descScale + ", desc nullable: " + descNullable + ", desc key: " + descKey + ", desc index: " + destIndexName + ", desc auto increment: " + isDestAutoIncrement + ", desc data default: " + descDataDefault);
 
-                    if (validateColumn("col name",sourceColumnName, descColumnName)) writer.write("TRUE,");
+                    if (validateColumn("col name", sourceColumnName, descColumnName)) writer.write("TRUE,");
                     else writer.write("FALSE,");
 
                     String[] mapping = dataTypeMapper.getDataTypeMapping().get(sourceDataType);
@@ -329,55 +350,55 @@ public class ValidatorServiceImpl implements ValidatorService {
                     if (mapping != null) {
                         for (String descType : mapping) {
                             if (descType.equalsIgnoreCase(descDataType)) {
-                                log4j.info("Validate data type with Source Type:{} , Desc type: {} .Status: TRUE",sourceDataType, descDataType.toUpperCase());
+                                log4j.info("Validate data type with Source Type:{} , Desc type: {} .Status: TRUE", sourceDataType, descDataType.toUpperCase());
                                 writer.write("TRUE,");
                                 break;
                             } else {
                                 log4j.info("Validate data type with Source Type:" + sourceDataType + ", Desc type: " + descDataType.toUpperCase() + " Status: FALSE");
                                 writer.write("FALSE,");
+                                break;
                             }
                         }
                     }
 
-                    if (validateColumn("col len",sourceLength, descLength)) writer.write("TRUE,");
+                    if (validateColumn("col len", sourceLength, descLength)) writer.write("TRUE,");
                     else writer.write("FALSE,");
 
-                    if (validateColumn("col precision",sourcePrecision, descPrecision)) writer.write("TRUE,");
+                    if (validateColumn("col precision", sourcePrecision, descPrecision)) writer.write("TRUE,");
                     else writer.write("FALSE,");
 
-                    if (validateColumn("col scale",sourceScale, descScale)) writer.write("TRUE,");
+                    if (validateColumn("col scale", sourceScale, descScale)) writer.write("TRUE,");
                     else writer.write("FALSE,");
 
-                    if (validateColumn("col nullable",sourceNullable, descNullable)) writer.write("TRUE,");
+                    if (validateColumn("col nullable", sourceNullable, descNullable)) writer.write("TRUE,");
                     else writer.write("FALSE,");
 
+                    if (validateColumn("col pk", sourcePrimaryKey, descKey)) writer.write("TRUE,");
+                    else writer.write("FALSE,");
 
-                    if (validateColumn("col pk",sourcePrimaryKey, descKey)) writer.write("TRUE\n");
+                    if (validateColumn("col index", srcIndexName, destIndexName)) writer.write("TRUE,");
+                    else writer.write("FALSE,");
+
+                    if (validateColumn("col increment", isSrcSequence, isDestAutoIncrement)) writer.write("TRUE\n");
                     else writer.write("FALSE\n");
 
                     log4j.info("Write to report.csv");
                 }
-            sourceResultSet.close();
-            descResultSet.close();
-            stmtSource.close();
-            stmtDesc.close();
-            writer.close();
+                sourceResultSet.close();
+                descResultSet.close();
+                stmtSource.close();
+                stmtDesc.close();
+                writer.close();
+            } catch (Exception e) {
+                log4j.error("Error: " + e);
+            }
         } catch (Exception e) {
             log4j.error("Error: " + e);
         }
-
-    } catch(
-    Exception e)
-
-    {
-        log4j.error("Error: " + e);
     }
 
-}
-
-
     @Override
-    public boolean validateColumn(String columnName,String src, String desc) {
+    public boolean validateColumn(String columnName, String src, String desc) {
         //Validate Column
         if (src != null && desc != null) {
             if (src.equals(desc)) {

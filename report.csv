@@ -1,13 +1,3 @@
-Schema Name,Table Name,Source Column Name,Source Data Type,Source Length,Source Precision,Source Scale,Source Nullable,Source Data Default,Source Key,Destination Column Name,Destination Data Type,Destination Length,Destination Precision,Destination Scale,Destination Nullable,Destination Key,Destination Data Default,Column Name Validator,Data Type Validator,Length Validator,Precision Validator,Scale Validator,Nullable Validator,Key Validator,Data Default
-PAYMENT_ORDER,ARRANGEMENT_GROUP,ARRANGEMENT_ID,VARCHAR2,36,null,null,N,null,PRI,ARRANGEMENT_ID,varchar,36,null,null,N,PRI,null,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
-PAYMENT_ORDER,ARRANGEMENT_GROUP,GROUP_ID,NUMBER,22,38,0,N,null,PRI,GROUP_ID,bigint,null,19,0,N,PRI,null,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE
-PAYMENT_ORDER,ARRANGEMENT_GROUP,PMT_TYPE,VARCHAR2,22,null,null,N,null,PRI,PMT_TYPE,varchar,22,null,null,N,PRI,null,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
-PAYMENT_ORDER,PMT_TXN_ADD_PROP,PROPERTY_KEY,VARCHAR2,50,null,null,N,null,PRI,PROPERTY_KEY,varchar,50,null,null,N,PRI,null,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
-PAYMENT_ORDER,PMT_TXN_ADD_PROP,PROPERTY_VALUE,CLOB,4000,null,null,Y,null,,PROPERTY_VALUE,longtext,4294967295,null,null,Y,,null,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE
-PAYMENT_ORDER,PMT_TXN_ADD_PROP,TXN_ID,VARCHAR2,36,null,null,N,null,PRI,TXN_ID,varchar,36,null,null,N,PRI,null,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
-PAYMENT_ORDER,ARRANGEMENT_GROUP,ARRANGEMENT_ID,VARCHAR2,36,null,null,N,null,PRI,ARRANGEMENT_ID,varchar,36,null,null,N,PRI,null,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
-PAYMENT_ORDER,ARRANGEMENT_GROUP,GROUP_ID,NUMBER,22,38,0,N,null,PRI,GROUP_ID,bigint,null,19,0,N,PRI,null,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE
-PAYMENT_ORDER,ARRANGEMENT_GROUP,PMT_TYPE,VARCHAR2,22,null,null,N,null,PRI,PMT_TYPE,varchar,22,null,null,N,PRI,null,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
-PAYMENT_ORDER,PMT_TXN_ADD_PROP,PROPERTY_KEY,VARCHAR2,50,null,null,N,null,PRI,PROPERTY_KEY,varchar,50,null,null,N,PRI,null,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
-PAYMENT_ORDER,PMT_TXN_ADD_PROP,PROPERTY_VALUE,CLOB,4000,null,null,Y,null,,PROPERTY_VALUE,longtext,4294967295,null,null,Y,,null,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE
-PAYMENT_ORDER,PMT_TXN_ADD_PROP,TXN_ID,VARCHAR2,36,null,null,N,null,PRI,TXN_ID,varchar,36,null,null,N,PRI,null,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+Schema Name,Table Name,Source Column Name,Source Data Type,Source Length,Source Precision,Source Scale,Source Nullable,Source Data Default,Source Key,Source Index Name,Source Sequence,Destination Column Name,Destination Data Type,Destination Length,Destination Precision,Destination Scale,Destination Nullable,Destination Key,Destination Index Name,Destination Auto Increment,Destination Data Default,Column Name Validator,Data Type Validator,Length Validator,Precision Validator,Scale Validator,Nullable Validator,Key Validator,Index Name Validator,Incremental Validator,Data Default
+CX6_AUDITING,TEST,ID,NUMBER,22,null,null,N,"CX6_AUDITING"."ISEQ$$_94373".nextval,PRI,SYS_C0011695,true,ID,int,null,10,0,N,PRI,PRIMARY,true,null,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE
+CX6_AUDITING,TEST,NAME,VARCHAR2,255,null,null,Y,null,,null,false,NAME,varchar,255,null,null,Y,,null,false,null,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
