@@ -7,7 +7,6 @@ public class QueryBuilderServiceImpl implements QueryBuilderService {
     @Override
     public String buildQuery(DBObject dbObject, String type) {
         String dbName = dbObject.getDbname();
-
         switch (dbName) {
             case "oracle":
                 switch (type) {
@@ -20,13 +19,13 @@ public class QueryBuilderServiceImpl implements QueryBuilderService {
                     case "foreignKey":
                         return "SELECT acc.COLUMN_NAME FROM ALL_CONS_COLUMNS acc INNER JOIN ALL_CONSTRAINTS ac ON ( acc.CONSTRAINT_NAME = ac.CONSTRAINT_NAME ) WHERE ac.OWNER = '%s' AND ac.TABLE_NAME = '%s' AND ac.CONSTRAINT_TYPE = 'R'";
                     case "primaryKey":
-                        return "SELECT cols.column_name as PK FROM all_constraints cons, all_cons_columns cols WHERE cons.owner in ('%s') and cols.table_name = ('%s') AND cons.constraint_type in ('P','U') AND cons.constraint_name = cols.constraint_name AND cons.owner = cols.owner ORDER BY cols.table_name";
+                        return "SELECT cols.column_name FROM all_constraints cons, all_cons_columns cols WHERE cons.owner = '%s' AND cols.table_name = '%s'  AND cons.constraint_type = 'P' AND cons.constraint_name = cols.constraint_name AND cons.owner = cols.owner ORDER BY cols.table_name, cols.position";
                     case "increment":
                         return "SELECT COLUMN_NAME FROM all_tab_columns WHERE IDENTITY_COLUMN = 'YES' and OWNER = '%s' and TABLE_NAME = '%s'";
                     case "indexes":
-                        return "SELECT INDEX_NAME, COLUMN_NAME FROM all_ind_columns where table_owner = '%s' AND table_name = '%s'";
+                        return "SELECT count(*) as INDEXES FROM all_ind_columns where TABLE_OWNER = '%s' and index_name not like 'BIN$%%'";
                     case "constraints":
-                        return "SELECT acc.constraint_name, ac.TABLE_NAME, acc.COLUMN_NAME FROM ALL_CONS_COLUMNS acc INNER JOIN ALL_CONSTRAINTS ac ON ( acc.CONSTRAINT_NAME = ac.CONSTRAINT_NAME ) WHERE ac.OWNER = '%s' AND ac.TABLE_NAME   = '%s' AND    ac.CONSTRAINT_TYPE IN ( 'U', 'P' )";
+                        return "select count(*) as CONSTRAINS from all_constraints where OWNER = '%s' and table_name not like 'BIN$%%'";
                 }
                 break;
             case "mysql":
@@ -44,9 +43,9 @@ public class QueryBuilderServiceImpl implements QueryBuilderService {
                     case "increment":
                         return "SELECT COLUMN_NAME FROM information_schema.columns WHERE EXTRA = 'auto_increment' and TABLE_SCHEMA = '%s' and TABLE_NAME = '%s'";
                     case "indexes":
-                        return "SELECT DISTINCT INDEX_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = '%s' and TABLE_NAME='%s'";
+                        return "SELECT count(*) as INDEXES FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = '%s'";
                     case "constraints":
-                        return "SELECT CONSTRAINT_NAME FROM information_schema.table_constraints WHERE  TABLE_SCHEMA = '%s' and TABLE_NAME = '%s'";
+                        return "SELECT count(*) as CONSTRAINS FROM information_schema.table_constraints WHERE TABLE_SCHEMA = '%s'";
                 }
                 break;
         }

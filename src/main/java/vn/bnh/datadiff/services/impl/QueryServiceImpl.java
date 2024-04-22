@@ -87,8 +87,7 @@ public class QueryServiceImpl implements QueryService {
         return null;
     }
 
-    public Connection getConnection(String dbURL, String userName,
-                                    String password, String dbName) {
+    public Connection getConnection(String dbURL, String userName, String password, String dbName) {
         Connection conn = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -137,7 +136,7 @@ public class QueryServiceImpl implements QueryService {
         return tableList;
     }
 
-    public ArrayList<ColumnObject> getColumnMetadata(DBObject dbObject, String tableName, String schemaName, ArrayList<String> pKs, ArrayList<String> incremental, ArrayList<String> constraints, ArrayList<String[]> indexes) {
+    public ArrayList<ColumnObject> getColumnMetadata(DBObject dbObject, String tableName, String schemaName, ArrayList<String> pKs, ArrayList<String> incremental) {
         ArrayList<ColumnObject> tableMetadata = new ArrayList<>();
         String query = queryBuilderService.buildQuery(dbObject, "column");
         query = String.format(query, schemaName, tableName);
@@ -148,8 +147,6 @@ public class QueryServiceImpl implements QueryService {
             while (rs.next()) {
                 Stream<String> pkStream = pKs.stream();
                 Stream<String> incrementalStream = incremental.stream();
-                Stream<String> constraintStream = constraints.stream();
-
                 ColumnObject columnObject = new ColumnObject();
                 columnObject.setSchemaName(schemaName);
                 columnObject.setTableName(tableName);
@@ -160,7 +157,7 @@ public class QueryServiceImpl implements QueryService {
                 columnObject.setDataScale(rs.getString("DS"));
                 columnObject.setNullable(String.valueOf(rs.getString("DN").charAt(0)));
 
-                String dataScale =rs.getString("DD");
+                String dataScale = rs.getString("DD");
 
                 if (dataScale != null) {
                     columnObject.setDataDefault(dataScale.trim());
@@ -177,21 +174,11 @@ public class QueryServiceImpl implements QueryService {
                     columnObject.setIncremental("YES");
                 }
 
-                if (constraintStream.anyMatch(rs.getString("CL")::equals)) {
-                    columnObject.setConstraint("YES");
-                }
-
-                for (String[] index : indexes) {
-                    if (index[1].equals(rs.getString("CL"))) {
-                        columnObject.setIndex(index[0]);
-                    }
-                }
                 tableMetadata.add(columnObject);
                 log4j.info("loaded column {} metadata with data type {}, and data length {}, data precision {}, data scale {}, data nullable {}, data default {}, data pk {}", columnObject.getColumnName(), columnObject.getDataType(), columnObject.getDataLength(), columnObject.getDataPrecision(), columnObject.getDataScale(), columnObject.getNullable(), columnObject.getDataDefault(), columnObject.getPrimaryKey());
             }
             int columnCount = tableMetadata.size();
             log4j.info("Load {} column from {} table", columnCount, tableName);
-//                statement.close();
         } catch (Exception e) {
             e.printStackTrace();
             log4j.error("Can not query table metadata from {}", tableName);
@@ -220,9 +207,7 @@ public class QueryServiceImpl implements QueryService {
                 log4j.info("Start query {} table at schema {}", table, schema);
                 ArrayList<String> primaryKeys = findPrimaryKey(dbObject, table, schema);
                 ArrayList<String> incremental = findIncremental(dbObject, table, schema);
-                ArrayList<String> constraints = findConstraints(dbObject, table, schema);
-                ArrayList<String[]> indexes = findIndexes(dbObject, table, schema);
-                ArrayList<ColumnObject> clMds = getColumnMetadata(dbObject, table, schema, primaryKeys, incremental, constraints, indexes);
+                ArrayList<ColumnObject> clMds = getColumnMetadata(dbObject, table, schema, primaryKeys, incremental);
                 tblMds.put(table, clMds);
                 log4j.info("Finish query metadata of {} table at schema {}", table, schema);
             }
@@ -234,13 +219,15 @@ public class QueryServiceImpl implements QueryService {
         return dbMetadata;
     }
 
-    
+    /**
+     * This function use when the query is defined in the properties file
+     */
     @Override
-    public LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject, String query){
-        String dbName = dbObject.getDbname();
-        log4j.info("Start loading {} metadata", dbName);
-        LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> dbMetadata = new LinkedHashMap<>();
-        ArrayList<String> schemaList = getSchemaList(dbObject, query);
+    public LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject, String query) {
+        log4j.info("Founded custom query from properties file");
+        /**
+         * After found the custom query, this function will try to run the query and get the List of the schema selected on the query
+         */
         return null;
     }
 
@@ -282,56 +269,6 @@ public class QueryServiceImpl implements QueryService {
         return null;
     }
 
-    ArrayList<String> findConstraints(DBObject dbObject, String tableName, String schemaName) {
-        Statement statement = getStatement(dbObject);
-        String query = null;
-        String dbName = dbObject.getDbname();
-        switch (dbName) {
-            case "oracle":
-                //language=Oracle
-                query = String.format("SELECT acc.constraint_name, ac.TABLE_NAME, acc.COLUMN_NAME FROM ALL_CONS_COLUMNS acc INNER JOIN ALL_CONSTRAINTS ac ON ( acc.CONSTRAINT_NAME = ac.CONSTRAINT_NAME ) WHERE ac.OWNER = '%s' AND ac.TABLE_NAME   = '%s' AND    ac.CONSTRAINT_TYPE IN ( 'U', 'P' )", schemaName, tableName);
-                break;
-            case "mysql":
-                // language=MySQL
-                query = String.format("SELECT CONSTRAINT_NAME FROM information_schema.table_constraints WHERE TABLE_NAME = '%s' and TABLE_SCHEMA = '%s'", tableName, schemaName);
-                break;
-        }
-        try {
-            ArrayList<String> constraints;
-            try (ResultSet rs = statement.executeQuery(query)) {
-                constraints = new ArrayList<>();
-                while (rs.next()) {
-                    constraints.add(rs.getString("CONSTRAINT_NAME"));
-                }
-            }
-            return constraints;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    ArrayList<String[]> findIndexes(DBObject dbObject, String tableName, String schemaName) {
-        Statement statement = getStatement(dbObject);
-        String queryBuilder = queryBuilderService.buildQuery(dbObject, "indexes");
-        String query = String.format(queryBuilder, schemaName, tableName);
-        ArrayList<String[]> indexes = new ArrayList<>();
-        try {
-            ResultSet resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                String indexName = resultSet.getString("INDEX_NAME");
-                String columnName = resultSet.getString("COLUMN_NAME");
-                String[] index = {indexName, columnName};
-                indexes.add(index);
-            }
-            return indexes;
-        } catch (Exception e) {
-            e.printStackTrace();
-            log4j.info("Can not query index from {}", tableName);
-        }
-        return null;
-    }
-
     ArrayList<String> findForeignKeys(DBObject dbObject, String tableName, String schemaName) {
         String dbName = dbObject.getDbname();
         Statement statement = getStatement(dbObject);
@@ -362,4 +299,39 @@ public class QueryServiceImpl implements QueryService {
         return null;
     }
 
+    @Override
+    public Map<String, Integer[]> countConstraintsAndIndexes(DBObject dbObject) {
+        Map<String, Integer[]> result;
+        Integer[] constrainsAndIndexes = {0, 0};
+        String queryConstrains = queryBuilderService.buildQuery(dbObject, "constraints");
+        String queryIndexes = queryBuilderService.buildQuery(dbObject, "indexes");
+
+        ArrayList<String> schemas = getSchemaList(dbObject);
+        Statement stmt1 = getStatement(dbObject);
+        Statement stmt2 = getStatement(dbObject);
+        for (String schema : schemas) {
+            try {
+                String qC = String.format(queryConstrains, schema);
+                String qI = String.format(queryIndexes, schema);
+                log4j.info("Execute query {}", qC);
+                ResultSet rsConstrains = stmt1.executeQuery(qC);
+                log4j.info("Execute query {}", qI);
+                ResultSet rsIndexes = stmt2.executeQuery(qI);
+                while (rsConstrains.next()){
+                    constrainsAndIndexes[0]=rsConstrains.getInt("CONSTRAINS");
+                }
+                while (rsIndexes.next()){
+                    constrainsAndIndexes[1]=rsIndexes.getInt("INDEXES");
+                }
+                result = new HashMap<>();
+                result.put(schema, constrainsAndIndexes);
+                return result;
+            } catch (Exception e) {
+                e.printStackTrace();
+                log4j.error("Can not count constrains and indexes");
+            }
+
+        }
+        return null;
+    }
 }

@@ -50,14 +50,27 @@ public class Application {
 
         //Save all schema metadata to LinkedHashMap include schema name, table name, table column metadata
         LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> srcMetadata;
-        if (query != null) srcMetadata= queryController.getDbMetadata(srcDBObject, query);
-        else srcMetadata = queryController.getDbMetadata(srcDBObject);
-
         LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> destMetadata;
-        destMetadata = queryController.getDbMetadata(destDBObject);
+        if (query != null) {
+            srcMetadata = queryController.getDbMetadata(srcDBObject, query);
+            destMetadata = queryController.getDbMetadata(destDBObject, query);
+        } else {
+            srcMetadata = queryController.getDbMetadata(destDBObject);
+            destMetadata = queryController.getDbMetadata(destDBObject);
+        }
+
+
 
         //Compare to metadata of source and destination database
         processor.compare(srcMetadata, destMetadata);
+
+        //Count constrains, index
+
+        Map<String, Integer[]> srcConsAndIds=  processor.countConstrainsAndIndexes(srcDBObject);
+        Map<String, Integer[]> destConsAndIds = processor.countConstrainsAndIndexes(destDBObject);
+
+        processor.printConstrainsAndIndexes(srcConsAndIds, destConsAndIds);
+
 
         /*
         Validate metadata of all table of all schema was listed in the schemas.txt file

@@ -3,10 +3,13 @@ package vn.bnh.datadiff.services.impl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import vn.bnh.datadiff.dto.ColumnObject;
+import vn.bnh.datadiff.dto.DBObject;
 import vn.bnh.datadiff.mapping.DataTypeMapper;
 import vn.bnh.datadiff.services.Processor;
+import vn.bnh.datadiff.services.QueryService;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,13 +22,15 @@ public class ProcessorImpl implements Processor {
 
     Map<String, String[]> mappings = DataTypeMapper.getDataTypeMapping();
 
+    QueryService queryService = new QueryServiceImpl();
+
     @Override
     public void compare(LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> srcDbMetadata, LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> destDbMetadata) {
         log4j.info("Create report file");
         // Create report file
         try (FileWriter fw = new FileWriter("report.csv");
              BufferedWriter bw = new BufferedWriter(fw)) {
-            String header = "schemaName,tableName,srcColumnName,srcDataType,srcDataLength,srcDataPrecision,srcDataScale,srcNullable,srcDataDefault,srcPrimaryKey,srcIncremental,srcConstraint,srcIndex,destColumnName,destDataType,destDataLength,destDataPrecision,destDataScale,destNullable,destDataDefault,destPrimaryKey,destIncremental,destConstraint,destIndex,validateColumn,validateDataType,validateDataLength,validateDataPrecision,validateDataScale,validateNullable,validateDataDefault,validatePrimaryKey,validateIncremental,validateConstraint,validateIndex";
+            String header = "schemaName,tableName,srcColumnName,srcDataType,srcDataLength,srcDataPrecision,srcDataScale,srcNullable,srcDataDefault,srcPrimaryKey,srcIncremental,destColumnName,destDataType,destDataLength,destDataPrecision,destDataScale,destNullable,destDataDefault,destPrimaryKey,destIncremental,validateColumn,validateDataType,validateDataLength,validateDataPrecision,validateDataScale,validateNullable,validateDataDefault,validatePrimaryKey,validateIncremental";
             bw.write(header);
             bw.newLine(); // Add a new line after the appended line
             bw.flush();
@@ -95,16 +100,12 @@ public class ProcessorImpl implements Processor {
         String destPrimaryKey = destColumn.getPrimaryKey();
         String srcIncremental = srcColumn.getIncremental();
         String destIncremental = destColumn.getIncremental();
-        String srcConstraint = srcColumn.getConstraint();
-        String destConstraint = destColumn.getConstraint();
-        String srcIndex = srcColumn.getIndex();
-        String destIndex = destColumn.getIndex();
 
 
         boolean validateColumn = validator(srcColumnName, destColumnName);
 
-        String srcDataTypeMapped=null;
-        if ( mappings.get(srcDataType) == null) {
+        String srcDataTypeMapped = null;
+        if (mappings.get(srcDataType) == null) {
             srcDataTypeMapped = srcDataType;
         } else {
             srcDataTypeMapped = mappings.get(srcDataType)[0];
@@ -126,12 +127,8 @@ public class ProcessorImpl implements Processor {
 
         boolean validateIncremental = validator(srcIncremental, destIncremental);
 
-        boolean validateConstraint = validator(srcConstraint, destConstraint);
 
-        boolean validateIndex = validator(srcIndex, destIndex);
-
-
-        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", schemaName, tableName, srcColumnName, srcDataType, srcDataLength, srcDataPrecision, srcDataScale, srcNullable, srcDataDefault, srcPrimaryKey, srcIncremental, srcConstraint, srcIndex, destColumnName, destDataType, destDataLength, destDataPrecision, destDataScale, destNullable, destDataDefault, destPrimaryKey, destIncremental, destConstraint, destIndex, validateColumn, validateDataType, validateDataLength, validateDataPrecision, validateDataScale, validateNullable, validateDataDefault, validatePrimaryKey, validateIncremental, validateConstraint, validateIndex);
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", schemaName, tableName, srcColumnName, srcDataType, srcDataLength, srcDataPrecision, srcDataScale, srcNullable, srcDataDefault, srcPrimaryKey, srcIncremental, destColumnName, destDataType, destDataLength, destDataPrecision, destDataScale, destNullable, destDataDefault, destPrimaryKey, destIncremental, validateColumn, validateDataType, validateDataLength, validateDataPrecision, validateDataScale, validateNullable, validateDataDefault, validatePrimaryKey, validateIncremental);
 
     }
 
@@ -146,12 +143,34 @@ public class ProcessorImpl implements Processor {
     }
 
     public boolean validator(String src, String dest) {
-        log4j.info("Validator {},{}",src,dest);
+        log4j.info("Validator {},{}", src, dest);
         if (src == null && dest == null) {
             return true;
         } else if (src == null || dest == null) {
             return false;
         }
         return src.equals(dest);
+    }
+
+    @Override
+    public Map<String, Integer[]> countConstrainsAndIndexes(DBObject dbObject) {
+        return queryService.countConstraintsAndIndexes(dbObject);
+    }
+
+    @Override
+    public void printConstrainsAndIndexes(Map<String, Integer[]> srcConstrainsAndIndexes, Map<String, Integer[]> destConstrainsAndIndexes) {
+        File file = new File("Constrains & Indexes");
+        try (FileWriter fw = new FileWriter(file, true);
+             BufferedWriter bw = new BufferedWriter(fw)) {
+            for (Map.Entry<String, Integer[]> entry : srcConstrainsAndIndexes.entrySet()) {
+                String line = String.format("%s,%s,%s,%s,%s", entry.getKey(), entry.getValue()[0], entry.getValue()[1], destConstrainsAndIndexes.get(entry.getKey())[0], destConstrainsAndIndexes.get(entry.getKey())[1]);
+                bw.write(line);
+                bw.newLine(); // Add a new line after the appended line
+                bw.flush();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            log4j.info("Error writing to file Constrains & Indexes");
+        }
     }
 }

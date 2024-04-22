@@ -17,6 +17,7 @@ public interface QueryService {
     public LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject);
     public LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject, String query);
 
-    public ArrayList<ColumnObject> getColumnMetadata(DBObject dbObject, String tableName, String schemaName, ArrayList<String> pKs, ArrayList<String> incremental, ArrayList<String> constraints, ArrayList<String[]> indexes);
+    public ArrayList<ColumnObject> getColumnMetadata(DBObject dbObject, String tableName, String schemaName, ArrayList<String> pKs, ArrayList<String> incremental);
 
+    public Map<String, Integer[]> countConstraintsAndIndexes(DBObject dbObject);
 }
