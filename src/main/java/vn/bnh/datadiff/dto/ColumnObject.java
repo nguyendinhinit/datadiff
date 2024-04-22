@@ -2,14 +2,12 @@ package vn.bnh.datadiff.dto;
 
 import lombok.*;
 
-import java.util.ArrayList;
-
 @Getter
 @Setter
 @RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
-public class TableObject {
+public class ColumnObject {
     @NonNull
     String schemaName;
 
@@ -31,6 +29,12 @@ public class TableObject {
 
     String dateTimePrecision;
 
-    String pKs;
+    String primaryKey;
+
+    String incremental;
+
+    String constraint;
+
+    String index;
 
 }

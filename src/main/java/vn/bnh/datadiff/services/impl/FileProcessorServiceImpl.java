@@ -29,4 +29,11 @@ public class FileProcessorServiceImpl implements FileProcessorService {
         }
         return null;
     }
+
+
+    @Override
+    public boolean FileChecker(String filePath) {
+
+        return false;
+    }
 }

@@ -1,7 +1,7 @@
 package vn.bnh.datadiff.controllers;
 
 import vn.bnh.datadiff.dto.DBObject;
-import vn.bnh.datadiff.dto.TableObject;
+import vn.bnh.datadiff.dto.ColumnObject;
 import vn.bnh.datadiff.services.QueryService;
 import vn.bnh.datadiff.services.impl.QueryServiceImpl;
 
@@ -32,7 +32,7 @@ public class QueryController{
         return queryService.getDbMetadata(dbObject, schemaList);
     }
 
-    public  LinkedHashMap<String, Map<String, ArrayList<TableObject>>> getDbMetadata(DBObject dbObject){
+    public  LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject){
         return queryService.getDbMetadata(dbObject);
     }
 }

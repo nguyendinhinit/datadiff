@@ -4,9 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import vn.bnh.datadiff.controllers.FileProcessorController;
 import vn.bnh.datadiff.controllers.ObjectCreatorController;
+import vn.bnh.datadiff.controllers.ProcessorController;
 import vn.bnh.datadiff.controllers.QueryController;
+import vn.bnh.datadiff.dto.ColumnObject;
 import vn.bnh.datadiff.dto.DBObject;
-import vn.bnh.datadiff.dto.TableObject;
 
 import java.util.*;
 
@@ -14,7 +15,7 @@ public class Application {
 
     FileProcessorController fileProcessorController = new FileProcessorController();
     ObjectCreatorController objectCreatorController = new ObjectCreatorController();
-
+    ProcessorController processor = new ProcessorController();
     QueryController queryController = new QueryController();
     Logger log4j = LogManager.getLogger(Application.class);
 
@@ -28,7 +29,7 @@ public class Application {
 
         Properties fileProperties = fileProcessorController.readPropertiesFile(filePath);
 
-        // Create sourceDbOject and DestDbObject
+        // Create sourceDbObject and DestDbObject
         //Load object properties
 
 
@@ -46,16 +47,14 @@ public class Application {
 
 
         //Save all schema metadata to LinkedHashMap include schema name, table name, table column metadata
-        LinkedHashMap<String, Map<String, ArrayList<TableObject>>> srcMetadata =  new LinkedHashMap<>();
+        LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> srcMetadata;
         srcMetadata = queryController.getDbMetadata(srcDBObject);
-        System.out.println(srcMetadata.toString());
 
-        LinkedHashMap<String, Map<String, ArrayList<TableObject>>> destMetadata;
+        LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> destMetadata;
         destMetadata = queryController.getDbMetadata(destDBObject);
-        System.out.println(destMetadata.toString());
 
         //Compare to metadata of source and destination database
-
+        processor.compare(srcMetadata, destMetadata);
 
         /*
         Validate metadata of all table of all schema was listed in the schemas.txt file
