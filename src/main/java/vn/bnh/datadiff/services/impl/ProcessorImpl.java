@@ -53,6 +53,9 @@ public class ProcessorImpl implements Processor {
                     String line = String.format("table %s not exist in destination database", tableEntry.getKey());
                     printToCsv("compare_oracle2mysql.txt", line);
                     continue;
+                } else if (tableEntry.getValue().size() != destDbMetadata.get(entry.getKey()).get(tableEntry.getKey()).size()) {
+                    printToCsv("different_col_between_oracle and_mysql.txt", "Column size is different");
+                    continue;
                 }
                 int columnPosition = 0;
                 for (ColumnObject column : tableEntry.getValue()) {
