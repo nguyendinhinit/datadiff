@@ -46,9 +46,12 @@ public class Application {
         DBObject destDBObject = objectCreatorController.create(destConnectionString, destUserName, destPassword, destDbName);
 
 
+        String query = fileProperties.getProperty("query");
+
         //Save all schema metadata to LinkedHashMap include schema name, table name, table column metadata
         LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> srcMetadata;
-        srcMetadata = queryController.getDbMetadata(srcDBObject);
+        if (query != null) srcMetadata= queryController.getDbMetadata(srcDBObject, query);
+        else srcMetadata = queryController.getDbMetadata(srcDBObject);
 
         LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> destMetadata;
         destMetadata = queryController.getDbMetadata(destDBObject);

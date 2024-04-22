@@ -13,8 +13,10 @@ public interface QueryService {
 
     public ArrayList<String> getTableList(DBObject dbObject, String schema);
 
-    public ArrayList<ColumnObject> getTableMetadata(DBObject dbObject, String tableName, String schemaName);
     public LinkedHashMap<String, Map<String, ArrayList<String>>> getDbMetadata(DBObject dbObject, ArrayList<String> schemaList);
     public LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject);
+    public LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject, String query);
+
+    public ArrayList<ColumnObject> getColumnMetadata(DBObject dbObject, String tableName, String schemaName, ArrayList<String> pKs, ArrayList<String> incremental, ArrayList<String> constraints, ArrayList<String[]> indexes);
 
 }

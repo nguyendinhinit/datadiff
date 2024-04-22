@@ -25,7 +25,7 @@ public class ProcessorImpl implements Processor {
         // Create report file
         try (FileWriter fw = new FileWriter("report.csv");
              BufferedWriter bw = new BufferedWriter(fw)) {
-            String header = "srcColumnName,srcDataType,srcDataLength,srcDataPrecision,srcDataScale,srcNullable,srcDataDefault,srcPrimaryKey,srcIncremental,srcConstraint,srcIndex,destColumnName,destDataType,destDataLength,destDataPrecision,destDataScale,destNullable,destDataDefault,destPrimaryKey,destIncremental,destConstraint,destIndex,validateColumn,validateDataType,validateDataLength,validateDataPrecision,validateDataScale,validateNullable,validateDataDefault,validatePrimaryKey,validateIncremental,validateConstraint,validateIndex";
+            String header = "schemaName,tableName,srcColumnName,srcDataType,srcDataLength,srcDataPrecision,srcDataScale,srcNullable,srcDataDefault,srcPrimaryKey,srcIncremental,srcConstraint,srcIndex,destColumnName,destDataType,destDataLength,destDataPrecision,destDataScale,destNullable,destDataDefault,destPrimaryKey,destIncremental,destConstraint,destIndex,validateColumn,validateDataType,validateDataLength,validateDataPrecision,validateDataScale,validateNullable,validateDataDefault,validatePrimaryKey,validateIncremental,validateConstraint,validateIndex";
             bw.write(header);
             bw.newLine(); // Add a new line after the appended line
             bw.flush();

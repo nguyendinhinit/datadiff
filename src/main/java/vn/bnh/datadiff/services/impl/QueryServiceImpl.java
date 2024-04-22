@@ -137,35 +137,11 @@ public class QueryServiceImpl implements QueryService {
         return tableList;
     }
 
-    @Override
-    public ArrayList<ColumnObject> getTableMetadata(DBObject dbObject, String tableName, String schemaName) {
-        ArrayList<ColumnObject> tableMetadata = new ArrayList<>();
-        String dbName = dbObject.getDbname();
-        switch (dbName) {
-            case "oracle":
-                String query = String.format("SELECT COLUMN_NAME, DATA_TYPE,DATA_LENGTH, DATA_PRECISION, DATA_SCALE, NULLABLE, DATA_DEFAULT FROM all_tab_columns where TABLE_NAME = '%s' and OWNER='%s' order by COLUMN_NAME", tableName, schemaName);
-                log4j.info("Excecute query {}", query);
-                try {
-                    Statement statement = getStatement(dbObject);
-                    ResultSet rs = statement.executeQuery(query);
-                    while (rs.next()) {
-                    }
-                    int columnCount = tableMetadata.size();
-                    log4j.info("Load {} column from {} table", columnCount, tableName);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    log4j.error("Can not query table metadata from {}", tableName);
-                }
-        }
-        return tableMetadata;
-    }
-
-    public ArrayList<ColumnObject> getTableMetadata(DBObject dbObject, String tableName, String schemaName, ArrayList<String> pKs, ArrayList<String> incremental, ArrayList<String> constraints, ArrayList<String[]> indexes) {
+    public ArrayList<ColumnObject> getColumnMetadata(DBObject dbObject, String tableName, String schemaName, ArrayList<String> pKs, ArrayList<String> incremental, ArrayList<String> constraints, ArrayList<String[]> indexes) {
         ArrayList<ColumnObject> tableMetadata = new ArrayList<>();
         String query = queryBuilderService.buildQuery(dbObject, "column");
         query = String.format(query, schemaName, tableName);
-        log4j.info("Found primary key {}", pKs.toString());
-        queryBuilderService.buildQuery(dbObject, "table");
+        if (!pKs.isEmpty()) log4j.info("Found primary key {}", pKs.toString());
         try {
             Statement statement = getStatement(dbObject);
             ResultSet rs = statement.executeQuery(query);
@@ -184,10 +160,12 @@ public class QueryServiceImpl implements QueryService {
                 columnObject.setDataScale(rs.getString("DS"));
                 columnObject.setNullable(String.valueOf(rs.getString("DN").charAt(0)));
 
-                if (rs.getString("DD") != null) {
-                    columnObject.setDataDefault(rs.getString("DD").trim());
+                String dataScale =rs.getString("DD");
+
+                if (dataScale != null) {
+                    columnObject.setDataDefault(dataScale.trim());
                 } else {
-                    columnObject.setDataDefault(rs.getString("DD"));
+                    columnObject.setDataDefault("null");
                 }
                 columnObject.setDateTimePrecision(rs.getString("DDP"));
 
@@ -244,8 +222,8 @@ public class QueryServiceImpl implements QueryService {
                 ArrayList<String> incremental = findIncremental(dbObject, table, schema);
                 ArrayList<String> constraints = findConstraints(dbObject, table, schema);
                 ArrayList<String[]> indexes = findIndexes(dbObject, table, schema);
-                ArrayList<ColumnObject> tblMd = getTableMetadata(dbObject, table, schema, primaryKeys, incremental, constraints, indexes);
-                tblMds.put(table, tblMd);
+                ArrayList<ColumnObject> clMds = getColumnMetadata(dbObject, table, schema, primaryKeys, incremental, constraints, indexes);
+                tblMds.put(table, clMds);
                 log4j.info("Finish query metadata of {} table at schema {}", table, schema);
             }
             double percent = (double) (progress * 100 / schemaList.size());
@@ -254,6 +232,16 @@ public class QueryServiceImpl implements QueryService {
             dbMetadata.put(schema, tblMds);
         }
         return dbMetadata;
+    }
+
+    
+    @Override
+    public LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject, String query){
+        String dbName = dbObject.getDbname();
+        log4j.info("Start loading {} metadata", dbName);
+        LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> dbMetadata = new LinkedHashMap<>();
+        ArrayList<String> schemaList = getSchemaList(dbObject, query);
+        return null;
     }
 
     public ArrayList<String> findPrimaryKey(DBObject dbObject, String tableName, String tableSchema) {

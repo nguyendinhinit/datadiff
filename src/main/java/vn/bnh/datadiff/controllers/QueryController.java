@@ -24,9 +24,6 @@ public class QueryController{
         return queryService.getTableList(dbObject, schema);
     }
 
-    public ArrayList getTableMetadata(DBObject dbOject, String table, String schemaName) {
-        return queryService.getTableMetadata(dbOject, table, schemaName);
-    }
 
     public LinkedHashMap<String, Map<String, ArrayList<String>>> getDbMetadata(DBObject dbObject, ArrayList<String> schemaList){
         return queryService.getDbMetadata(dbObject, schemaList);
@@ -34,5 +31,9 @@ public class QueryController{
 
     public  LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject){
         return queryService.getDbMetadata(dbObject);
+    }
+
+    public  LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject, String query){
+        return queryService.getDbMetadata(dbObject, query);
     }
 }

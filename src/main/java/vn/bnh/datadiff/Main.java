@@ -27,6 +27,5 @@ public class Main {
         } catch (Exception e) {
             log4j.error("Not enough parameter.");
         }
-
     }
 }
