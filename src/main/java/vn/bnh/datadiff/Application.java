@@ -22,16 +22,18 @@ public class Application {
     public void runValidateMetadata(String filePath) {
         //Start the Application
 
-        log4j.info("Start the Application");
-
-        // File path is the properties file. So in the first time application run, load and read the properties file
-
+        log4j.info("Start the validate application");
+        /*
+         *File path is the properties file. So in the first time application run, load and read the properties file
+         */
 
         Properties fileProperties = fileProcessorController.readPropertiesFile(filePath);
 
-        // Create sourceDbObject and DestDbObject
-        //Load object properties
 
+        /* Create source and destination database object
+         * 1. Get connection string, username, password, dbname from the properties file
+         * 2. Create source and destination database object
+         */
 
         String srcConnectionString = fileProperties.getProperty("src_connection_string");
         String srcDbName = fileProperties.getProperty("src_dbname");
@@ -45,12 +47,16 @@ public class Application {
         String destPassword = fileProperties.getProperty("dest_password");
         DBObject destDBObject = objectCreatorController.create(destConnectionString, destUserName, destPassword, destDbName);
 
+        /*
+         * Get query from the properties file
+         * If query is not null, get metadata of source and destination database by query
+         * Else get metadata of source and destination database by default
+         */
 
         String query = fileProperties.getProperty("query");
-
-        //Save all schema metadata to LinkedHashMap include schema name, table name, table column metadata
         LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> srcMetadata;
         LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> destMetadata;
+
         if (query != null) {
             srcMetadata = queryController.getDbMetadata(srcDBObject, query);
             destMetadata = queryController.getDbMetadata(destDBObject, query);
@@ -60,13 +66,12 @@ public class Application {
         }
 
 
-
         //Compare to metadata of source and destination database
         processor.compare(srcMetadata, destMetadata);
 
         //Count constrains, index
 
-        Map<String, Integer[]> srcConsAndIds=  processor.countConstrainsAndIndexes(srcDBObject);
+        Map<String, Integer[]> srcConsAndIds = processor.countConstrainsAndIndexes(srcDBObject);
         Map<String, Integer[]> destConsAndIds = processor.countConstrainsAndIndexes(destDBObject);
 
         processor.printConstrainsAndIndexes(srcConsAndIds, destConsAndIds);

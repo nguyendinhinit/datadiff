@@ -301,8 +301,8 @@ public class QueryServiceImpl implements QueryService {
 
     @Override
     public Map<String, Integer[]> countConstraintsAndIndexes(DBObject dbObject) {
-        Map<String, Integer[]> result;
-        Integer[] constrainsAndIndexes = {0, 0};
+        Map<String, Integer[]> result = new HashMap<>();
+
         String queryConstrains = queryBuilderService.buildQuery(dbObject, "constraints");
         String queryIndexes = queryBuilderService.buildQuery(dbObject, "indexes");
 
@@ -311,27 +311,26 @@ public class QueryServiceImpl implements QueryService {
         Statement stmt2 = getStatement(dbObject);
         for (String schema : schemas) {
             try {
+                Integer[] constrainsAndIndexes = {0, 0};
                 String qC = String.format(queryConstrains, schema);
                 String qI = String.format(queryIndexes, schema);
                 log4j.info("Execute query {}", qC);
                 ResultSet rsConstrains = stmt1.executeQuery(qC);
                 log4j.info("Execute query {}", qI);
                 ResultSet rsIndexes = stmt2.executeQuery(qI);
-                while (rsConstrains.next()){
-                    constrainsAndIndexes[0]=rsConstrains.getInt("CONSTRAINS");
+                while (rsConstrains.next()) {
+                    constrainsAndIndexes[0] = rsConstrains.getInt("CONSTRAINS");
                 }
-                while (rsIndexes.next()){
-                    constrainsAndIndexes[1]=rsIndexes.getInt("INDEXES");
+                while (rsIndexes.next()) {
+                    constrainsAndIndexes[1] = rsIndexes.getInt("INDEXES");
                 }
-                result = new HashMap<>();
                 result.put(schema, constrainsAndIndexes);
-                return result;
             } catch (Exception e) {
                 e.printStackTrace();
                 log4j.error("Can not count constrains and indexes");
             }
 
         }
-        return null;
+        return result;
     }
 }
