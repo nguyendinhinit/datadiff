@@ -61,7 +61,7 @@ public class Application {
             srcMetadata = queryController.getDbMetadata(srcDBObject, query);
             destMetadata = queryController.getDbMetadata(destDBObject, query);
         } else {
-            srcMetadata = queryController.getDbMetadata(destDBObject);
+            srcMetadata = queryController.getDbMetadata(srcDBObject);
             destMetadata = queryController.getDbMetadata(destDBObject);
         }
 

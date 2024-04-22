@@ -19,7 +19,7 @@ public class QueryBuilderServiceImpl implements QueryBuilderService {
                     case "foreignKey":
                         return "SELECT acc.COLUMN_NAME FROM ALL_CONS_COLUMNS acc INNER JOIN ALL_CONSTRAINTS ac ON ( acc.CONSTRAINT_NAME = ac.CONSTRAINT_NAME ) WHERE ac.OWNER = '%s' AND ac.TABLE_NAME = '%s' AND ac.CONSTRAINT_TYPE = 'R'";
                     case "primaryKey":
-                        return "SELECT cols.column_name FROM all_constraints cons, all_cons_columns cols WHERE cons.owner = '%s' AND cols.table_name = '%s'  AND cons.constraint_type = 'P' AND cons.constraint_name = cols.constraint_name AND cons.owner = cols.owner ORDER BY cols.table_name, cols.position";
+                        return "SELECT cols.column_name as PK FROM all_constraints cons, all_cons_columns cols WHERE cons.owner = '%s' AND cols.table_name = '%s'  AND cons.constraint_type = 'P' AND cons.constraint_name = cols.constraint_name AND cons.owner = cols.owner ORDER BY cols.table_name, cols.position";
                     case "increment":
                         return "SELECT COLUMN_NAME FROM all_tab_columns WHERE IDENTITY_COLUMN = 'YES' and OWNER = '%s' and TABLE_NAME = '%s'";
                     case "indexes":

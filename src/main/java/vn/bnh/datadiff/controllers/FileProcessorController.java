@@ -7,10 +7,8 @@ import java.util.Properties;
 
 public class FileProcessorController {
     FileProcessorService fileProcessorService = new FileProcessorServiceImpl();
-    
-    public Properties readPropertiesFile(String filePath){
-       return fileProcessorService.readPropertiesFile(filePath);
+
+    public Properties readPropertiesFile(String filePath) {
+        return fileProcessorService.readPropertiesFile(filePath);
     }
-    
-    
 }
