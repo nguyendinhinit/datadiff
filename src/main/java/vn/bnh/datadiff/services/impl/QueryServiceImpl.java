@@ -11,7 +11,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -21,6 +24,8 @@ import java.util.stream.Stream;
 public class QueryServiceImpl implements QueryService {
     QueryBuilderService queryBuilderService = new QueryBuilderServiceImpl();
     Logger log4j = LogManager.getLogger(QueryServiceImpl.class);
+    Connection oracleConn;
+    Connection mysqlConn;
 
     @Override
     public ArrayList<String> getSchemaList(DBObject dbObject) {
@@ -106,8 +111,19 @@ public class QueryServiceImpl implements QueryService {
         String userName = dbObject.getUsername();
         String password = dbObject.getPassword();
         String dbName = dbObject.getDbname();
+        Connection connection;
+        if (connectionString.startsWith("jdbc:oracle")) {
+            if (oracleConn == null) {
+                oracleConn = getConnection(connectionString, userName, password, dbName);
+            }
+            connection = oracleConn;
+        } else {
+            if (mysqlConn == null) {
+                mysqlConn = getConnection(connectionString, userName, password, dbName);
+            }
+            connection = mysqlConn;
+        }
         try {
-            Connection connection = getConnection(connectionString, userName, password, dbName);
             Statement statement = connection.createStatement();
             return statement;
         } catch (Exception e) {
@@ -389,7 +405,7 @@ public class QueryServiceImpl implements QueryService {
         int index = queryResult(getStatement(dbObject), query, schema, table, "I");
         query = String.format(queryBuilderService.buildQuery(dbObject, "constraintCount"), schema, table);
         int constraint = queryResult(getStatement(dbObject), query, schema, table, "C");
-        query= String.format(queryBuilderService.buildQuery(dbObject, "columnCount"), schema, table);
+        query = String.format(queryBuilderService.buildQuery(dbObject, "columnCount"), schema, table);
         int columnCount = queryResult(getStatement(dbObject), query, schema, table, "C");
         query = String.format(queryBuilderService.buildQuery(dbObject, "triggerCount"), schema, table);
         int triggerCount = queryResult(getStatement(dbObject), query, schema, table, "T");
