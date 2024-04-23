@@ -36,21 +36,20 @@ public class ProcessorImpl implements Processor {
             bw.newLine(); // Add a new line after the appended line
             bw.flush();
         } catch (IOException e) {
-            e.printStackTrace();
-            log4j.info("Error writing to file report.csv");
+            log4j.error("Error writing to file report.csv: {}", e);
         }
 
         log4j.info("Compare to metadata of source and destination database");
         for (Map.Entry<String, Map<String, ArrayList<ColumnObject>>> entry : srcDbMetadata.entrySet()) {
             if (!destDbMetadata.containsKey(entry.getKey())) {
-                log4j.info("Schema " + entry.getKey() + " is different");
+                log4j.error("Schema '{}' is different", entry.getKey());
                 String line = String.format("schema %s not exist in destination database", entry.getKey());
                 printToCsv("compare_oracle2mysql.txt", line);
                 continue;
             }
             for (Map.Entry<String, ArrayList<ColumnObject>> tableEntry : entry.getValue().entrySet()) {
                 if (!destDbMetadata.get(entry.getKey()).containsKey(tableEntry.getKey())) {
-                    log4j.info("Table " + tableEntry.getKey() + " is different");
+                    log4j.error("Table {} is different", tableEntry.getKey());
                     String line = String.format("table %s not exist in destination database", tableEntry.getKey());
                     printToCsv("compare_oracle2mysql.txt", line);
                     continue;
@@ -77,10 +76,9 @@ public class ProcessorImpl implements Processor {
             bw.newLine(); // Add a new line after the appended line
             bw.flush();
         } catch (IOException e) {
-            e.printStackTrace();
-            log4j.info("Error writing to file {}", file);
+            log4j.error("Error writing to file {}: {}", file, e);
         }
-        log4j.info("Print to CSV {} to file {}", line, file);
+        log4j.debug("Print to CSV {} to file {}", line, file);
     }
 
     public String reportBuilder(ColumnObject srcColumn, ColumnObject destColumn, Map<String, String[]> mappings) {
@@ -108,7 +106,7 @@ public class ProcessorImpl implements Processor {
 
         boolean validateColumn = validator(srcColumnName, destColumnName);
 
-        String srcDataTypeMapped = null;
+        String srcDataTypeMapped;
         if (mappings.get(srcDataType) == null) {
             srcDataTypeMapped = srcDataType;
         } else {
@@ -173,8 +171,7 @@ public class ProcessorImpl implements Processor {
                 bw.flush();
             }
         } catch (IOException e) {
-            e.printStackTrace();
-            log4j.info("Error writing to file Constrains & Indexes");
+            log4j.error("Error writing to file Constraints & Indexes: {}", e);
         }
     }
 
@@ -192,8 +189,7 @@ public class ProcessorImpl implements Processor {
             bw.newLine(); // Add a new line after the appended line
             bw.flush();
         } catch (IOException e) {
-            e.printStackTrace();
-            log4j.info("Error writing to file {}", file);
+            log4j.error("Error writing to file {}: {}", file, e);
         }
         log4j.info("Print to CSV {} to file {}", line, file);
 
@@ -248,19 +244,18 @@ public class ProcessorImpl implements Processor {
             bw.newLine(); // Add a new line after the appended line
             bw.flush();
         } catch (IOException e) {
-            e.printStackTrace();
-            log4j.info("Error writing to file report_object_compare.csv");
+            log4j.error("Error writing to file report_object_compare.csv: {}", e);
         }
         log4j.info("Compare to metadata of source and destination database");
         for (Map.Entry<String, Map<String, ArrayList<Integer>>> entry : srcDbObject.entrySet()) {
             if (!destDbObject.containsKey(entry.getKey())) {
-                log4j.info("Schema " + entry.getKey() + " is different");
+                log4j.error("Schema {} is different", entry.getKey());
                 String line = String.format("schema %s not exist in destination database", entry.getKey());
                 continue;
             }
             for (Map.Entry<String, ArrayList<Integer>> tableEntry : entry.getValue().entrySet()) {
                 if (!destDbObject.get(entry.getKey()).containsKey(tableEntry.getKey())) {
-                    log4j.info("Table " + tableEntry.getKey() + " is different");
+                    log4j.info("Table {} is different", tableEntry.getKey());
                     String line = String.format("table %s not exist in destination database", tableEntry.getKey());
                     continue;
                 }

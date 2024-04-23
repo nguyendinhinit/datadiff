@@ -4,6 +4,7 @@ import vn.bnh.datadiff.dto.DBObject;
 import vn.bnh.datadiff.services.QueryBuilderService;
 
 public class QueryBuilderServiceImpl implements QueryBuilderService {
+
     @Override
     public String buildQuery(DBObject dbObject, String type) {
         String dbName = dbObject.getDbname();

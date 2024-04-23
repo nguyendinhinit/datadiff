@@ -1,15 +1,11 @@
 package vn.bnh.datadiff.services.impl;
 
-import lombok.extern.log4j.Log4j;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import vn.bnh.datadiff.services.FileProcessorService;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Properties;
 
 public class FileProcessorServiceImpl implements FileProcessorService {
@@ -19,13 +15,13 @@ public class FileProcessorServiceImpl implements FileProcessorService {
      * readPropertiesFile reads the properties file at the specified file path.
      * It loads the properties into a Properties object and returns it.
      * If there is an error reading the file, it logs the error and returns an empty Properties object.
+     *
      * @param filePath The path to the properties file.
-     * The properties file should include connection strings, usernames, passwords and database names of the source and destination databases.
-     * */
+     *                 The properties file should include connection strings, usernames, passwords and database names of the source and destination databases.
+     */
     @Override
     public Properties readPropertiesFile(String filePath) {
         log4j.info("Start reading file {}", filePath);
-        File propertiesFile = new File(filePath);
         Properties fileProperties = new Properties();
         try (FileInputStream fis = new FileInputStream(filePath)) {
             fileProperties.load(fis);
@@ -34,8 +30,6 @@ public class FileProcessorServiceImpl implements FileProcessorService {
         }
         return fileProperties;
     }
-
-
 
 
     @Override

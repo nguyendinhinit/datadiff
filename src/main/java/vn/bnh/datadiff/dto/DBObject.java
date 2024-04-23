@@ -4,18 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+@Setter
+@Getter
 @AllArgsConstructor
 public class DBObject {
-    @Getter
-    @Setter
     private String connectionString;
-    @Getter
-    @Setter
     private String username;
-    @Getter
-    @Setter
     private String password;
-    @Getter
-    @Setter
     private String dbname;
 }

@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public interface ObjectCreator {
 
-    public DBObject create(String connectionString, String username, String password, String dbname);
+    DBObject create(String connectionString, String username, String password, String dbname);
 
-    public DBObject create(Properties properties, String dbType);
+    DBObject create(Properties properties, String dbType);
 }

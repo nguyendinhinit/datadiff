@@ -10,7 +10,10 @@ import vn.bnh.datadiff.dto.ColumnObject;
 import vn.bnh.datadiff.dto.DBObject;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * This class provides methods to validate metadata between source and destination databases.
@@ -85,7 +88,6 @@ public class Application {
 
     public void runMissingTable(String filePath) {
         log4j.info("Start the validate application");
-        System.out.println("           _         _               _        _     _      \n" + " _ __ ___ (_)___ ___(_)_ __   __ _  | |_ __ _| |__ | | ___ \n" + "| '_ ` _ \\| / __/ __| | '_ \\ / _` | | __/ _` | '_ \\| |/ _ \\\n" + "| | | | | | \\__ \\__ \\ | | | | (_| | | || (_| | |_) | |  __/\n" + "|_| |_| |_|_|___/___/_|_| |_|\\__, |  \\__\\__,_|_.__/|_|\\___|\n" + "                             |___/                         ");
         // Read properties file
         Properties fileProperties = fileProcessorController.readPropertiesFile(filePath);
 
@@ -117,7 +119,7 @@ public class Application {
         srcObjectMetadata = queryController.getObjectMetadata(srcDBObject);
         destObjectMetadata = queryController.getObjectMetadata(destDBObject);
 
-        processor.objectLevelCompare(srcObjectMetadata,destObjectMetadata);
+        processor.objectLevelCompare(srcObjectMetadata, destObjectMetadata);
 
     }
 

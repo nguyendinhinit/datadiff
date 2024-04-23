@@ -124,11 +124,9 @@ public class QueryServiceImpl implements QueryService {
             connection = mysqlConn;
         }
         try {
-            Statement statement = connection.createStatement();
-            return statement;
+            return connection.createStatement();
         } catch (Exception e) {
-            e.printStackTrace();
-            log4j.error("Can not create statement to {}", dbName);
+            log4j.error("Can not create statement to {}: {}", dbName, e);
         }
         return null;
     }
@@ -146,8 +144,7 @@ public class QueryServiceImpl implements QueryService {
             int tableCount = tableList.size();
             log4j.info("Load {} table from {} schema", tableCount, schema);
         } catch (Exception e) {
-            e.printStackTrace();
-            log4j.error("Can not query table list from {}", schema);
+            log4j.error("Can not query table list from {}: {}", schema, e);
         }
         return tableList;
     }
@@ -228,7 +225,7 @@ public class QueryServiceImpl implements QueryService {
                 tblMds.put(table, clMds);
                 log4j.info("Finish query metadata of {} table at schema {}", table, schema);
             }
-            double percent = (double) (progress * 100 / schemaList.size());
+            double percent = ((double) (progress * 100) / schemaList.size());
             log4j.info("Process {}%", percent);
             progress++;
             dbMetadata.put(schema, tblMds);
@@ -260,8 +257,7 @@ public class QueryServiceImpl implements QueryService {
             }
             return pK;
         } catch (Exception e) {
-            e.printStackTrace();
-            log4j.info("Can not query primary key from {}", tableName);
+            log4j.error("Can not query primary key from {}: {}", tableName, e);
         }
         return pK;
     }
@@ -278,7 +274,7 @@ public class QueryServiceImpl implements QueryService {
             }
             return incremental;
         } catch (Exception e) {
-            e.printStackTrace();
+            log4j.error("{}", e);
         }
         return null;
     }
@@ -296,8 +292,7 @@ public class QueryServiceImpl implements QueryService {
             }
             return foreignKeys;
         } catch (Exception e) {
-            e.printStackTrace();
-            log4j.info("Can not query foreign key from {}", tableName);
+            log4j.error("Can not query foreign key from {}: {}", tableName, e);
         }
         return null;
     }
@@ -307,8 +302,7 @@ public class QueryServiceImpl implements QueryService {
             Statement statement = getStatement(dbObject);
             return statement.executeQuery(query);
         } catch (Exception e) {
-            e.printStackTrace();
-            log4j.error("Can not execute query {}", query);
+            log4j.error("Can not execute query {}: {}", query, e);
         }
         return null;
     }
@@ -387,7 +381,7 @@ public class QueryServiceImpl implements QueryService {
                 objMds.put(table, objectMds);
                 log4j.info("Finish query metadata of {} table at schema {}", table, schema);
             }
-            double percent = (double) (progress * 100 / schemaList.size());
+            double percent = ((double) (progress * 100) / schemaList.size());
             log4j.info("Process {}%", percent);
             progress++;
             objectMetadata.put(schema, objMds);
