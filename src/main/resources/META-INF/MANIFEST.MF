@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: vn.bnh.datadiff.Main
-Class-Path: log4j-api-2.17.1.jar json-20240303.jar protobuf-java-3.25.1.
- jar ojdbc8-19.7.0.0.jar log4j-1.2.17.jar log4j-core-2.17.1.jar annotati
- ons-17.0.0.jar mysql-connector-j-8.3.0.jar
-

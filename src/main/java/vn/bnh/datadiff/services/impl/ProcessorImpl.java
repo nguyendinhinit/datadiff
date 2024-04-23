@@ -1,6 +1,5 @@
 package vn.bnh.datadiff.services.impl;
 
-import com.sun.xml.internal.ws.util.QNameMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import vn.bnh.datadiff.dto.ColumnObject;
@@ -182,7 +181,6 @@ public class ProcessorImpl implements Processor {
     @Override
     public void foundMissingTable(DBObject srcDBObject, DBObject destObject) {
         log4j.info("Found missing table");
-        String query = null;
         File file = new File("missing_table.csv");
         ArrayList<String> srcSchemaList = queryService.getSchemaList(srcDBObject);
         ArrayList<String> destSchemaList = queryService.getSchemaList(destObject);

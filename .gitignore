@@ -42,3 +42,8 @@ build/
 
 ### Mac OS ###
 .DS_Store
+.idea/sonarlint
+application.zip
+
+Constrains*
+out
