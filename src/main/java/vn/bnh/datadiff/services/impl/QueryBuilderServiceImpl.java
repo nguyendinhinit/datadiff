@@ -15,7 +15,7 @@ public class QueryBuilderServiceImpl implements QueryBuilderService {
                     case "table":
                         return "SELECT table_name FROM all_tables WHERE owner = '%s'";
                     case "column":
-                        return "SELECT COLUMN_NAME as CL, DATA_TYPE as DT,DATA_LENGTH AS DL, DATA_PRECISION AS DP, DATA_SCALE as DS, NULLABLE as DN, DATA_DEFAULT as DD, NULL as DDP FROM all_tab_columns where OWNER = '%s' and TABLE_NAME = '%s'  order by COLUMN_NAME";
+                        return "SELECT COLUMN_NAME as CL, DATA_TYPE as DT,DATA_LENGTH AS DL, DATA_PRECISION AS DP, DATA_SCALE as DS, NULLABLE as DN, DATA_DEFAULT as DD, null as DDP FROM all_tab_columns where OWNER = '%s' and TABLE_NAME = '%s'  order by COLUMN_NAME";
                     case "foreignKey":
                         return "SELECT acc.COLUMN_NAME FROM ALL_CONS_COLUMNS acc INNER JOIN ALL_CONSTRAINTS ac ON ( acc.CONSTRAINT_NAME = ac.CONSTRAINT_NAME ) WHERE ac.OWNER = '%s' AND ac.TABLE_NAME = '%s' AND ac.CONSTRAINT_TYPE = 'R'";
                     case "primaryKey":
@@ -26,6 +26,28 @@ public class QueryBuilderServiceImpl implements QueryBuilderService {
                         return "SELECT count(*) as INDEXES FROM all_ind_columns where TABLE_OWNER = '%s' and index_name not like 'BIN$%%'";
                     case "constraints":
                         return "select count(*) as CONSTRAINS from all_constraints where OWNER = '%s' and table_name not like 'BIN$%%'";
+                    case "tablelist":
+                        return "SELECT table_name FROM all_tables where OWNER='%s'";
+                    case "partition":
+                        return "select count(*) as P from all_tab_partitions where table_owner = '%s' and table_name = '%s' ";
+                    case "index":
+                        return "SELECT COUNT(*) as I FROM all_indexes WHERE table_owner='%s' and TABLE_NAME='%s'";
+                    case "constraint":
+                        return "select count(*) as CONSTRAINS from all_constraints where OWNER = '%s' and table_name = '%s'";
+                    case "columnCount":
+                        return "select count(*) as C from all_tab_columns where owner = '%s' and table_name = '%s'";
+                    case "triggerCount":
+                        return "select count(*) as T from all_triggers where owner = '%s' and table_name = '%s'";
+                    case "sequenceCount":
+                        return "select count(*) as SC from all_sequences where sequence_owner = '%s' and sequence_name = '%s'";
+                    case "plSQLCount":
+                        return "select count(*) from all_source where owner = '%s' and name = '%s'";
+                    case "schedulerCount":
+                        return "select count(*) from all_scheduler_jobs where owner = '%s' and job_name = '%s'";
+                    case "viewCount":
+                        return "select count(*) from all_views where owner = '%s'";
+                    case "constraintCount":
+                        return "select count(*) as C from all_constraints where OWNER = '%s' and table_name = '%s'";
                 }
                 break;
             case "mysql":
@@ -45,7 +67,21 @@ public class QueryBuilderServiceImpl implements QueryBuilderService {
                     case "indexes":
                         return "SELECT count(*) as INDEXES FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = '%s'";
                     case "constraints":
-                        return "SELECT count(*) as CONSTRAINS FROM information_schema.table_constraints WHERE TABLE_SCHEMA = '%s'";
+                        return "(SELECT TABLE_SCHEMA, sum(numb) AS CONSTRAINS FROM( (SELECT TABLE_SCHEMA,TABLE_NAME, COUNT(*) AS numb FROM (SELECT DISTINCT TABLE_SCHEMA, TABLE_NAME,COLUMN_NAME FROM information_schema.COLUMNS WHERE IS_NULLABLE='NO' AND TABLE_SCHEMA NOT IN ('mysql','information_schema', 'performance_schema', 'sys','awsdms_control')) AS tbl_01 GROUP BY TABLE_SCHEMA, TABLE_NAME) UNION ALL (SELECT TABLE_SCHEMA,TABLE_NAME, COUNT(*) AS numb FROM (SELECT distinct TABLE_SCHEMA,TABLE_NAME,CONSTRAINT_NAME FROM information_schema.table_constraints WHERE TABLE_SCHEMA NOT IN ('mysql','information_schema', 'performance_schema', 'sys','awsdms_control')) AS tbl_02 GROUP BY TABLE_SCHEMA, TABLE_NAME) ) AS tbl_03 where table_schema = '%s' GROUP BY TABLE_SCHEMA)";
+                    case "tablelist":
+                        return "SELECT table_name FROM information_schema.tables where TABLE_SCHEMA='%s'";
+                    case "partition":
+                        return "SELECT max(PARTITION_ORDINAL_POSITION) as P FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA = '%s' AND TABLE_NAME = '%s'";
+                    case "index":
+                        return "select count(distinct INDEX_NAME) as I from INFORMATION_SCHEMA.STATISTICS where table_schema = '%s' and table_name = '%s'";
+                    case "columnCount":
+                        return "SELECT count(COLUMN_NAME) as C FROM information_schema.COLUMNS where table_schema = '%s' and table_name = '%s'";
+                    case "triggerCount":
+                        return "SELECT count(COLUMN_NAME) as T FROM information_schema.COLUMNS where table_schema = '%s' and table_name = '%s' ";
+                    case "sequenceCount":
+                        return "SELECT count(column_name) as SC FROM `information_schema`.`COLUMNS` WHERE `EXTRA` = 'auto_increment' AND `TABLE_SCHEMA` = '%s' AND `TABLE_NAME` = '%s'";
+                    case "constraintCount":
+                        return "SELECT count(constraint_name) as C FROM    information_schema.table_constraints where table_schema = '%s' and table_name = '%s'";
                 }
                 break;
         }

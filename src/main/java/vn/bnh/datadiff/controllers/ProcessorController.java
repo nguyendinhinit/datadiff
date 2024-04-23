@@ -22,4 +22,11 @@ public class ProcessorController {
    public void printConstrainsAndIndexes(Map<String, Integer[]> srcConstrainsAndIndexes, Map<String, Integer[]> destConstrainsAndIndexes){
        processor.printConstrainsAndIndexes(srcConstrainsAndIndexes, destConstrainsAndIndexes);
    }
+   public void foundMissingTable(DBObject srcDbObject, DBObject destDbObject){
+       processor.foundMissingTable(srcDbObject, destDbObject);
+   }
+
+   public void objectLevelCompare(Map<String, Map<String, ArrayList<Integer>>> srcDbObject, Map<String, Map<String, ArrayList<Integer>>> destDbObject){
+       processor.objectLevelCompare(srcDbObject, destDbObject);
+   }
 }

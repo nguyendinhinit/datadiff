@@ -6,6 +6,8 @@ import org.apache.logging.log4j.Logger;
 import vn.bnh.datadiff.services.FileProcessorService;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -13,22 +15,27 @@ import java.util.Properties;
 public class FileProcessorServiceImpl implements FileProcessorService {
     Logger log4j = LogManager.getLogger(FileProcessorServiceImpl.class);
 
+    /**
+     * readPropertiesFile reads the properties file at the specified file path.
+     * It loads the properties into a Properties object and returns it.
+     * If there is an error reading the file, it logs the error and returns an empty Properties object.
+     * @param filePath The path to the properties file.
+     * The properties file should include connection strings, usernames, passwords and database names of the source and destination databases.
+     * */
     @Override
     public Properties readPropertiesFile(String filePath) {
         log4j.info("Start reading file {}", filePath);
-        //Check file
         File propertiesFile = new File(filePath);
-        
-        try{
-            Properties fileProperties = new Properties();
-            fileProperties.load(Files.newInputStream(Paths.get(filePath)));
-            log4j.info("Load properties file succesfully");
-            return fileProperties;
-        }catch (Exception e){
-            log4j.error("Application properties file not found");
+        Properties fileProperties = new Properties();
+        try (FileInputStream fis = new FileInputStream(filePath)) {
+            fileProperties.load(fis);
+        } catch (IOException e) {
+            log4j.error("Error reading file {}: {}", filePath, e.getMessage());
         }
-        return null;
+        return fileProperties;
     }
+
+
 
 
     @Override

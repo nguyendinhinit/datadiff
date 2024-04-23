@@ -11,8 +11,10 @@ public class ColumnObject {
     @NonNull
     String schemaName;
 
+    @NonNull
     String tableName;
 
+    @NonNull
     String columnName;
 
     String dataType;

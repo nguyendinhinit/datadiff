@@ -14,4 +14,7 @@ public interface Processor {
 
     void printConstrainsAndIndexes(Map<String, Integer[]> srcConstrainsAndIndexes, Map<String, Integer[]> destConstrainsAndIndexes);
 
+    void foundMissingTable(DBObject srcDbObject, DBObject destDbObject);
+
+    void objectLevelCompare(Map<String, Map<String, ArrayList<Integer>>> srcDbObject, Map<String, Map<String, ArrayList<Integer>>> destDbObject);
 }

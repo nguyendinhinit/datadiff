@@ -1,5 +1,6 @@
 package vn.bnh.datadiff.services.impl;
 
+import com.sun.xml.internal.ws.util.QNameMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import vn.bnh.datadiff.dto.ColumnObject;
@@ -13,6 +14,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -175,5 +177,126 @@ public class ProcessorImpl implements Processor {
             e.printStackTrace();
             log4j.info("Error writing to file Constrains & Indexes");
         }
+    }
+
+    @Override
+    public void foundMissingTable(DBObject srcDBObject, DBObject destObject) {
+        log4j.info("Found missing table");
+        String query = null;
+        File file = new File("missing_table.csv");
+        ArrayList<String> srcSchemaList = queryService.getSchemaList(srcDBObject);
+        ArrayList<String> destSchemaList = queryService.getSchemaList(destObject);
+
+        String line = String.format("%s,%s,%s,%s,%s,%s,%s", "Schema", "Table", "Full Table Name", "Schema", "Table", "Full Table Name", "Exist in Destination");
+        try (FileWriter fw = new FileWriter(file, true);
+             BufferedWriter bw = new BufferedWriter(fw)) {
+            bw.write(line);
+            bw.newLine(); // Add a new line after the appended line
+            bw.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+            log4j.info("Error writing to file {}", file);
+        }
+        log4j.info("Print to CSV {} to file {}", line, file);
+
+
+        for (String schema : srcSchemaList) {
+            ArrayList<String> srcTableList = queryService.getTableList(srcDBObject, schema);
+            ArrayList<String> destTableList = queryService.getTableList(destObject, schema);
+
+            for (String table : srcTableList) {
+                if (!destTableList.contains(table)) {
+                    line = String.format("%s,%s,%s,%s,%s,%s,%s", schema, table, schema + "." + table, schema.toLowerCase(), "N/A", "N/A", "NO");
+                    printToCsv("missing_table.csv", line);
+                }
+                line = String.format("%s,%s,%s,%s,%s,%s,%s", schema, table, schema + "." + table, schema.toLowerCase(), table.toLowerCase(), schema.toLowerCase() + "." + table.toLowerCase(), "YES");
+                printToCsv("missing_table.csv", line);
+                destTableList.remove(table);
+            }
+            for (String table : destTableList) {
+                line = String.format("%s,%s,%s,%s,%s,%s,%s", schema, "N/A", "N/A", schema.toLowerCase(), table.toLowerCase(), schema.toLowerCase() + "." + table.toLowerCase(), "NO");
+                printToCsv("missing_table.csv", line);
+            }
+        }
+    }
+
+    public void objectMetadata(DBObject srcObject, DBObject destObject) {
+        log4j.info("Object Metadata");
+        ArrayList<String> srcSchemaList = queryService.getSchemaList(srcObject);
+        ArrayList<String> destSchemaList = queryService.getSchemaList(destObject);
+        for (String schema : srcSchemaList) {
+            ArrayList<String> srcTableList = queryService.getTableList(srcObject, schema);
+            ArrayList<String> destTableList = queryService.getTableList(destObject, schema);
+            for (String table : srcTableList) {
+
+            }
+            log4j.info("Object Metadata");
+        }
+    }
+
+
+    @Override
+    public void objectLevelCompare(Map<String, Map<String, ArrayList<Integer>>> srcDbObject, Map<String,
+            Map<String, ArrayList<Integer>>> destDbObject) {
+        System.out.println(srcDbObject);
+        System.out.println(destDbObject);
+        log4j.info("Create report file");
+
+        // Create report file
+        try (FileWriter fw = new FileWriter("report_object_compare.csv");
+             BufferedWriter bw = new BufferedWriter(fw)) {
+            String header = "schemaName,tableName,partition,index,constraint,column count,trigger count,sequence count,partition,index,constraint,column count,trigger count,sequence count,validate partition,validate index,validate constraint,validate column count,validate trigger count,validate sequence count";
+            bw.write(header);
+            bw.newLine(); // Add a new line after the appended line
+            bw.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+            log4j.info("Error writing to file report_object_compare.csv");
+        }
+        log4j.info("Compare to metadata of source and destination database");
+        for (Map.Entry<String, Map<String, ArrayList<Integer>>> entry : srcDbObject.entrySet()) {
+            if (!destDbObject.containsKey(entry.getKey())) {
+                log4j.info("Schema " + entry.getKey() + " is different");
+                String line = String.format("schema %s not exist in destination database", entry.getKey());
+                continue;
+            }
+            for (Map.Entry<String, ArrayList<Integer>> tableEntry : entry.getValue().entrySet()) {
+                if (!destDbObject.get(entry.getKey()).containsKey(tableEntry.getKey())) {
+                    log4j.info("Table " + tableEntry.getKey() + " is different");
+                    String line = String.format("table %s not exist in destination database", tableEntry.getKey());
+                    continue;
+                }
+                int columnPosition = 0;
+                Integer[] srcColumn = tableEntry.getValue().toArray(new Integer[0]);
+                Integer[] destColumn = destDbObject.get(entry.getKey()).get(tableEntry.getKey()).toArray(new Integer[0]);
+
+                Boolean[] comparisonResult = new Boolean[srcColumn.length];
+                for (int i = 0; i < srcColumn.length; i++) {
+                    comparisonResult[i] = srcColumn[i].equals(destColumn[i]);
+                }
+
+                String s1 = Arrays.stream(srcColumn).map(String::valueOf).reduce("", (a, b) -> {
+                    if (a.isEmpty())
+                        return b;
+                    return a + ", " + b;
+                });
+                String s2 = Arrays.stream(destColumn).map(String::valueOf).reduce("", (a, b) -> {
+                    if (a.isEmpty())
+                        return b;
+                    return a + ", " + b;
+                });
+                String s3 = Arrays.stream(comparisonResult).map(String::valueOf).reduce("", (a, b) -> {
+                    if (a.isEmpty())
+                        return b;
+                    return a + ", " + b;
+                });
+                String report = reportBuilderObject(entry.getKey(), tableEntry.getKey(), s1, s2, s3);
+                printToCsv("report_object_compare.csv", report);
+            }
+        }
+    }
+
+    public String reportBuilderObject(String schemaName, String tableName, String... comps) {
+        return String.format(schemaName + "," + tableName + "," + Arrays.toString(comps).replace("[", "").replace("]", ""));
     }
 }

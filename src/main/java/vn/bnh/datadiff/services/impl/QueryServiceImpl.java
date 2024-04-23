@@ -156,16 +156,17 @@ public class QueryServiceImpl implements QueryService {
                 columnObject.setDataPrecision(rs.getString("DP"));
                 columnObject.setDataScale(rs.getString("DS"));
                 columnObject.setNullable(String.valueOf(rs.getString("DN").charAt(0)));
-
                 String dataScale = rs.getString("DD");
-
                 if (dataScale != null) {
                     columnObject.setDataDefault(dataScale.trim());
                 } else {
                     columnObject.setDataDefault("null");
                 }
                 columnObject.setDateTimePrecision(rs.getString("DDP"));
-
+                if (columnObject.getDateTimePrecision() == null) {
+                    String dataType = String.format("%s(%s)", columnObject.getDataType(), columnObject.getDataLength());
+                    columnObject.setDataPrecision(dataType);
+                }
                 if (pkStream.anyMatch(rs.getString("CL")::equals)) {
                     columnObject.setPrimaryKey("PRI");
                 }
@@ -225,9 +226,6 @@ public class QueryServiceImpl implements QueryService {
     @Override
     public LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject, String query) {
         log4j.info("Founded custom query from properties file");
-        /**
-         * After found the custom query, this function will try to run the query and get the List of the schema selected on the query
-         */
         return null;
     }
 
@@ -333,4 +331,79 @@ public class QueryServiceImpl implements QueryService {
         }
         return result;
     }
+
+
+    @Override
+    public <T> T queryResult(Class<T> returnType) {
+        return null;
+    }
+
+
+    @Override
+    public Integer queryResult(Statement statement, String query, String schemaName, String tableName, String columnName) {
+
+        query = String.format(query, schemaName, tableName);
+        try {
+            log4j.info("Execute query {}", query);
+            ResultSet rs = statement.executeQuery(query);
+            rs.next();
+            return rs.getInt(columnName);
+        } catch (Exception e) {
+            log4j.error(e.getMessage());
+        }
+        return null;
+    }
+
+    @Override
+    public Map<String, Map<String, ArrayList<Integer>>> getObjectMetadata(DBObject dbObject) {
+        String dbName = dbObject.getDbname();
+        log4j.info("Start loading {} metadata", dbName);
+        Map<String, Map<String, ArrayList<Integer>>> objectMetadata = new HashMap<>();
+
+        ArrayList<String> schemaList = getSchemaList(dbObject);
+        int progress = 1;
+        for (String schema : schemaList) {
+            ArrayList<String> tableList = getTableList(dbObject, schema);
+            Map<String, ArrayList<Integer>> objMds = new HashMap<>();
+            for (String table : tableList) {
+                log4j.info("Start query {} table at schema {}", table, schema);
+                ArrayList<Integer> objectMds = getObjectMds(dbObject, schema, table);
+                objMds.put(table, objectMds);
+                log4j.info("Finish query metadata of {} table at schema {}", table, schema);
+            }
+            double percent = (double) (progress * 100 / schemaList.size());
+            log4j.info("Process {}%", percent);
+            progress++;
+            objectMetadata.put(schema, objMds);
+        }
+        return objectMetadata;
+    }
+
+    public ArrayList<Integer> getObjectMds(DBObject dbObject, String schema, String table) {
+        ArrayList<Integer> objectMds = new ArrayList<>();
+        String query = queryBuilderService.buildQuery(dbObject, "partition");
+        query = String.format(query, schema, table);
+        int partition = queryResult(getStatement(dbObject), query, schema, table, "P");
+        query = queryBuilderService.buildQuery(dbObject, "index");
+        query = String.format(query, schema, table);
+        int index = queryResult(getStatement(dbObject), query, schema, table, "I");
+        query = String.format(queryBuilderService.buildQuery(dbObject, "constraintCount"), schema, table);
+        int constraint = queryResult(getStatement(dbObject), query, schema, table, "C");
+        query= String.format(queryBuilderService.buildQuery(dbObject, "columnCount"), schema, table);
+        int columnCount = queryResult(getStatement(dbObject), query, schema, table, "C");
+        query = String.format(queryBuilderService.buildQuery(dbObject, "triggerCount"), schema, table);
+        int triggerCount = queryResult(getStatement(dbObject), query, schema, table, "T");
+        query = String.format(queryBuilderService.buildQuery(dbObject, "sequenceCount"), schema, table);
+        int sequenceCount = queryResult(getStatement(dbObject), query, schema, table, "SC");
+
+        objectMds.add(partition);
+        objectMds.add(index);
+        objectMds.add(constraint);
+        objectMds.add(columnCount);
+        objectMds.add(triggerCount);
+        objectMds.add(sequenceCount);
+        return objectMds;
+    }
+
+
 }

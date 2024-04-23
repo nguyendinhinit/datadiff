@@ -3,6 +3,7 @@ package vn.bnh.datadiff.services;
 import vn.bnh.datadiff.dto.DBObject;
 import vn.bnh.datadiff.dto.ColumnObject;
 
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -20,4 +21,9 @@ public interface QueryService {
     public ArrayList<ColumnObject> getColumnMetadata(DBObject dbObject, String tableName, String schemaName, ArrayList<String> pKs, ArrayList<String> incremental);
 
     public Map<String, Integer[]> countConstraintsAndIndexes(DBObject dbObject);
+
+    public <T> T queryResult(Class<T> returnType);
+
+    public Integer queryResult(Statement statement,String query, String schemaName,String tableName, String columnName);
+    public Map<String, Map<String, ArrayList<Integer>>> getObjectMetadata(DBObject dbObject);
 }

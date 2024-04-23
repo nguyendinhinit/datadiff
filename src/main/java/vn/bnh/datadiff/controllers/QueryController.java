@@ -36,4 +36,8 @@ public class QueryController{
     public  LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject, String query){
         return queryService.getDbMetadata(dbObject, query);
     }
+
+    public Map<String, Map<String, ArrayList<Integer>>> getObjectMetadata(DBObject dbObject){
+        return queryService.getObjectMetadata(dbObject);
+    }
 }

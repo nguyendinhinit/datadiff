@@ -5,6 +5,8 @@ import org.apache.logging.log4j.LogManager;
 import vn.bnh.datadiff.dto.DBObject;
 import vn.bnh.datadiff.services.ObjectCreator;
 
+import java.util.Properties;
+
 public class ObjectCreatorImpl implements ObjectCreator {
 
     Logger log4j = LogManager.getLogger(ObjectCreatorImpl.class);
@@ -13,5 +15,13 @@ public class ObjectCreatorImpl implements ObjectCreator {
         log4j.info("Creating {} object", dbname);
 
         return new DBObject(connectionString,username,password,dbname);
+    }
+
+    public DBObject create(Properties properties, String dbType){
+        String connectionString = properties.getProperty(dbType + "_connection_string");
+        String username = properties.getProperty(dbType + "_username");
+        String password = properties.getProperty(dbType + "_password");
+        String dbname = properties.getProperty(dbType + "_dbname");
+        return create(connectionString,username,password,dbname);
     }
 }
