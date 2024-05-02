@@ -2,10 +2,9 @@ package vn.bnh.datadiff;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import vn.bnh.datadiff.mapping.DataTypeMapper;
 
-import java.util.ArrayList;
-import java.util.Map;
+import java.io.File;
+
 
 
 public class Main {
@@ -19,24 +18,23 @@ public class Main {
      */
     public static void main(String[] args) {
         try {
-            String fileName = args[0];
+            File file = new File(args[0]);
             String feature = args[1];
             Application application = new Application();
             switch (feature) {
-                case "validate":
-                    application.runValidateMetadata(fileName);
+                case "1":
+                    application.runValidateMetadata(file);
                     break;
-                case "count job":
-                    application.runCountJob(fileName);
+                case "2":
+                    application.runMissingTable(file);
                     break;
-                case "missing table":
-                    application.runMissingTable(fileName);
-                    break;
-                case "constraints and indexes":
-                    application.runConstrainsAndIndexes(fileName);
+                case "3":
+                    application.runConstrainsAndIndexes(file);
+                case "4":
+                    application.verifySchema(file);
             }
         } catch (Exception e) {
-            log4j.error("Not enough parameter.");
+            log4j.error(e);
         }
     }
 }

@@ -2,9 +2,9 @@ package vn.bnh.datadiff.services.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import vn.bnh.datadiff.config.DataTypeMapper;
 import vn.bnh.datadiff.dto.ColumnObject;
 import vn.bnh.datadiff.dto.DBObject;
-import vn.bnh.datadiff.mapping.DataTypeMapper;
 import vn.bnh.datadiff.services.Processor;
 import vn.bnh.datadiff.services.QueryService;
 

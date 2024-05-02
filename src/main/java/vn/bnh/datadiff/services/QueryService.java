@@ -3,6 +3,7 @@ package vn.bnh.datadiff.services;
 import vn.bnh.datadiff.dto.DBObject;
 import vn.bnh.datadiff.dto.ColumnObject;
 
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -26,4 +27,6 @@ public interface QueryService {
 
     public Integer queryResult(Statement statement,String query, String schemaName,String tableName, String columnName);
     public Map<String, Map<String, ArrayList<Integer>>> getObjectMetadata(DBObject dbObject);
+
+    public void fullScan(DBObject dbObject) throws SQLException;
 }

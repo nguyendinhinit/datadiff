@@ -8,14 +8,15 @@ import vn.bnh.datadiff.controllers.ProcessorController;
 import vn.bnh.datadiff.controllers.QueryController;
 import vn.bnh.datadiff.dto.ColumnObject;
 import vn.bnh.datadiff.dto.DBObject;
+import vn.bnh.datadiff.functions.VerifySchema;
 
-import java.io.IOException;
+import java.io.File;
+import java.sql.SQLException;
 import java.util.*;
 
 /**
  * This class provides methods to validate metadata between source and destination databases.
  * It reads properties from a file to establish database connections and compare their metadata.
- * Currently supports counting constraints and indexes and printing them.
  *
  * @author NguyenND
  * @version 0.1
@@ -37,14 +38,12 @@ public class Application {
      * @param filePath The path to the properties file containing connection information.
      *                 The properties file should include connection strings, usernames, passwords,
      *                 and database names of the source and destination databases.
-     * @throws IOException If there is an error reading the properties file.
      */
-    public void runValidateMetadata(String filePath) {
+    public void runValidateMetadata(File filePath) {
         log4j.info("Start the validate application");
         System.out.println(".------------------------------------------.\n" + "|            _ _     _       _             |\n" + "|__   ____ _| (_) __| | __ _| |_ ___  _ __ |\n" + "|\\ \\ / / _` | | |/ _` |/ _` | __/ _ \\| '__||\n" + "| \\ V / (_| | | | (_| | (_| | || (_) | |   |\n" + "|  \\_/ \\__,_|_|_|\\__,_|\\__,_|\\__\\___/|_|   |\n" + "'------------------------------------------'");
         // Read properties file
         Properties fileProperties = fileProcessorController.readPropertiesFile(filePath);
-
 
         // Create source database objects
         DBObject srcDBObject = objectCreatorController.create(fileProperties, "src");
@@ -68,27 +67,16 @@ public class Application {
             srcMetadata = queryController.getDbMetadata(srcDBObject);
             destMetadata = queryController.getDbMetadata(destDBObject);
         }
-
         //Compare to metadata of source and destination database
         processor.compare(srcMetadata, destMetadata);
-
-        //Count constrains, index
-        Map<String, Integer[]> srcConsAndIds = processor.countConstrainsAndIndexes(srcDBObject);
-        Map<String, Integer[]> destConsAndIds = processor.countConstrainsAndIndexes(destDBObject);
-
-        //Print constrains, index
-        processor.printConstrainsAndIndexes(srcConsAndIds, destConsAndIds);
     }
 
-    public void runCountJob(String filePath) {
-    }
 
-    public void runMissingTable(String filePath) {
+    public void runMissingTable(File file) {
         log4j.info("Start the validate application");
         System.out.println("           _         _               _        _     _      \n" + " _ __ ___ (_)___ ___(_)_ __   __ _  | |_ __ _| |__ | | ___ \n" + "| '_ ` _ \\| / __/ __| | '_ \\ / _` | | __/ _` | '_ \\| |/ _ \\\n" + "| | | | | | \\__ \\__ \\ | | | | (_| | | || (_| | |_) | |  __/\n" + "|_| |_| |_|_|___/___/_|_| |_|\\__, |  \\__\\__,_|_.__/|_|\\___|\n" + "                             |___/                         ");
         // Read properties file
-        Properties fileProperties = fileProcessorController.readPropertiesFile(filePath);
-
+        Properties fileProperties = fileProcessorController.readPropertiesFile(file);
 
         // Create source database objects
         DBObject srcDBObject = objectCreatorController.create(fileProperties, "src");
@@ -97,15 +85,13 @@ public class Application {
         DBObject destDBObject = objectCreatorController.create(fileProperties, "dest");
 
         //Read query from properties file
-        ArrayList<String> srcSchemaList = queryController.getSchema(srcDBObject);
-        ArrayList<String> destSchemaList = queryController.getSchema(destDBObject);
         processor.foundMissingTable(srcDBObject, destDBObject);
 
 
     }
 
-    public void runConstrainsAndIndexes(String filePath) {
-        Properties fileProperties = fileProcessorController.readPropertiesFile(filePath);
+    public void runConstrainsAndIndexes(File file) {
+        Properties fileProperties = fileProcessorController.readPropertiesFile(file);
         // Create source database objects
         DBObject srcDBObject = objectCreatorController.create(fileProperties, "src");
         // Create destination database objects
@@ -117,8 +103,11 @@ public class Application {
         srcObjectMetadata = queryController.getObjectMetadata(srcDBObject);
         destObjectMetadata = queryController.getObjectMetadata(destDBObject);
 
-        processor.objectLevelCompare(srcObjectMetadata,destObjectMetadata);
+        processor.objectLevelCompare(srcObjectMetadata, destObjectMetadata);
 
     }
 
+    public void verifySchema(File file) throws SQLException {
+        VerifySchema.run(file);
+    }
 }

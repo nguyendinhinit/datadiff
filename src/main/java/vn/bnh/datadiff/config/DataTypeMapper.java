@@ -1,4 +1,4 @@
-package vn.bnh.datadiff.mapping;
+package vn.bnh.datadiff.config;
 
 import lombok.Getter;
 

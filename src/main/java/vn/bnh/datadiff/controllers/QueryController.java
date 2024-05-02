@@ -5,11 +5,12 @@ import vn.bnh.datadiff.dto.ColumnObject;
 import vn.bnh.datadiff.services.QueryService;
 import vn.bnh.datadiff.services.impl.QueryServiceImpl;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class QueryController{
+public class QueryController implements Runnable {
     QueryService queryService = new QueryServiceImpl();
 
     public ArrayList<String> getSchema(DBObject dbObject) {
@@ -25,19 +26,28 @@ public class QueryController{
     }
 
 
-    public LinkedHashMap<String, Map<String, ArrayList<String>>> getDbMetadata(DBObject dbObject, ArrayList<String> schemaList){
+    public LinkedHashMap<String, Map<String, ArrayList<String>>> getDbMetadata(DBObject dbObject, ArrayList<String> schemaList) {
         return queryService.getDbMetadata(dbObject, schemaList);
     }
 
-    public  LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject){
+    public LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject) {
         return queryService.getDbMetadata(dbObject);
     }
 
-    public  LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject, String query){
+    public LinkedHashMap<String, Map<String, ArrayList<ColumnObject>>> getDbMetadata(DBObject dbObject, String query) {
         return queryService.getDbMetadata(dbObject, query);
     }
 
-    public Map<String, Map<String, ArrayList<Integer>>> getObjectMetadata(DBObject dbObject){
+    public Map<String, Map<String, ArrayList<Integer>>> getObjectMetadata(DBObject dbObject) {
         return queryService.getObjectMetadata(dbObject);
+    }
+
+    @Override
+    public void run() {
+
+    }
+
+    public void fullScan(DBObject dbObject) throws SQLException {
+        queryService.fullScan(dbObject);
     }
 }
